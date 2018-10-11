@@ -1,0 +1,116 @@
+header{
+  background:#1c2327 !important;
+  position: relative !important;
+}
+#banner{
+  width:100%;
+  height:230px;
+  text-align:center;
+  background:#e1f5fe
+}
+#banner>div{
+  width:1200px;
+  height:180px;
+  margin:0 auto;
+  background:url("../img/transaction/banner.png") no-repeat 68px 45px;
+}
+#banner>div>h1{
+  padding-top:50px;
+  font-size:32px;
+  font-weight: normal;
+}
+#banner>div>p{
+  font-size:15px;
+  margin-top:15px;
+  color:#666;
+}
+#banner>ul{
+  width:1200px;
+  margin:0 auto;
+}
+#banner>ul>li{
+  float:left;
+  width:20%;
+  height:50px;
+  background:#fff;
+  border:1px solid #eaeaea;
+  line-height:50px;
+}
+#banner>ul>li.active{
+  border-top:3px solid #2086ee;
+  border-bottom:none;
+  height:51px;
+}
+#banner>ul>li>a{
+  color:#333;
+}
+/*#query的table*/
+#query{
+  width:1200px;
+  height:350px;
+  margin:0 auto;
+}
+#query>table{
+  width:1200px;
+  margin:0 auto;
+  border-spacing: 0;
+  text-align:center;
+}
+#query>table td{
+  width:80px;
+  height:50px;
+  border-bottom:1px dashed #eee;
+}
+#query>table input.inp{
+  width:100px;
+}
+/*返回数据#data*/
+#data{
+  width:1200px;
+  margin:0 auto;
+  margin-top:40px;
+}
+#data>table{
+  color:#333;
+  width:1200px;
+  text-align:center;
+  border-spacing: 0;
+  margin-top:20px;
+}
+#data>table tr{
+  height:40px;
+}
+#data>table tr>th{
+  font-size:16px;
+  font-weight:500;
+  color:#000;
+}
+#data>table tr:first-child{
+  background-color:#ededed;
+}
+#data>table td:first-child{
+  width:270px;
+  text-align:left;
+  padding-left:15px;
+  color:#00a2cc;
+}
+#data>table td:nth-child(2){
+  color:#f60;
+}
+#data>div>p{
+  font-size:14px;
+  color:#666;
+  padding:5px;
+  background-color:#F1F6FA;
+}
+#data>div>p:first-child{
+  margin-top:40px;
+  margin-bottom:20px;
+}
+#data>div>p:last-child{
+  padding-left:28px;
+  margin-bottom:100px;
+}
+#data>div>p>img{
+  vertical-align: middle
+}

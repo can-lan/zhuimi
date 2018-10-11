@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/registered.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <title>zhuce</title>
+</head>
+<body>
+    <header></header>
+    <div class="top">
+    </div>
+    <div id="content">
+        <!--域名查询部分-->
+        <div id="domain">
+            <!--横幅#banner-->
+            <div id="banner" class="clear">
+                <!--左轮播图-->
+                <div class="banner-left fl">
+                    <div class="wrapper">
+                        <ul>
+                            <li><a data-toggle="1" href="#"><img src="img/zhuce/wrapper_1.jpg"></a></li>
+                            <li><a data-toggle="2" href="#"><img src="img/zhuce/wrapper_2.jpg"></a></li>
+                            <li><a data-toggle="3" href="#"><img src="img/zhuce/wrapper_3.jpg"></a></li>
+                            <li><a data-toggle="4" href="#"><img src="img/zhuce/wrapper_4.jpg"></a></li>
+                            <li><a data-toggle="5" href="#"><img src="img/zhuce/wrapper_5.jpg"></a></li>
+                        </ul>
+                    </div>
+                    <div class="pagination">
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                        </ul>
+                    </div>
+                </div>
+                <!--右主推域名-->
+                <div class="banner-right fl">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <img src="img/zhuce/banner-right1.jpg">
+                                <p>
+                                    .com域名注册
+                                    <span>&yen;34元</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/zhuce/banner-right2.jpg">
+                                <p>
+                                    .cn域名注册
+                                    <span>&yen;18元</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/zhuce/banner-right3.jpg">
+                                <p>
+                                    .top域名注册
+                                    <span>&yen;10元</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="img/zhuce/banner-right4.jpg">
+                                <p>
+                                    .club域名注册
+                                    <span>&yen;14元</span>
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--查询-->
+            <div id="tag">
+                <ul>
+                    <li class="active"><a href="#" data-toggle="tag" data-target="#tag1">推荐注册</a></li>
+                    <li><a href="#" data-toggle="tag" data-target="#tag2">热销域名</a></li>
+                    <li><a href="#" data-toggle="tag" data-target="#tag3">国别域名</a></li>
+                    <li><a href="#" data-toggle="tag" data-target="#tag4">新顶级域名</a></li>
+                    <li><a href="#" data-toggle="tag" data-target="#tag5">中文域名</a></li>
+                </ul>
+            </div>
+            <div id="search">
+                <p>超过<span>10,000,000</span>域名在西部数码注册</p>
+                <div>
+                    <input type="text">                  
+                    <input type="submit" value="&nbsp;&nbsp;&nbsp;查域名">
+                </div>
+                <div>
+                    
+                    <label for="all"><input type="radio" name="postfix" id="all">全选</label>
+                    <input type="radio" name="postfix" id="null"><label for="null">全不选</label>
+                    <input type="radio" name="postfix" id="some"><label for="some">常用</label>
+                    <span><a href="#">新用户福利：领1000元优惠码，注册.com优惠20元！</a></span>
+                </div>
+            </div>
+            <div id="postfix">
+                <div id="tag1">
+                    <label for="com" class="sale">
+                        <input type="checkbox" name="com" id="com">
+                        <span>.com</span>
+                        <div>
+                            <p class="name"></p>
+                            <p class="price"></p>
+                            <p class="info"></p>
+                        </div>                    
+                    </label>
+                    <label for="cn"class="hot">
+                        <input type="checkbox" name="cn" id="cn">
+                        <span>.cn</span>
+                        <div>
+                            <p class="name"></p>
+                            <p class="price"></p>
+                            <p class="info"></p>
+                        </div>
+                    </label>
+                    <label for="com.cn">
+                        <input type="checkbox" name="com.cn" id="com.cn">
+                        <span>.com.cn</span>
+                        <div>
+                            <p class="name"></p>
+                            <p class="price"></p>
+                            <p class="info"></p>
+                        </div>
+                    </label>
+                    <label for="net">
+                        <input type="checkbox" name="net" id="net">
+                        <span>.net</span>
+                        <div>
+                            <p class="name"></p>
+                            <p class="price"></p>
+                            <p class="info"></p>
+                        </div>
+                    </label>
+                    <label for="org">
+                        <input type="checkbox" name="org" id="org">
+                        <span>.org</span>
+                        <div>
+                            <p class="name"></p>
+                            <p class="price"></p>
+                            <p class="info"></p>
+                        </div>
+                    </label>
+                    <label for="cc">
+                        <input type="checkbox" name="cc" id="cc">
+                        <span>.cc</span>
+                        <div>
+                            <p class="name"></p>
+                            <p class="price"></p>
+                            <p class="info"></p>
+                        </div>
+                    </label>
+                    <label for="tv">
+                        <input type="checkbox" name="tv" id="tv">
+                        <span>.tv</span>
+                        <div>
+                            <p class="name"></p>
+                            <p class="price"></p>
+                            <p class="info"></p>
+                        </div>
+                    </label>
+                    <label for="app">
+                        <input type="checkbox" name="app" id="app">
+                        <span>.app</span>
+                        <div>
+                            <p class="name"></p>
+                            <p class="price"></p>
+                            <p class="info"></p>
+                        </div>
+                    </label>
+                    <label for="top">
+                        <input type="checkbox" name="top" id="top">
+                        <span>.top</span>
+                        <div>
+                            <p class="name"></p>
+                            <p class="price"></p>
+                            <p class="info"></p>
+                        </div>
+                    </label>
+                    <label for="io">
+                        <input type="checkbox" name="io" id="io">
+                        <span>.io</span>
+                        <div>
+                            <p class="name"></p>
+                            <p class="price"></p>
+                            <p class="info"></p>
+                        </div>
+                    </label>
+                    <!--复制---------------------->
+                    <label for="com" class="sale">
+                            <input type="checkbox" name="com" id="com">
+                            <span>.com</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>                    
+                        </label>
+                        <label for="cn"class="hot">
+                            <input type="checkbox" name="cn" id="cn">
+                            <span>.cn</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="com.cn">
+                            <input type="checkbox" name="com.cn" id="com.cn">
+                            <span>.com.cn</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="net">
+                            <input type="checkbox" name="net" id="net">
+                            <span>.net</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="org">
+                            <input type="checkbox" name="org" id="org">
+                            <span>.org</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="cc">
+                            <input type="checkbox" name="cc" id="cc">
+                            <span>.cc</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="tv">
+                            <input type="checkbox" name="tv" id="tv">
+                            <span>.tv</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="app">
+                            <input type="checkbox" name="app" id="app">
+                            <span>.app</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <!--复制------------------>
+                </div>
+                <div id="tag2" class="hidden">
+                        <label for="com" class="sale">
+                            <input type="checkbox" name="com" id="com">
+                            <span>.com</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>                    
+                        </label>
+                        <label for="cn"class="hot">
+                            <input type="checkbox" name="cn" id="cn">
+                            <span>.cn</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="com.cn">
+                            <input type="checkbox" name="com.cn" id="com.cn">
+                            <span>.com.cn</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="net">
+                            <input type="checkbox" name="net" id="net">
+                            <span>.net</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="org">
+                            <input type="checkbox" name="org" id="org">
+                            <span>.org</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="cc">
+                            <input type="checkbox" name="cc" id="cc">
+                            <span>.cc</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="tv">
+                            <input type="checkbox" name="tv" id="tv">
+                            <span>.tv</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="app">
+                            <input type="checkbox" name="app" id="app">
+                            <span>.app</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="top">
+                            <input type="checkbox" name="top" id="top">
+                            <span>.top</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="io">
+                            <input type="checkbox" name="io" id="io">
+                            <span>.io</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <!--复制---------------------->
+                        <label for="com" class="sale">
+                                <input type="checkbox" name="com" id="com">
+                                <span>.com</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>                    
+                            </label>
+                            <label for="cn"class="hot">
+                                <input type="checkbox" name="cn" id="cn">
+                                <span>.cn</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="com.cn">
+                                <input type="checkbox" name="com.cn" id="com.cn">
+                                <span>.com.cn</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="net">
+                                <input type="checkbox" name="net" id="net">
+                                <span>.net</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="org">
+                                <input type="checkbox" name="org" id="org">
+                                <span>.org</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="cc">
+                                <input type="checkbox" name="cc" id="cc">
+                                <span>.cc</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="tv">
+                                <input type="checkbox" name="tv" id="tv">
+                                <span>.tv</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="app">
+                                <input type="checkbox" name="app" id="app">
+                                <span>.app</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <!--复制------------------>
+                    </div>
+                <div id="tag3" class="hidden">
+                        <label for="com" class="sale">
+                            <input type="checkbox" name="com" id="com">
+                            <span>.com</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>                    
+                        </label>
+                        <label for="cn"class="hot">
+                            <input type="checkbox" name="cn" id="cn">
+                            <span>.cn</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="com.cn">
+                            <input type="checkbox" name="com.cn" id="com.cn">
+                            <span>.com.cn</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="net">
+                            <input type="checkbox" name="net" id="net">
+                            <span>.net</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="org">
+                            <input type="checkbox" name="org" id="org">
+                            <span>.org</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="cc">
+                            <input type="checkbox" name="cc" id="cc">
+                            <span>.cc</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="tv">
+                            <input type="checkbox" name="tv" id="tv">
+                            <span>.tv</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="app">
+                            <input type="checkbox" name="app" id="app">
+                            <span>.app</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="top">
+                            <input type="checkbox" name="top" id="top">
+                            <span>.top</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="io">
+                            <input type="checkbox" name="io" id="io">
+                            <span>.io</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <!--复制-->
+                        <label for="com" class="sale">
+                                <input type="checkbox" name="com" id="com">
+                                <span>.com</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>                    
+                            </label>
+                            <label for="cn"class="hot">
+                                <input type="checkbox" name="cn" id="cn">
+                                <span>.cn</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="com.cn">
+                                <input type="checkbox" name="com.cn" id="com.cn">
+                                <span>.com.cn</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="net">
+                                <input type="checkbox" name="net" id="net">
+                                <span>.net</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="org">
+                                <input type="checkbox" name="org" id="org">
+                                <span>.org</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="cc">
+                                <input type="checkbox" name="cc" id="cc">
+                                <span>.cc</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="tv">
+                                <input type="checkbox" name="tv" id="tv">
+                                <span>.tv</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="app">
+                                <input type="checkbox" name="app" id="app">
+                                <span>.app</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <!--tag结束-->
+                    </div>
+                <div id="tag4" class="hidden">
+                        <label for="com" class="sale">
+                            <input type="checkbox" name="com" id="com">
+                            <span>.com</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>                    
+                        </label>
+                        <label for="cn"class="hot">
+                            <input type="checkbox" name="cn" id="cn">
+                            <span>.cn</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="com.cn">
+                            <input type="checkbox" name="com.cn" id="com.cn">
+                            <span>.com.cn</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="net">
+                            <input type="checkbox" name="net" id="net">
+                            <span>.net</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="org">
+                            <input type="checkbox" name="org" id="org">
+                            <span>.org</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="cc">
+                            <input type="checkbox" name="cc" id="cc">
+                            <span>.cc</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="tv">
+                            <input type="checkbox" name="tv" id="tv">
+                            <span>.tv</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="app">
+                            <input type="checkbox" name="app" id="app">
+                            <span>.app</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="top">
+                            <input type="checkbox" name="top" id="top">
+                            <span>.top</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="io">
+                            <input type="checkbox" name="io" id="io">
+                            <span>.io</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <!--复制---------------------->
+                        <label for="com" class="sale">
+                                <input type="checkbox" name="com" id="com">
+                                <span>.com</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>                    
+                            </label>
+                            <label for="cn"class="hot">
+                                <input type="checkbox" name="cn" id="cn">
+                                <span>.cn</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="com.cn">
+                                <input type="checkbox" name="com.cn" id="com.cn">
+                                <span>.com.cn</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="net">
+                                <input type="checkbox" name="net" id="net">
+                                <span>.net</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="org">
+                                <input type="checkbox" name="org" id="org">
+                                <span>.org</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="cc">
+                                <input type="checkbox" name="cc" id="cc">
+                                <span>.cc</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="tv">
+                                <input type="checkbox" name="tv" id="tv">
+                                <span>.tv</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="app">
+                                <input type="checkbox" name="app" id="app">
+                                <span>.app</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <!--复制------------------>
+                    </div>
+                <div id="tag5" class="hidden">
+                        <label for="com" class="sale">
+                            <input type="checkbox" name="com" id="com">
+                            <span>.com</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>                    
+                        </label>
+                        <label for="cn"class="hot">
+                            <input type="checkbox" name="cn" id="cn">
+                            <span>.cn</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="com.cn">
+                            <input type="checkbox" name="com.cn" id="com.cn">
+                            <span>.com.cn</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="net">
+                            <input type="checkbox" name="net" id="net">
+                            <span>.net</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="org">
+                            <input type="checkbox" name="org" id="org">
+                            <span>.org</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="cc">
+                            <input type="checkbox" name="cc" id="cc">
+                            <span>.cc</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="tv">
+                            <input type="checkbox" name="tv" id="tv">
+                            <span>.tv</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="app">
+                            <input type="checkbox" name="app" id="app">
+                            <span>.app</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="top">
+                            <input type="checkbox" name="top" id="top">
+                            <span>.top</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="io">
+                            <input type="checkbox" name="io" id="io">
+                            <span>.io</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <!--复制---------------------->
+                        <label for="com" class="sale">
+                                <input type="checkbox" name="com" id="com">
+                                <span>.com</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>                    
+                            </label>
+                            <label for="cn"class="hot">
+                                <input type="checkbox" name="cn" id="cn">
+                                <span>.cn</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="com.cn">
+                                <input type="checkbox" name="com.cn" id="com.cn">
+                                <span>.com.cn</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="net">
+                                <input type="checkbox" name="net" id="net">
+                                <span>.net</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="org">
+                                <input type="checkbox" name="org" id="org">
+                                <span>.org</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="cc">
+                                <input type="checkbox" name="cc" id="cc">
+                                <span>.cc</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="tv">
+                                <input type="checkbox" name="tv" id="tv">
+                                <span>.tv</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <label for="app">
+                                <input type="checkbox" name="app" id="app">
+                                <span>.app</span>
+                                <div>
+                                    <p class="name"></p>
+                                    <p class="price"></p>
+                                    <p class="info"></p>
+                                </div>
+                            </label>
+                            <!--复制------------------>
+                    </div>
+            </div>
+            <div id="tool">
+                <ul>
+                    <li><a href="#">域名whois查询</a></li>
+                    <li><a href="">域名批量查询</a></li>
+                    <li><a href="">域名价格列表</a></li>
+                    <li><a href="">域名转入</a></li>
+                    <li><a href="">近期促销</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--活动部分-->
+        <div id="activity">
+            <div>
+                <p>--&nbsp;域名活动&nbsp;--</p>
+                <!--活动轮播-->
+                <div>
+                    <div class="ac-wrapper">
+                        <ul>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper1.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper2.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper3.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper4.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper5.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper6.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper7.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper8.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper1.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper2.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper3.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper4.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper5.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper6.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper7.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper8.jpg"><p>企业邮箱全新登场</p></a></li>
+                        </ul>
+                    </div>
+                    <div class="ac-pagination">
+                        <ul>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <a href="#" class="left"></a>
+                    <a href="#" class="right"></a>
+                </div>
+            </div>
+        </div>
+        <!--优势部分-->
+        <div id="advantage" class="clear">
+            <p>西部数码域名优势</p>
+            <p>Domain Superiority In West.cn</p>
+            <div></div>
+            <div></div>
+            <ul>
+                <li>
+                    <a></a>
+                    <span>高品质保障</span>
+                    <p>ICANN及CNNIC双重认证顶级域名注册服务商 连续5年被评选为中国五星级域名注册服务商。</p>
+                </li>
+                <li>
+                        <a></a>
+                    <span>NewG优选平台</span>
+                    <p>新顶级域名注册保有量已超过500万个，占全球1/4 ，域名总保有量已超过900万。</p>
+                </li>
+                <li>
+                        <a></a>
+                    <span>全方位域名生态系统</span>
+                    <p>领先的域名"注册+交易+金融+行情+交流"一站式 服务平台，域名相关服务一应俱全，旨为您所想。</p>
+                </li>
+                <li>
+                        <a></a>
+                    <span>种类齐全性价比高</span>
+                    <p>支持上百种域名后缀注册，提供预定抢注功能，坚 持让您用少量的花费，享受更好的产品和服务。</p>
+                </li>
+                <li>
+                        <a></a>
+                    <span>域名管理便捷安全</span>
+                    <p>域名批量查询、离线注册、自动续费，自由操作转出过户 一键锁定和隐私保护，轻松搞定域名管理。</p>
+
+                </li>
+                <li>
+                        <a></a>
+                    <span>域名解析快速稳定</span>
+                    <p>独有6组DNS轮循，确保运行稳定可靠，解析即刻生效。支持分电信、联通、搜索引擎等线路智能解析。</p>
+                </li>
+            </ul>            
+        </div>
+    </div>
+    <footer></footer>
+    <!--注册头部轮播图js-->
+    <script>
+/*.banner-left轮播图js*/
+        /*1--为li绑定事件*/
+        $(".pagination>ul").on("mouseenter","li",function(e){
+            e.stopPropagation();
+            var $li=$(this);
+            $(".pagination>ul>li").removeClass("on");
+            $li.addClass("on");
+            var x=$li.html();
+            $(".wrapper>ul>li").css("opacity","0");
+            $(`[data-toggle=${x}]`).parent().css("opacity","1");
+        });
+        /*2--设置定时器触发li的事件*/
+        var i=0;
+        function bannerLeft(){
+            i++;
+            $(`li:contains(${i})`).mouseenter();
+            if(i==6){
+                i=1;
+                $(`li:contains(${i})`).mouseenter();
+            }
+        };
+        bannerLeft();
+        var timer=setInterval(bannerLeft,2500);
+        /*3--鼠标进入清除定时器,移出恢复定时器*/
+        $(".banner-left").hover(
+            function(){
+                clearInterval(timer);
+            },
+            function(){
+                /*从悬浮的下一个开始轮播*/
+                i=$(".pagination>ul>li.on").html();
+                timer=setInterval(bannerLeft,2500);
+            }
+        );
+    </script>
+    <!--引入头部和尾部-->
+      <script src="js/header.js"></script>
+      <script src="js/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+footer a{
+    text-decoration: none;
+    color:#9b9ea0;
+}
+a:hover{
+    color:#00C1DE;
+}
+.page{
+    background:#373D41;
+    color:#9b9ea0;
+    padding-top:40px;
+}
+.page footer{
+    width:1200px;
+    margin:0 auto;
+}
+.page footer .help{
+    display:flex;
+    justify-content:space-around;
+    height:290px;
+    padding-bottom:40px;
+}
+.page footer .help ul:nth-child(1) div{
+    display: inline-block;
+    width:34px;
+    height:34px;
+    background:#444d53;
+    border-radius:50%;
+    text-align: center;
+    line-height:38px;
+    vertical-align: middle;
+    margin-right:16px;
+}
+.page footer .help ul:nth-child(1){
+    border-right:1px solid #4b5054;
+    padding-right:50px;
+}
+.page footer .help ul:nth-child(1) li{
+    margin-bottom:22px;
+}
+.page footer .help ul:nth-child(2) li{
+    margin-bottom:15px;
+}
+.page footer .help ul:nth-child(3) li{
+    margin-bottom:15px;
+    text-align: center;
+}
+.page footer .help ul:nth-child(4) li{
+    margin-bottom:15px;
+}
+.page footer .help ul:nth-child(5){
+    border-left:1px solid #4b5054;
+    padding-left:50px;
+}
+.page footer .help ul:nth-child(5) li{
+    margin-bottom:5px;
+}
+.page footer .help ul:nth-child(5) li p{
+    text-align: center;
+    margin-top:0px;
+    margin-bottom:3px;
+}
+.page footer .help ul:nth-child(5) li img{
+    width:100px;
+}
+.page footer .help ul li h4{
+    color:#d7d8d9;
+}
+.page footer .link{
+    border-top:1px solid #4b5054;
+    border-bottom:1px solid #4b5054;
+    height:40px;
+}
+.page footer .link ul li{
+    float:left;
+    line-height:40px;
+    margin-left:40px;
+}
+.page footer .link ul li:first-child{
+    color:#d7d8d9;
+}
+.page footer .copyright{
+    height:100px;
+    margin:40px auto 0px;
+    text-align:center;
+}
+.page footer .copyright p{
+    margin-top:5px;
+}

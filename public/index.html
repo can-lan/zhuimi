@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="js/jquery-3.2.1.js"></script>
+  <script src="js/vue.js"></script>
+  <title>index</title>
+</head>
+<body>
+  <header></header>
+  <div id="content">
+    <!--轮播图-->
+    <div id="carrousel">
+      <!--图片-->
+      <div id="banner">
+        <video preload="auto" autoplay="true" muted="" loop="true" style="position:absolute;right:0;height:640px;" v-show="count==0">
+          <source src="img/index/banner.mp4" type="video/mp4">
+        </video>
+        <div v-for="(img,index) in imgs" :class="{'active':(index===count&&count!=0)}"> 
+          <img :src="img[0]">
+          <img :src="img[1]" :class="{'active':index===count}">
+        </div>
+      </div>
+      <!--图标-->
+      <div id="pagination">
+        <ul>
+          <li v-for="(num,i) in 5" @click.prevent="carrousel(i)">
+            <p></p>
+            <p :class="{'active':i===count}"></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--搜索-->
+    <div id="search">
+      <div>
+        <!--搜索左侧 logo-->
+        <div>
+          <img src="img/index/logo-lg.png">
+        </div>
+        <!--搜索右侧-->
+        <div>
+          <!--第一行-->
+          <div class="srow-1">   
+            <div class="search_btn">查域名</div>
+            <div class="postfix_btn">.com
+              <img src="img/index/postfix_btn.png">
+              <!--下拉后缀列表
+              <div class="postfix">
+                <ul>
+                  <li><a href="#">.cn</a></li>
+                  <li><a href="#">.com.cn</a></li>
+                  <li><a href="#">.net</a></li>
+                  <li><a href="#">.org</a></li>
+                  <li><a href="#">.cc</a></li>
+                  <li><a href="#">.tv</a></li>
+                  <li><a href="#">.top</a></li>
+                  <li><a href="#">.app</a></li>
+                  <li><a href="#">.vip</a></li>
+                  <li><a href="#">.io</a></li>
+                </ul>
+              </div>-->
+            </div>
+            <input type="text" placeholder="请输入您要查询的域名，如 zhuimi">
+          </div>
+          <!--第一行-->
+          <div class="srow-2">
+            <!--推荐域名价格-->
+            <ul>
+              <li><a href="#">.com<span>&yen;49</span></a></li>
+              <li><a href="#">.cn<span>&yen;19</span></a></li>
+              <li><a href="#">.net<span>&yen;59</span></a></li>
+              <li><a href="#">.cc<span>&yen;22</span></a></li>
+              <li><a href="#">.app<span>&yen;99</span></a></li>
+              <li><a href="#">价格总览&nbsp;&gt;&gt;</a></li>
+            </ul>
+            <!--公告-->
+            <ul>
+              <li><a href="#">公告</a></li>
+              <li><a href="#">公告1</a></li>
+              <li><a href="#">公告2</a></li>
+              <li><a href="#">公告3</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--栏目-->
+    <div id="nav3">
+      <div>
+        <ul>
+          <li>       
+            <h3>追米科技</h3>
+            <p>蝉联国内市场NO.1,
+              超过2000万域名注册
+              蝉联国内市场NO.1
+            </p>
+          </li>
+          <li class="arrow">
+            <a href="#">
+              <h3>域名注册</h3>
+              <p>国际、国别、<span>新顶级域名</span>抢先注册</p>
+            </a>
+            <a href="#">
+                <h3>域名竞价</h3>
+                <p>国际、国别、<span>新顶级域名</span>抢先注册</p>
+              </a>
+          </li>
+          <li>
+              <a href="#">
+                  <h3>域名预定</h3>
+                  <p>国际、国别、<span>新顶级域名</span>抢先注册</p>
+                </a>
+                <a href="#">
+                    <h3 class="ico_reduction">预定竞价</h3>
+                    <p>国际、国别、<span>新顶级域名</span>抢先注册</p>
+                  </a>
+          </li>
+          <li>
+              <a href="#">
+                  <h3  class="ico_new">域名经纪</h3>
+                  <p>国际、国别、<span>新顶级域名</span></p>
+                  <p>国际、国别、<span>新顶级域名</span>抢先注册</p>
+                </a>
+          </li>
+          <li>
+              <a href="#">
+                  <h3>域名工具</h3>
+                  <p>国际、国别、<span>新顶级域名</span></p>
+                  <p>国际、国别、<span>新顶级域名</span>抢先注册</p>
+                </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--box-->
+    <div id="all">
+        <!--15个box-->
+        <div class="header">
+            <img src="img/wuhuan.png">
+            <h5>全球领先、安全、稳定的云计算产品</h5>
+            <p>计算、存储、网络、安全、大数据、人工智能，普惠科技助您飞跃发展</p>
+        </div>
+        <div class="section2">
+            <!--第一行控制-->
+            <ul class="control">
+                <li>
+                    <a  data-toggle="tab" data-target="#box1">
+                        <img src="img/box1.png">
+                        <p>推荐注册</p>
+                    </a>
+                </li>
+                <li>
+                    <a  data-toggle="tab" data-target="#box2">
+                        <img src="img/box2.png">
+                        <p>热销域名</p>
+                    </a>
+                </li>
+                <li>
+                    <a  data-toggle="tab" data-target="#box3">
+                        <img src="img/box3.png">
+                        <p>国别域名</p>
+                    </a>
+                </li>
+                <li>
+                    <a  data-toggle="tab" data-target="#box4">
+                        <img src="img/box4.png">
+                        <p>新顶级域名</p>
+                    </a>
+                </li>
+                <li>
+                    <a  data-toggle="tab" data-target="#box5">
+                        <img src="img/box5.png">
+                        <p>中文域名</p>
+                    </a>
+                </li>
+            </ul>
+            <!--第一行展示-->
+            <div class="box">
+                <!--第1个 推荐注册-->
+                <ul id="box1">
+                    <!--第1列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#" class="clear_a">
+                                    <h6>专业域名注册平台</h6>
+                                    <img src="img/HOT.png">
+                                    <p>专业域名注册平台全球注册量第一</p>
+                                </a>
+                                <a href="#" class="btn">立即注册</a>
+                            </li>
+                            <li>
+                                <a href="#" class="clear_a">
+                                    <h6>推荐注册</h6>
+                                    <p>右侧都是主流常用域名</p>
+                                </a>
+                                <a href="#" class="btn">立即注册</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第2列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.COM</h6>
+                                    <img src="img/gTLDs.png">
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.CN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.COM.CN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.NET</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第3列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.CC</h6>
+                                    <img src="img/gTLDs.png">
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.TV</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.APP</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.IO</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <p style="clear:both"></p>
+                </ul>
+                <!--第2个 热销域名-->
+                <ul id="box2" class="hidden">
+                    <!--第1列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.COM</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.CN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.NET</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第2列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.TOP</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.WANG</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.VIP</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第3列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.APP</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.XYZ</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.CC</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <p style="clear:both"></p>
+                </ul>
+                <!--第3个 国别域名-->
+                <ul id="box3" class="hidden">
+                    <!--第1列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#" class="clear_a">
+                                    <h6>国别域名</h6>
+                                    <img src="img/HOT.png">
+                                    <p>代表国家</p>
+                                </a>
+                                <a href="#" class="btn">立即注册</a>
+                            </li>
+                            <li>
+                                <a href="#" class="clear_a">
+                                    <h6>推荐注册</h6>
+                                    <p>右侧都是主流常用域名</p>
+                                </a>
+                                <a href="#" class="btn">立即注册</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第2列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.CN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.CO</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.CC</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.TV</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第3列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.DE</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.US</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.IT</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.ME</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <p style="clear:both"></p>
+                </ul>
+                <!--第4个 新顶级域名-->
+                <ul id="box4" class="hidden">
+                    <!--第1列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#" class="clear_a">
+                                    <h6>新顶级域名</h6>
+                                    <img src="img/HOT.png">
+                                    <p>nTLDs</p>
+                                </a>
+                                <a href="#" class="btn">立即注册</a>
+                            </li>
+                            <li>
+                                <a href="#" class="clear_a">
+                                    <h6>推荐注册</h6>
+                                    <p>右侧都是主流常用域名</p>
+                                </a>
+                                <a href="#" class="btn">立即注册</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第2列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.LTD</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.CLUB</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.WANG</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.VIP</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第3列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.XIN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.SHOP</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.TEAM</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <h6>.LOVE</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <p style="clear:both"></p>
+                </ul>
+                <!--第5个 中文域名-->
+                <ul id="box5" class="hidden">
+                    <!--第1列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#" class="clear_a">
+                                    <h6>中文域名</h6>
+                                    <img src="img/HOT.png">
+                                    <p>以中文为后缀的域名</p>
+                                </a>
+                                <a href="#" class="btn">立即注册</a>
+                            </li>
+                            <li>
+                                <a href="#" class="clear_a">
+                                    <h6>推荐注册</h6>
+                                    <p>右侧都是主流常用域名</p>
+                                </a>
+                                <a href="#" class="btn">立即注册</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第2列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.中国</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.公司</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.网络</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.集团</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第3列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.网址</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.在线</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.游戏</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <h6>.我爱你</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <p style="clear:both"></p>
+                </ul>
+            </div>
+            <!--第二行控制-->
+            <ul class="control">
+                <li>
+                    <a  data-toggle="tab" data-target="#box6">
+                        <img src="img/box6.png">
+                        <p>推荐交易</p>
+                    </a>
+                </li>
+                <li>
+                    <a  data-toggle="tab" data-target="#box7">
+                        <img src="img/box7.png">
+                        <p>热拍热卖</p>
+                    </a>
+                </li>
+                <li>
+                    <a  data-toggle="tab" data-target="#box8">
+                        <img src="img/box8.png">
+                        <p>即将结束</p>
+                    </a>
+                </li>
+                <li>
+                    <a  data-toggle="tab" data-target="#box9">
+                        <img src="img/box9.png">
+                        <p>一口价</p>
+                    </a>
+                </li>
+                <li>
+                    <a  data-toggle="tab" data-target="#box10">
+                        <img src="img/box10.png">
+                        <p>拍卖</p>
+                    </a>
+                </li>
+            </ul>
+            <!--第二行展示-->
+            <div class="box">
+                <!--第1个-->
+                <ul id="box6" class="hidden">
+                    <!--第1列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#" class="clear_a">
+                                    <h6>推荐交易</h6>
+                                    <img src="img/HOT.png">
+                                    <p>专业域名注册平台全球注册量第一</p>
+                                </a>
+                                <a href="#" class="btn">立即注册</a>
+                            </li>
+                            <li>
+                                <a href="#" class="clear_a">
+                                    <h6>推荐注册</h6>
+                                    <p>右侧都是主流常用域名</p>
+                                </a>
+                                <a href="#" class="btn">立即注册</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第2列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <img src="img/gTLDs.png">
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第3列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <img src="img/gTLDs.png">
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <p style="clear:both"></p>
+                </ul>
+                <!--第2个-->
+                <ul id="box7" class="hidden">
+                    <!--第1列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <img src="img/gTLDs.png">
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第2列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <img src="img/gTLDs.png">
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第3列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <img src="img/gTLDs.png">
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <p style="clear:both"></p>
+                </ul>
+                <!--第3个-->
+                <ul id="box8" class="hidden">
+                    <!--第1列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <img src="img/gTLDs.png">
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第2列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <img src="img/gTLDs.png">
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第3列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <img src="img/gTLDs.png">
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <p style="clear:both"></p>
+                </ul>
+                <!--第4个-->
+                <ul id="box9" class="hidden">
+                    <!--第1列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <img src="img/gTLDs.png">
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第2列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <img src="img/gTLDs.png">
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第3列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <img src="img/gTLDs.png">
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <p style="clear:both"></p>
+                </ul>
+                <!--第5个-->
+                <ul id="box10" class="hidden">
+                    <!--第1列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#" class="clear_a">
+                                    <h6>热门拍卖</h6>
+                                    <img src="img/HOT.png">
+                                    <p>专业域名注册平台全球注册量第一</p>
+                                </a>
+                                <a href="#" class="btn">立即出价</a>
+                            </li>
+                            <li>
+                                <a href="#" class="clear_a">
+                                    <h6>推荐注册</h6>
+                                    <p>右侧都是主流常用域名</p>
+                                </a>
+                                <a href="#" class="btn">立即注册</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第2列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <img src="img/gTLDs.png">
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第3列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <img src="img/gTLDs.png">
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>baidu.com</h6>
+                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <p style="clear:both"></p>
+                </ul>
+            </div>
+            <!--第三行控制-->
+            <ul class="control">
+                <li>
+                    <a  data-toggle="tab" data-target="#box11">
+                        <img src="img/box11.png">
+                        <p>推荐预定</p>
+                    </a>
+                </li>
+                <li>
+                    <a  data-toggle="tab" data-target="#box12">
+                        <img src="img/box12.png">
+                        <p>国内域名预定</p>
+                    </a>
+                </li>
+                <li>
+                    <a  data-toggle="tab" data-target="#box13">
+                        <img src="img/box13.png">
+                        <p>国际域名预定</p>
+                    </a>
+                </li>
+                <li>
+                    <a  data-toggle="tab" data-target="#box14">
+                        <img src="img/box14.png">
+                        <p>热门竞价</p>
+                    </a>
+                </li>
+                <li>
+                    <a  data-toggle="tab" data-target="#box15">
+                        <img src="img/box15.png">
+                        <p>即将结束</p>
+                    </a>
+                </li>
+            </ul>
+            <!--第三行展示-->
+            <div class="box">
+                <!--第1个-->
+                <ul id="box11" class="hidden">
+                    <!--第1列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#" class="clear_a">
+                                    <h6>推荐预定域名</h6>
+                                    <img src="img/HOT.png">
+                                    <p>专业域名注册平台全球注册量第一</p>
+                                </a>
+                                <a href="#" class="btn">立即注册</a>
+                            </li>
+                            <li>
+                                <a href="#" class="clear_a">
+                                    <h6>推荐注册</h6>
+                                    <p>右侧都是主流常用域名</p>
+                                </a>
+                                <a href="#" class="btn">立即注册</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第2列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.COM</h6>
+                                    <img src="img/gTLDs.png">
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.CN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.COM.CN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.NET</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.ORG</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第3列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.CC</h6>
+                                    <img src="img/gTLDs.png">
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.TV</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.APP</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.IO</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.TOP</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <p style="clear:both"></p>
+                </ul>
+                <!--第2个-->
+                <ul id="box12" class="hidden">
+                    <!--第1列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.COM.CN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.NET</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.ORG</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第2列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.COM.CN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.NET</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.ORG</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第3列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.COM.CN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.NET</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.ORG</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <p style="clear:both"></p>
+                </ul>
+                <!--第3个-->
+                <ul id="box13" class="hidden">
+                    <!--第1列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.COM.CN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.NET</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.ORG</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第2列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.COM.CN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.NET</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.ORG</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第3列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.COM.CN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.NET</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.ORG</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <p style="clear:both"></p>
+                </ul>
+                <!--第4个-->
+                <ul id="box14" class="hidden">
+                    <!--第1列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.COM.CN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.NET</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.ORG</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第2列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.COM.CN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.NET</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.ORG</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第3列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.COM.CN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.NET</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.ORG</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <p style="clear:both"></p>
+                </ul>
+                <!--第5个-->
+                <ul id="box15" class="hidden">
+                    <!--第1列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.COM.CN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.NET</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.ORG</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第2列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.COM.CN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.NET</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.ORG</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--第3列-->
+                    <li>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <h6>.COM.CN</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.NET</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <h6>.ORG</h6>
+                                    <p>com是全球注册量第一的顶级域名</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <p style="clear:both"></p>
+                </ul>
+            </div>
+        </div>
+        <!--轮播图-->
+        <div class="ban">
+            <ul>
+                <li>
+                    <img src="img/ban1.jpg">
+                    <div>
+                        <div>
+                            <img src="img/ban-1.png" class="ban_sm">
+                            <img src="img/ban_1.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>域名注册</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="img/ban2.jpg">
+                    <div>
+                        <div>
+                            <img src="img/ban-2.png" class="ban_sm">
+                            <img src="img/ban_2.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>域名交易</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="img/ban3.jpg">
+                    <div>
+                        <div>
+                            <img src="img/ban-3.png" class="ban_sm">
+                            <img src="img/ban_3.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>域名预定</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="img/ban4.jpg">
+                    <div>
+                        <div>
+                            <img src="img/ban-4.png" class="ban_sm">
+                            <img src="img/ban_4.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>预定竞价</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="img/ban5.jpg">
+                    <div>
+                        <div>
+                            <img src="img/ban-5.png" class="ban_sm">
+                            <img src="img/ban_5.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>域名经纪</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="img/ban1.jpg">
+                    <div>
+                        <div>
+                            <img src="img/ban-1.png" class="ban_sm">
+                            <img src="img/ban_1.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>域名米表</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="img/ban2.jpg">
+                    <div>
+                        <div>
+                            <img src="img/ban-2.png" class="ban_sm">
+                            <img src="img/ban_2.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>域名行情</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="img/ban3.jpg">
+                    <div>
+                        <div>
+                            <img src="img/ban-3.png" class="ban_sm">
+                            <img src="img/ban_3.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>域名拍卖</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="img/ban4.jpg">
+                    <div>
+                        <div>
+                            <img src="img/ban-4.png" class="ban_sm">
+                            <img src="img/ban_4.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>微信公众号</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
+                    </div>
+                </li>
+                <li>
+                    <img src="img/ban5.jpg">
+                    <div>
+                        <div>
+                            <img src="img/ban-5.png" class="ban_sm">
+                            <img src="img/ban_5.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>追米APP</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
+                    </div>
+                </li>
+            </ul>
+            <p class="before" onclick="banBefore()">&lt;</p>
+            <p class="next" onclick="banNext()">&gt;</p>
+        </div>
+        <!--域名经纪-->
+        <div id="section3">
+            <div>
+                <h4>海纳百川，精选全球的高品质软件与服务</h4>
+                <p>开发者工具、建站、API、企业应用，支撑云端应用服务</p>
+            </div>
+            <div class="list">
+                <ul>
+                    <li>
+                        <div class="list1 list0"></div>
+                        <h5>专业团队</h5>
+                        <p>预装PHP|预装JAVA |预装ASP/.NET预装</p>
+                        <p>建站系统 | 服务器软 | 应用开发工具</p>
+                    </li>
+                    <li>
+                        <div class="list2 list0"></div>
+                        <h5>精准分析</h5>
+                        <p>预装PHP|预装JAVA |预装ASP/.NET预装</p>
+                        <p>建站系统 | 服务器软 | 应用开发工具</p>
+                    </li>
+                    <li>
+                        <div class="list3 list0"></div>
+                        <h5>海量数据</h5>
+                        <p>预装PHP|预装JAVA |预装ASP/.NET预装</p>
+                        <p>建站系统 | 服务器软 | 应用开发工具</p>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <div class="list4 list0"></div>
+                        <h5>专业工具</h5>
+                        <p>预装PHP|预装JAVA |预装ASP/.NET预装</p>
+                        <p>建站系统 | 服务器软 | 应用开发工具</p>
+                    </li>
+                    <li>
+                        <div class="list5 list0"></div>
+                        <h5>安全保密</h5>
+                        <p>预装PHP|预装JAVA |预装ASP/.NET预装</p>
+                        <p>建站系统 | 服务器软 | 应用开发工具</p>
+                    </li>
+                    <li>
+                        <div class="list6 list0"></div>
+                        <h5>优质服务</h5>
+                        <p>预装PHP|预装JAVA |预装ASP/.NET预装</p>
+                        <p>建站系统 | 服务器软 | 应用开发工具</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--抢注总计-->
+        <div class="tj">
+            <img src="img/tongji.png">
+        </div>
+        <!--节点-->
+        <div class="node">
+            <div class="header">
+                <h4>预定节点遍布全球，持续扩张的数据中心让跨域体验更流畅</h4>
+                <p>无论是硅谷核心区，还是迪拜贸易枢纽区，全球无缝覆盖，提供CN2高速网络，BGP接入支持</p>
+            </div>
+            <div class="map">
+                <img src="img/map.png">
+                <div class="beijing">
+                    <span>北京</span>
+                </div>
+                <div class="meixi">
+                    <span>美西</span>
+                </div>
+                <div class="meidong">
+                    <span>美东</span>
+                </div>
+                <div class="ouzhou">
+                    <span>欧洲</span>
+                </div>
+                <div class="zhongdong">
+                    <span>中东</span>
+                </div>
+                <div class="yindu">
+                    <span>印度</span>
+                </div>
+            </div>
+            <div class="rz">
+                <ul>
+                    <li>
+                        <img src="img/rz1.png">
+                        <span>全球首张安全国际认证</span>
+                    </li>
+                    <li>
+                        <img src="img/rz2.png">
+                        <span>信息安全管理体系国际认证</span>
+                    </li>
+                    <li>
+                        <img src="img/rz3.png">
+                        <span>通过公安部等级保护评测</span>
+                    </li>
+                    <li>
+                        <img src="img/rz4.png">
+                        <span>首批可信云服务认证</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--案例-->
+        <div class="case">
+            <h3>携手共赢，与全球合作伙伴共建云端生态</h3>
+            <p>加入阿里云生态合作伙伴计划，开创新业务，获取技术、资源，实现更快速成长</p>
+            <div>
+                <img src="img/case1.png">
+                <img src="img/case2.png">
+                <img src="img/case3.png">
+                <img src="img/case4.png">
+                <img src="img/case5.png">
+            </div>
+        </div>
+    </div>
+  </div>
+  <footer></footer>
+  <!--轮播图1js-->
+  <script>
+    var timer=setInterval(function(){ 
+      vm.count++ 
+      if(vm.count==5) vm.count=0
+    },6000);
+    var vm=new Vue({
+      el:"#carrousel",
+      data:{
+        imgs:[
+          ["img/index/banner4-lg.jpg","img/index/banner4-sm.png"],//←无效,被视频替代
+          ["img/index/banner1-lg.jpg","img/index/banner1-sm.png"],
+          ["img/index/banner2-lg.jpg","img/index/banner2-sm.png"],
+          ["img/index/banner3-lg.jpg","img/index/banner3-sm.png"],
+          ["img/index/banner4-lg.jpg","img/index/banner4-sm.png"]
+          ],
+        count:0
+      },
+      methods:{
+        carrousel(i){ 
+          vm.count=i
+          clearInterval(timer);
+          timer=setInterval(function(){ 
+            vm.count++ 
+            if(vm.count==5) vm.count=0
+          },6000);
+         }
+      }
+    });
+    
+  </script>
+  <!--box控制js-->
+  <script>
+      var as=document.querySelectorAll("[data-toggle='tab']");
+      for(var a of as){
+          a.onclick=function(){
+              var a=this;
+              var as=document.querySelectorAll("[data-toggle='tab']");
+              for(var b of as){
+                  b.className="";
+              }
+              a.className="visible";
+              var id=a.getAttribute("data-target");
+              var box=document.querySelector(id);
+              var boxs=box.parentNode.parentNode.children;
+              if(box.className=="") {
+                  box.className = "hidden";
+                  a.className="";
+              }else{
+                  for(var b of boxs){
+                     if(b.tagName=="DIV"){
+                         var c=b.children;
+                         for(var d of c){
+                             d.className="hidden";
+                         }
+                     }
+                  }
+                  box.className="";
+      }
+      }
+      }
+  </script>
+  <!--轮播图2js-->
+  <script>
+      function banBefore(){
+          document.getElementsByClassName("before")[0].parentElement.children[0].style.marginLeft="0%";
+      }
+      function banNext(){
+          document.getElementsByClassName("next")[0].parentElement.children[0].style.marginLeft="-100%";
+      }
+  </script>
+  <!--引入头部和尾部-->
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+</body>
+</html>
