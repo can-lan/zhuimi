@@ -19,14 +19,13 @@ $(function(){
       el:"#header",
       data:{function(){
           return {
-              firstlist:'',
-              secondlist:''
+              firstlist:{},
+              secondlist:{}
           }
       }},
       created(){
         this.firstlist=res.firstlist;
-        this.firstlist=res.firstlist;
-        console.log(this.resulte)
+        this.secondlist=res.secondlist;
       }
     });
   })();
