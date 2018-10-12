@@ -154,3 +154,16 @@ header:hover #nav2{
   background:#28d0e9;
   color:#fff !important;
 }
+
+/*侧菜单*/
+#nav1>div:first-child>ul{
+  background:rgb(39,43,46);
+  margin-top:-4px;
+  width:200px;
+  height:1000px;
+  padding-top:48px;
+  padding-left:30px;
+  text-align: left;
+  position:absolute;
+  z-index:10;
+}

@@ -2,6 +2,15 @@
     <div id="nav1">
       <div>
         <img src="img/header/menu.png">
+        <ul>
+          <li v-for="item,i of firstlist">
+            <a href="/registered.html" v-text="item.fname"></a>
+            <img src="img/header/lt.png" alt="">
+            <!--<ul>
+                <li v-if="item.fid==i+1" v-for="item,j of secondlist"><a href="#" v-text="item.sname"></a></li>
+            </ul>-->
+          </li>
+        </ul>
       </div>
       <a href="#">
         <img src="img/header/logo.png">
@@ -33,64 +42,11 @@
         <li>
           <a href="/">首页</a>
         </li>
-        <li>
-          <a href="/registered.html">注册</a>
+        <!--分类-->
+        <li v-for="item,i of firstlist">
+          <a href="/registered.html" v-text="item.fname"></a>
           <ul>
-              <li><a href="#">每日推荐</a></li>
-              <li><a href="#">即将结束</a></li>
-              <li><a href="#">一口价</a></li>
-              <li><a href="#">域名竞价</a></li>
-              <li><a href="#">域名拍卖</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="/transaction.html">域名交易</a>
-          <ul>
-              <li><a href="#">每日推荐</a></li>
-              <li><a href="#">即将结束</a></li>
-              <li><a href="#">一口价</a></li>
-              <li><a href="#">域名竞价</a></li>
-              <li><a href="#">域名拍卖</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="/book.html">域名预定</a>
-          <ul>
-              <li><a href="#">每日推荐</a></li>
-              <li><a href="#">即将结束</a></li>
-              <li><a href="#">一口价</a></li>
-              <li><a href="#">域名竞价</a></li>
-              <li><a href="#">域名拍卖</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="/bid.html">预定竞价</a>
-          <ul>
-              <li><a href="#">每日推荐</a></li>
-              <li><a href="#">即将结束</a></li>
-              <li><a href="#">一口价</a></li>
-              <li><a href="#">域名竞价</a></li>
-              <li><a href="#">域名拍卖</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="/broker.html">域名经纪</a>
-          <ul>
-              <li><a href="#">每日推荐</a></li>
-              <li><a href="#">即将结束</a></li>
-              <li><a href="#">一口价</a></li>
-              <li><a href="#">域名竞价</a></li>
-              <li><a href="#">域名拍卖</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="/gj.html">域名工具</a>
-          <ul>
-              <li><a href="#">每日推荐</a></li>
-              <li><a href="#">即将结束</a></li>
-              <li><a href="#">一口价</a></li>
-              <li><a href="#">域名竞价</a></li>
-              <li><a href="#">域名拍卖</a></li>
+              <li v-if="item.fid==i+1" v-for="item,j of secondlist"><a href="#" v-text="item.sname"></a></li>
           </ul>
         </li>
       </ul>
