@@ -1,5 +1,6 @@
 $(function(){
   $(`<link rel="stylesheet" href="css/header.css">`).appendTo("head");
+  $(`<link rel="shortcut icon" href="img/header/favicon.ico"> `).appendTo("head");
   (async function(){
     //引入header.html
     await $.ajax({
@@ -29,4 +30,6 @@ $(function(){
       }
     });
   })();
+  //为搜索框绑定事件, 并且可发送请求
+  
 })

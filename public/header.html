@@ -3,18 +3,20 @@
       <div>
         <img src="img/header/menu.png">
         <ul>
-          <li v-for="item,i of firstlist">
-            <a href="/registered.html" v-text="item.fname"></a>
-            <img src="img/header/lt.png" alt="">
-            <!--<ul>
-                <li v-if="item.fid==i+1" v-for="item,j of secondlist"><a href="#" v-text="item.sname"></a></li>
-            </ul>-->
+          <li v-for="item,i of firstlist" class="lt">
+            <a :href="item.href" v-text="item.fname"></a>
+            <ul>
+                <li v-if="item.fid==i+1" v-for="item,j of secondlist"><a :href="item.href" v-text="item.sname"></a></li>
+            </ul>
           </li>
+          <li class="small"><a href="#">政府通道</a><img src="img/header/arrow.png"></li>
+          <li class="small"><a href="#">联系我们</a><img src="img/header/arrow.png"></li>
+          <li class="small"><a href="#">商务合作</a><img src="img/header/arrow.png"></li>
+          <li>售前咨询95187转1</li>
         </ul>
       </div>
-      <a href="#">
+      <a href="/">
         <img src="img/header/logo.png">
-        <img src="" alt="">
       </a>
       <div>
           <ul>
@@ -44,7 +46,7 @@
         </li>
         <!--分类-->
         <li v-for="item,i of firstlist">
-          <a href="/registered.html" v-text="item.fname"></a>
+          <a :href="item.href" v-text="item.fname"></a>
           <ul>
               <li v-if="item.fid==i+1" v-for="item,j of secondlist"><a href="#" v-text="item.sname"></a></li>
           </ul>

@@ -11,7 +11,7 @@ header{
   width:100%;
   min-width: 1200px;
   position: absolute;
-  z-index: 1;
+  z-index:1;
 }
 header:hover{
   background:#1C2327;
@@ -43,7 +43,7 @@ header:hover #nav2{
   height:50px;
   text-align: center;
   line-height:61px;
-  background:url('../img/header/logo.gif') no-repeat 14px 0;
+  background:url('../img/header/logo.gif') no-repeat 17px 0;
   background-size:91px 52px;
 }
 #nav1>a>img{
@@ -156,14 +156,78 @@ header:hover #nav2{
 }
 
 /*侧菜单*/
+#nav1>div:first-child:hover{
+  background:#00c1de;
+}
+#nav1>div:first-child:hover >ul{
+  width:200px;
+  z-index:1;
+}
 #nav1>div:first-child>ul{
   background:rgb(39,43,46);
-  margin-top:-4px;
-  width:200px;
+  width:0px;
   height:1000px;
+  margin-top:-5px;
   padding-top:48px;
-  padding-left:30px;
   text-align: left;
+  border-top:1px solid hsla(0,0%,100%,.15);
+  border-right:1px solid hsla(0,0%,100%,.15);
   position:absolute;
-  z-index:10;
+  left:-1px;
+  transition:all .3s linear;
+}
+#nav1>div:first-child>ul>li{
+  margin-left:30px;
+  overflow: hidden;
+  height:55px;
+}
+#nav1>div:first-child>ul>li.small{
+  height:40px;
+}
+#nav1>div:first-child>ul>li.small>img{
+  width:12px;
+  margin-left:63px;
+}
+#nav1>div:first-child>ul>li:nth-child(7){
+  border-top:1px solid hsla(0,0%,100%,.15);
+  margin-top:10px;
+  margin-right:30px;
+}
+#nav1>div:first-child>ul>li:last-child{
+  color:#fff;
+  margin-top:320px;
+  font-size:14px;
+}
+#nav1>div:first-child>ul>li>ul{
+  width:0px;
+  height:1000px;
+  padding-top:55px;
+  background:rgb(48,53,56);
+  border-top:1px solid hsla(0,0%,100%,.15);
+  margin-top:-1px;
+  position:absolute;
+  top:0px;
+  left:200px;
+  overflow:hidden;
+
+}
+#nav1>div:first-child>ul>li:hover ul{
+  width:200px;
+}
+#nav1>div:first-child>ul>li>ul>li{
+  height:55px;
+  margin-left:30px;
+  margin-right:30px;
+}
+#nav1>div:first-child>ul>li>ul>li>a{
+  display:block;
+  width:130px;
+  height:40px;
+  line-height:40px;
+  padding-left:20px;
+  cursor:pointer;
+  border-radius:4px;
+}
+#nav1>div:first-child>ul>li>ul>li>a:hover{
+  background:rgb(59,63,66);
 }

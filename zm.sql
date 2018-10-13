@@ -6,7 +6,8 @@ USE zm;
 CREATE TABLE zm_firstlist(
     fid TINYINT PRIMARY KEY AUTO_INCREMENT,
     fname VARCHAR(8),
-    fintroduce VARCHAR(128)
+    fintroduce VARCHAR(128),
+    href VARCHAR(32)
 );
 /*二级分类*/
 CREATE TABLE zm_secondlist(
@@ -19,12 +20,12 @@ CREATE TABLE zm_secondlist(
 /**导入数据**/
 /*一级分类*/
 INSERT INTO zm_firstlist VALUES
-(null,'域名注册','域名注册的介绍fintroduce'),
-(null,'域名交易','域名交易的介绍fintroduce'),
-(null,'域名预定','域名预定的介绍fintroduce'),
-(null,'预定竞价','预定竞价的介绍fintroduce'),
-(null,'域名经纪','域名经纪的介绍fintroduce'),
-(null,'域名工具','域名工具的介绍fintroduce');
+(null,'域名注册','域名注册的介绍fintroduce',"/registered.html"),
+(null,'域名交易','域名交易的介绍fintroduce',"/transaction.html"),
+(null,'域名预定','域名预定的介绍fintroduce',"/bid.html"),
+(null,'预定竞价','预定竞价的介绍fintroduce',"/book.html"),
+(null,'域名经纪','域名经纪的介绍fintroduce',"/broker.html"),
+(null,'域名工具','域名工具的介绍fintroduce',"/tool.html");
 /*二级分类*/
 INSERT INTO zm_secondlist VALUES
 (1,'推荐注册','域名注册的介绍fintroduce',1),

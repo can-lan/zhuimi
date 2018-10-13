@@ -29,3 +29,15 @@ a:hover{
   display:block;
   clear:both;
 }
+.lt::after{
+  content:"〉";
+  display:inline-block;
+  color:#fff;
+  margin-left:60px;
+}
+.lt:hover::after{
+  color:#00c1de;
+}
+.small{
+  font-size:15px;
+}
