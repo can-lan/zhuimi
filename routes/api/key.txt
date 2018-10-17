@@ -1,2 +1,0 @@
-AccessKeyId	AccessKeySecret
-LTAI6RcLKiVxplzs	bvHC8AdvY1aUOeMtFTMQPP2N5y0ESn
