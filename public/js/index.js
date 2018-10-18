@@ -33,6 +33,9 @@
       a.onclick=function(){
         var a=this;
         var as=document.querySelectorAll("[data-toggle='tab']");
+        var img=a.children[0];
+        var imgsrc=img.getAttribute("data-img");
+        img.src=imgsrc;
         for(var b of as){
             b.className="";
         }
@@ -64,7 +67,19 @@
   function banNext(){
     document.getElementsByClassName("next")[0].parentElement.children[0].style.marginLeft="-100%";
   }
-
+//4--搜索框
+  new Vue({
+      el:"#search",
+      data:{
+        keyword:"",
+        suffix:".com"
+      },
+      methods:{
+        getSearch(){
+          location.href="/api?d="+this.keyword+this.suffix 
+        }
+      }
+  });
 /*
  *废弃--->第一版jquery--->请求替换导航栏
  *第二版Vue请求导航栏---在header.js

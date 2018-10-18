@@ -44,26 +44,26 @@
         <div>
           <!--第一行-->
           <div class="srow-1">   
-            <div class="search_btn">查域名</div>
-            <div class="postfix_btn">.com
-              <img src="img/index/postfix_btn.png">
-              <!--下拉后缀列表
-              <div class="postfix">
-                <ul>
-                  <li><a href="#">.cn</a></li>
-                  <li><a href="#">.com.cn</a></li>
-                  <li><a href="#">.net</a></li>
-                  <li><a href="#">.org</a></li>
-                  <li><a href="#">.cc</a></li>
-                  <li><a href="#">.tv</a></li>
-                  <li><a href="#">.top</a></li>
-                  <li><a href="#">.app</a></li>
-                  <li><a href="#">.vip</a></li>
-                  <li><a href="#">.io</a></li>
-                </ul>
-              </div>-->
+            <div class="search_btn" @click="getSearch()">查域名</div>
+            <div class="postfix_btn">
+              <select id="suffix" v-model="suffix" name="suffix">
+                  <option value=".com">.com</option>
+                  <option value=".cn">.cn</option>
+                  <option value=".com.cn">.com.cn</option>
+                  <option value=".net">.net</option>
+                  <option value=".org">.org</option>
+                  <option value=".cc">.cc</option>
+                  <option value=".tv">.tv</option>
+                  <option value=".app">.app</option>
+                  <option value=".top">.top</option>
+                  <option value=".vip">.vip</option>
+                  <option value=".co">.co</option>
+                  <option value=".love">.love</option>
+                  <option value=".中国">.中国</option>
+              </select>
+              <!--<img src="img/index/postfix_btn.png">-->
             </div>
-            <input type="text" placeholder="请输入您要查询的域名，如 zhuimi">
+            <input v-model="keyword" type="text" placeholder="请输入您要查询的域名，如 zhuimi" >
           </div>
           <!--第一行-->
           <div class="srow-2">
@@ -93,43 +93,40 @@
         <ul>
           <li>       
             <h3>追米科技</h3>
-            <p>蝉联国内市场NO.1,
-              超过2000万域名注册
-              蝉联国内市场NO.1
-            </p>
+            <p>顶级域名注册商<br>五星级注册商资质</p>
           </li>
           <li class="arrow">
             <a href="#">
               <h3>域名注册</h3>
-              <p>国际、国别、<span>新顶级域名</span>抢先注册</p>
+              <p>国际、国别、<span>新顶级域名</span> 优惠促销 !</p>
             </a>
             <a href="#">
                 <h3>域名竞价</h3>
-                <p>国际、国别、<span>新顶级域名</span>抢先注册</p>
+                <p>优质、<span>精品域名</span> 火热竞价 !</p>
               </a>
           </li>
           <li>
               <a href="#">
                   <h3>域名预定</h3>
-                  <p>国际、国别、<span>新顶级域名</span>抢先注册</p>
+                  <p><span>极速抢注接口 , </span><span>0元火爆预定 !</span></p>
                 </a>
                 <a href="#">
                     <h3 class="ico_reduction">预定竞价</h3>
-                    <p>国际、国别、<span>新顶级域名</span>抢先注册</p>
+                    <p>众多优质域名 <span>物超所值 !</span></p>
                   </a>
           </li>
           <li>
               <a href="#">
                   <h3  class="ico_new">域名经纪</h3>
-                  <p>国际、国别、<span>新顶级域名</span></p>
-                  <p>国际、国别、<span>新顶级域名</span>抢先注册</p>
+                  <p>专业经纪团队 经验丰富</p>
+                  <p>专业域名评估 谈判技巧</p>
                 </a>
           </li>
           <li>
               <a href="#">
-                  <h3>域名工具</h3>
-                  <p>国际、国别、<span>新顶级域名</span></p>
-                  <p>国际、国别、<span>新顶级域名</span>抢先注册</p>
+                  <h3 class="ico_new">域名工具</h3>
+                  <p>whois查询 、备案查询</p>
+                  <p><span>域名行情</span> 、域名展示</p>
                 </a>
           </li>
         </ul>
@@ -148,30 +145,30 @@
             <ul class="control">
                 <li>
                     <a  data-toggle="tab" data-target="#box1">
-                        <img src="img/box1.png">
+                        <img src="img/box1.png" data-img="img/box2.png">
                         <p>推荐注册</p>
                     </a>
                 </li>
                 <li>
                     <a  data-toggle="tab" data-target="#box2">
-                        <img src="img/box2.png">
+                        <img src="img/box2.png" data-img="img/box2.png">
                         <p>热销域名</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box3">
+                    <a  data-toggle="tab" data-target="#box3" data-img="img/box2.png">
                         <img src="img/box3.png">
                         <p>国别域名</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box4">
+                    <a  data-toggle="tab" data-target="#box4" data-img="img/box2.png">
                         <img src="img/box4.png">
                         <p>新顶级域名</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box5">
+                    <a  data-toggle="tab" data-target="#box5" data-img="img/box2.png">
                         <img src="img/box5.png">
                         <p>中文域名</p>
                     </a>
@@ -589,30 +586,30 @@
             <ul class="control">
                 <li>
                     <a  data-toggle="tab" data-target="#box6">
-                        <img src="img/box6.png">
+                        <img src="img/box6.png" data-img="img/box2.png">
                         <p>推荐交易</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box7">
+                    <a  data-toggle="tab" data-target="#box7" data-img="img/box2.png">
                         <img src="img/box7.png">
                         <p>热拍热卖</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box8">
+                    <a  data-toggle="tab" data-target="#box8" data-img="img/box2.png">
                         <img src="img/box8.png">
                         <p>即将结束</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box9">
+                    <a  data-toggle="tab" data-target="#box9" data-img="img/box2.png">
                         <img src="img/box9.png">
                         <p>一口价</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box10">
+                    <a  data-toggle="tab" data-target="#box10" data-img="img/box2.png">
                         <img src="img/box10.png">
                         <p>拍卖</p>
                     </a>
@@ -1153,31 +1150,31 @@
             <ul class="control">
                 <li>
                     <a  data-toggle="tab" data-target="#box11">
-                        <img src="img/box11.png">
+                        <img src="img/box11.png" data-img="img/box2.png">
                         <p>推荐预定</p>
                     </a>
                 </li>
                 <li>
                     <a  data-toggle="tab" data-target="#box12">
-                        <img src="img/box12.png">
+                        <img src="img/box12.png" data-img="img/box2.png">
                         <p>国内域名预定</p>
                     </a>
                 </li>
                 <li>
                     <a  data-toggle="tab" data-target="#box13">
-                        <img src="img/box13.png">
+                        <img src="img/box13.png" data-img="img/box2.png">
                         <p>国际域名预定</p>
                     </a>
                 </li>
                 <li>
                     <a  data-toggle="tab" data-target="#box14">
-                        <img src="img/box14.png">
+                        <img src="img/box14.png" data-img="img/box14-1.png">
                         <p>热门竞价</p>
                     </a>
                 </li>
                 <li>
                     <a  data-toggle="tab" data-target="#box15">
-                        <img src="img/box15.png">
+                        <img src="img/box15.png" data-img="img/box15-1.png">
                         <p>即将结束</p>
                     </a>
                 </li>
