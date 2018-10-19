@@ -6,4 +6,7 @@
   1.index.html
     1.价格总览
     2.公告
+  2.header.html
+    1.购物车 控制台 登录 icon修改
+    2.搜索框
 (3)待修复bug

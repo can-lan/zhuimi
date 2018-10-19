@@ -28,24 +28,19 @@
   });
 
 //2--box控制
-  var as=document.querySelectorAll("[data-toggle='tab']");
-  for(var a of as){
-      a.onclick=function(){
-        var a=this;
-        var as=document.querySelectorAll("[data-toggle='tab']");
-        var img=a.children[0];
-        var imgsrc=img.getAttribute("data-img");
-        img.src=imgsrc;
-        for(var b of as){
-            b.className="";
+  var controls=document.querySelectorAll("[data-toggle='tab']");
+  for(var control of controls){
+      control.onclick=function(){
+        for(var con of controls){
+            con.className="";
         }
-        a.className="visible";
-        var id=a.getAttribute("data-target");
+        this.className="visible";
+        var id=this.getAttribute("data-target");
         var box=document.querySelector(id);
         var boxs=box.parentNode.parentNode.children;
         if(box.className=="") {
             box.className = "hidden";
-            a.className="";
+            this.className="";
         }else{
             for(var b of boxs){
                 if(b.tagName=="DIV"){
