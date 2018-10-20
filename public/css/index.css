@@ -360,33 +360,33 @@
   box-shadow: 0 0 6px 0 rgba(0,0,0,.2);
 }
 /***********box*************/
-#all .header{
+.header{
   text-align: center;
 }
-#all .header img{
+.header img{
   width:130px;
   margin-top:32px;
   margin-bottom:24px;
 }
-#all .header p{
+.header p{
   margin-top:8px;
   margin-bottom:57px;
 }
-#all .header p:hover{
+.header p:hover{
   color:#00C1DE;
 }
-#all .header h5{
+.header h5{
   font-size:24px;
 }
 
-.section2 .control{
+#box .control{
   width:1200px;
   margin:0 auto;
   display:flex;
   justify-content:space-around;
   text-align: center;
 }
-.section2>.control>li>a{
+#box>.control>li>a{
   display:block;
   cursor:pointer;
   position: relative;
@@ -394,35 +394,35 @@
   margin-bottom:20px;
   transition: all .2s linear;
 }
-.section2>.control>li>a>img{
+#box>.control>li>a>img{
   width:80px;
 }
-.section2>.control>li{
+#box>.control>li{
   color:#000;
   text-align: center;
   transition:.5s;
 }
-.section2>.control>li:hover{
+#box>.control>li:hover{
   color:#00C1DE !important;
 }
-.section2 .box{
+#box .box{
   width:100%;
   background:#F5F5F6;
 }
-.section2 .box>ul{
+#box .box>ul{
   width:1200px;
   margin:0 auto;
   padding-top:20px;
 }
-.section2 .box>ul>li{
+#box .box>ul>li{
   float:left;
   width:33.3%;
 }
-.section2 .box p{
+#box .box p{
   color:#9b9ea0;
   font-size:13px;
 }
-.section2 .box a{
+#box .box a{
   display:block;
   width:370px;
   height:70px;
@@ -433,7 +433,7 @@
   transition: all .3s ease-in-out;
   position: relative;
 }
-.section2 .box a:after{
+#box .box a:after{
   content:">";
   display:block;
   color:#F5F5F6;
@@ -441,7 +441,7 @@
   top:25px;
   right:20px;
 }
-.section2 .box a:hover:after{
+#box .box a:hover:after{
   content:">";
   display:block;
   color:#00C1DE;
@@ -450,7 +450,7 @@
   right:20px;
   transition: all .8s linear;
 }
-.section2 .box a:hover{
+#box .box a:hover{
   background:#fff;
   box-shadow: 0 0 8px 0 rgba(0,0,0,.15)
 }
@@ -514,26 +514,26 @@
   left:25px;
   bottom:-22px;
 }
-.ban{
+#ban{
   margin-top:100px;
   height:415px;
   overflow:hidden;
   position:relative;
 }
-.ban>ul{
+#ban>ul{
   transition: all 2s linear;
   width:200%;
 }
-.ban>ul>li{
+#ban>ul>li{
   position:relative;
   width:10%;
   float:left;
 }
-.ban>ul>li>img{
+#ban>ul>li>img{
   width:100%;
   height:415px;
 }
-.ban>ul>li>div{
+#ban>ul>li>div{
   position:absolute;
   top:0;
   left:0;
@@ -544,51 +544,51 @@
   height:100%;
   transition:all .2s linear;
 }
-.ban>ul>li>div:hover{
+#ban>ul>li>div:hover{
   background:rgba(0,193,222,.82);
 }
-.ban>ul>li>div:hover .ban_hidden{
+#ban>ul>li>div:hover .ban_hidden{
   opacity:1;
   margin:0px auto;
 }
-.ban>ul>li>div:hover div{
+#ban>ul>li>div:hover div{
   margin-top:50px;
 }
-.ban>ul>li>div:hover .ban_line{
+#ban>ul>li>div:hover .ban_line{
   opacity: 0;
   margin:0 auto 0;
 }
-.ban>ul>li>div:hover .ban_p{
+#ban>ul>li>div:hover .ban_p{
   padding:10px 15px 35px;
 }
-.ban>ul>li>div>div{
+#ban>ul>li>div>div{
   position: relative;
   width:25%;
   height:71px;
   margin:100px auto 0px;
   transition:all .3s linear;
 }
-.ban>ul>li>div>div>img{
+#ban>ul>li>div>div>img{
   width:100%;
   position: absolute;
   left:0;
   top:0;
 }
-.ban .ban_line{
+#ban .ban_line{
   width:20px;
   padding:0 2px;
   border-bottom:2px solid #fff;
   margin:20px auto 0;
   transition: all .5s linear;
 }
-.ban h4{
+#ban h4{
   margin:20px auto;
 }
-.ban>ul>li>div>p.ban_p{
+#ban>ul>li>div>p.ban_p{
   padding:30px 15px 50px;
   transition:all .7s linear;
 }
-.ban>ul>li>div>a{
+#ban>ul>li>div>a{
   display: block;
   width:120px;
   height:35px;
@@ -598,7 +598,7 @@
   margin:30px auto;
   font-size:14px;
 }
-.ban>ul>li>div>a:hover{
+#ban>ul>li>div>a:hover{
   background:#fff;
   color:#00C1DE;
 }
@@ -636,26 +636,26 @@
   overflow: hidden;
   transition: all .4s linear;
 }
-.ban:hover .next{
+#ban:hover .next{
   width: 45px;
 }
-.ban:hover .before{
+#ban:hover .before{
   width: 45px;
 }
 
-#section3{
+#broker{
   padding-top:100px;
   width:1200px;
   margin:0 auto;
   text-align: center;
 }
-#section3 >div>h4{
+#broker >div>h4{
   margin-bottom:15px;
 }
-#section3 >div:first-child{
+#broker >div:first-child{
   margin-bottom:20px;
 }
-#section3 .list0{
+#broker .list0{
   position:relative;
   width:75px;
   height:75px;
@@ -670,62 +670,62 @@
       background-position: 0 50%;
   }
 }
-#section3 .list1{
+#broker .list1{
   background:url('../img/list1.jpg') no-repeat 0px 0px;
   background-size: 75px;
 }
-#section3 .list2{
+#broker .list2{
   background:url('../img/list2.jpg') no-repeat 0px 0px;
   background-size: 75px;
 }
-#section3 .list3{
+#broker .list3{
   background:url('../img/list3.jpg') no-repeat 0px 0px;
   background-size: 75px;
 }
-#section3 .list4{
+#broker .list4{
   background:url('../img/list4.jpg') no-repeat 0px 0px;
   background-size: 75px;
 }
-#section3 .list5{
+#broker .list5{
   background:url('../img/list5.jpg') no-repeat 0px 0px;
   background-size: 75px;
 }
-#section3 .list6{
+#broker .list6{
   background:url('../img/list6.jpg') no-repeat 0px 0px;
   background-size: 75px;
 }
 
-#section3 .list0:hover{
+#broker .list0:hover{
   animation: pics 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0s 1;
 }
-#section3 .list ul{
+#broker .list ul{
   display:flex;
   justify-content: space-around;
 }
-#section3 .list{
+#broker .list{
   width:1200px;
   margin:0 auto;
 }
-#section3 .list  ul li{
+#broker .list  ul li{
   width:400px;
   padding:20px;
   text-align: center;
 }
 
-#section3 .list li h5{
+#broker .list li h5{
   font-size: 20px;
   font-weight:bold;
   margin-top:20px;
 }
-#section3 .list li:hover h5{
+#broker .list li:hover h5{
   transition:0.5s;
   color:#00C1DE;
 }
-#section3 .list li p{
+#broker .list li p{
   color:#A9B0B4;
 }
 
-.tj img{
+.book img{
   width:100%;
   margin:50px auto;
 }
@@ -789,7 +789,8 @@
   top:80px;
   left:600px;
 }
-.node .rz{
+
+#node .approve{
   width:1200px;
   margin:10px auto;
 }
@@ -819,20 +820,20 @@
   top:200px;
   left:700px;
 }
-.node .rz ul{
+#node .approve ul{
   display:flex;
   justify-content:space-around;
 }
-.node .rz img{
+#node .approve img{
   width:50px;
   height:50px;
 }
-.case{
+#case{
   width:1200px;
   margin:120px auto 150px;
   text-align: center;
 }
-.case img{
+#case img{
   float: left;
   width: 20%;
   margin-top:20px;
