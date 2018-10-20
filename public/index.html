@@ -144,31 +144,31 @@
             <!--第一行控制-->
             <ul class="control">
                 <li>
-                    <a  data-toggle="tab" data-target="#box1">
+                    <a  data-toggle="tab" data-target="#box1" @click="active();getDomain(1)">
                         <img src="img/box1.png">
                         <p>推荐注册</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box2">
+                    <a  data-toggle="tab" data-target="#box2" @click="active();getDomain(2)">
                         <img src="img/box2.png">
                         <p>热销域名</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box3">
+                    <a  data-toggle="tab" data-target="#box3" @click="active(),getDomain(3)">
                         <img src="img/box3.png">
                         <p>国别域名</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box4">
+                    <a  data-toggle="tab" data-target="#box4" @click="active(),getDomain(4)">
                         <img src="img/box4.png">
                         <p>新顶级域名</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box5">
+                    <a  data-toggle="tab" data-target="#box5" @click="active(),getDomain(5)">
                         <img src="img/box5.png">
                         <p>中文域名</p>
                     </a>
@@ -585,564 +585,83 @@
             <!--第二行控制-->
             <ul class="control">
                 <li>
-                    <a  data-toggle="tab" data-target="#box6">
+                    <a  data-toggle="tab" data-target="#box6" @click="active(),getDomain(6),getSaleTime()">
                         <img src="img/box6.png">
-                        <p>推荐交易</p>
-                    </a>
-                </li>
-                <li>
-                    <a  data-toggle="tab" data-target="#box7">
-                        <img src="img/box7.png">
                         <p>热拍热卖</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box8">
-                        <img src="img/box8.png">
+                    <a  data-toggle="tab" data-target="#box7" @click="active(),getDomain(7)">
+                        <img src="img/box7.png">
                         <p>即将结束</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box9">
-                        <img src="img/box9.png">
+                    <a  data-toggle="tab" data-target="#box8" @click="active(),getDomain(8)">
+                        <img src="img/box8.png">
                         <p>一口价</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box10">
+                    <a  data-toggle="tab" data-target="#box9" @click="active(),getDomain(9)">
+                        <img src="img/box9.png">
+                        <p>竞价</p>
+                    </a>
+                </li>
+                <li>
+                    <a  data-toggle="tab" data-target="#box10" @click="active(),getDomain(10)">
                         <img src="img/box10.png">
-                        <p>拍卖</p>
+                        <p>询价</p>
                     </a>
                 </li>
             </ul>
             <!--第二行展示-->
             <div class="box">
-                <!--第1个-->
-                <ul id="box6" class="hidden">
-                    <!--第1列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#" class="clear_a">
-                                    <h6>推荐交易</h6>
-                                    <img src="img/HOT.png">
-                                    <p>专业域名注册平台全球注册量第一</p>
-                                </a>
-                                <a href="#" class="btn">立即注册</a>
-                            </li>
-                            <li>
-                                <a href="#" class="clear_a">
-                                    <h6>推荐注册</h6>
-                                    <p>右侧都是主流常用域名</p>
-                                </a>
-                                <a href="#" class="btn">立即注册</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第2列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <img src="img/gTLDs.png">
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第3列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <img src="img/gTLDs.png">
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                <ul id="box6" class="hidden">           
+                    <li v-for="item of datas">
+                        <a href="#">
+                            <h6 v-text="item.domainname"></h6>
+                            <p> <span>{{item.endTime}}</span>&nbsp;&nbsp;<br>
+                                <span>当前价格:{{item.offer}}</span>&nbsp;&nbsp;
+                                <span>出价次数:{{item.offer}}</span></p>
+                        </a>
+                    </li>                     
                     <p style="clear:both"></p>
                 </ul>
-                <!--第2个-->
                 <ul id="box7" class="hidden">
-                    <!--第1列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <img src="img/gTLDs.png">
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第2列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <img src="img/gTLDs.png">
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第3列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <img src="img/gTLDs.png">
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    <li v-for="item of datas">
+                        <a href="#">
+                            <h6 v-text="item.domainname"></h6>
+                            <p><span>剩余时间:{{item.endTime}}</span><span>出价次数:{{item.offer}}</span></p>
+                        </a>
+                    </li>                     
                     <p style="clear:both"></p>
                 </ul>
-                <!--第3个-->
                 <ul id="box8" class="hidden">
-                    <!--第1列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <img src="img/gTLDs.png">
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第2列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <img src="img/gTLDs.png">
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第3列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <img src="img/gTLDs.png">
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    <li v-for="item of datas">
+                        <a href="#">
+                            <h6 v-text="item.domainname"></h6>
+                            <p><span>剩余时间:{{item.endTime}}</span><span>出价次数:{{item.offer}}</span></p>
+                        </a>
+                    </li>                     
                     <p style="clear:both"></p>
                 </ul>
-                <!--第4个-->
                 <ul id="box9" class="hidden">
-                    <!--第1列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <img src="img/gTLDs.png">
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第2列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <img src="img/gTLDs.png">
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第3列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <img src="img/gTLDs.png">
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    <li v-for="item of datas">
+                        <a href="#">
+                            <h6 v-text="item.domainname"></h6>
+                            <p><span>剩余时间:{{item.endTime}}</span><span>出价次数:{{item.offer}}</span></p>
+                        </a>
+                    </li>                     
                     <p style="clear:both"></p>
                 </ul>
-                <!--第5个-->
                 <ul id="box10" class="hidden">
-                    <!--第1列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#" class="clear_a">
-                                    <h6>热门拍卖</h6>
-                                    <img src="img/HOT.png">
-                                    <p>专业域名注册平台全球注册量第一</p>
-                                </a>
-                                <a href="#" class="btn">立即出价</a>
-                            </li>
-                            <li>
-                                <a href="#" class="clear_a">
-                                    <h6>推荐注册</h6>
-                                    <p>右侧都是主流常用域名</p>
-                                </a>
-                                <a href="#" class="btn">立即注册</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第2列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <img src="img/gTLDs.png">
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第3列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <img src="img/gTLDs.png">
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>baidu.com</h6>
-                                    <p><span>剩余时间: 1天3小时25分32秒</span><span>出价次数: 26次</span></p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    <li v-for="item of datas">
+                        <a href="#">
+                            <h6 v-text="item.domainname"></h6>
+                            <p><span>剩余时间:{{item.endTime}}</span><span>出价次数:{{item.offer}}</span></p>
+                        </a>
+                    </li>                     
                     <p style="clear:both"></p>
                 </ul>
             </div>

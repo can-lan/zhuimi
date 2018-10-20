@@ -28,32 +28,80 @@
   });
 
 //2--box控制
-  var controls=document.querySelectorAll("[data-toggle='tab']");
-  for(var control of controls){
-      control.onclick=function(){
-        for(var con of controls){
-            con.className="";
-        }
-        this.className="visible";
-        var id=this.getAttribute("data-target");
-        var box=document.querySelector(id);
-        var boxs=box.parentNode.parentNode.children;
-        if(box.className=="") {
-            box.className = "hidden";
-            this.className="";
-        }else{
-            for(var b of boxs){
-                if(b.tagName=="DIV"){
-                    var c=b.children;
-                    for(var d of c){
-                        d.className="hidden";
-                    }
-                }
+  new Vue({
+    el:"#box",
+    data:{
+      datas:[],
+      endTime:[]
+    },
+    methods:{
+      //方法一:关闭所有盒子代开自己盒子,修改自己图片途径
+      active(){
+        var controls=document.querySelectorAll("[data-toggle='tab']");
+        for(var control of controls){
+          control.onclick=function(){
+            for(var con of controls){
+                con.className="";
             }
-            box.className="";
+            this.className="visible";
+            var id=this.getAttribute("data-target");
+            var box=document.querySelector(id);
+            console.log(box)
+            var boxs=box.parentNode.parentNode.children;
+            if(box.className=="") {
+              box.className = "hidden";
+              this.className="";
+            }else{
+              for(var b of boxs){
+                  if(b.tagName=="DIV"){
+                      var c=b.children;
+                      for(var d of c){
+                          d.className="hidden";
+                      }
+                  }
+              }
+              box.className="";
+            }
+          }
         }
-      }
-  }
+      },
+      getDomain(control){
+        //进行查询
+        $.ajax({
+          url:`http://localhost:7000/domain/sale?control=${control}`,
+          type:"get",
+          success:(res)=>{
+            this.datas=res;
+            console.log(this.datas)
+          }
+        });
+      },
+      getSaleTime(){
+        for(var item of this.datas){
+          this.endTime.push(item.endTime);
+        }
+        setInterval(()=>{
+          for(var i in this.endTime){
+              var end=new Date(this.endTime[i]);
+              var now = new Date();
+              var seconds =(end.getTime()-now.getTime())/1000;
+              seconds=Math.floor(seconds);
+              console.log(seconds)
+              var days = seconds/(24*60*60);
+              days = Math.floor(days);
+              var hours = seconds%(24*60*60)/(60*60);
+              hours = Math.floor(hours);
+              var minutes = seconds%(60*60)/60;
+              minutes = Math.floor(minutes);
+              var seconds = seconds%60;
+              seconds = Math.floor(seconds);
+              this.datas[i].endTime=('剩余时间'+days+'天'+hours+'小时'+minutes+'分钟'+seconds+'秒');
+          }
+        },1000)
+        
+      }        
+    }
+  });
 
 //3--轮播图2
   function banBefore(){

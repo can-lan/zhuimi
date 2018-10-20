@@ -435,6 +435,7 @@
 }
 #box .box a:after{
   content:">";
+  font-weight:bold;
   display:block;
   color:#F5F5F6;
   position:absolute;
@@ -442,7 +443,8 @@
   right:20px;
 }
 #box .box a:hover:after{
-  content:">";
+  content:"〉";
+  font-weight:bold;
   display:block;
   color:#00C1DE;
   position:absolute;
@@ -463,6 +465,8 @@
 }
 .box h6{
   font-size:16px;
+  font-weight:600;
+  color:#00C1DE;
   display:inline-block;
 }
 .box img{

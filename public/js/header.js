@@ -12,7 +12,7 @@ $(function(){
     })
     //请求2个栏目表
     var res=await $.ajax({
-        url:'http://localhost:7000/index',
+        url:'http://localhost:7000/header',
         type:'get',
     });
 
