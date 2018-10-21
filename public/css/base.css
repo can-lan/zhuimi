@@ -38,6 +38,9 @@ a:hover{
 .lt:hover::after{
   color:#00c1de;
 }
-.small{
+.small{ 
   font-size:15px;
 }
+.cblack{color:rgb(31, 25, 25) !important;}
+.cred{color:#b91d39 !important;}
+.cblue{color:#00c1de !important;}

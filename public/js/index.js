@@ -32,7 +32,7 @@
     el:"#box",
     data:{
       datas:[],
-      endTime:[]
+      saleTime:[]
     },
     methods:{
       //方法一:关闭所有盒子代开自己盒子,修改自己图片途径
@@ -78,15 +78,15 @@
       },
       getSaleTime(){
         for(var item of this.datas){
-          this.endTime.push(item.endTime);
+          this.saleTime.push(item.endTime);
+          
         }
         setInterval(()=>{
-          for(var i in this.endTime){
-              var end=new Date(this.endTime[i]);
+          for(var i=0;i<=14;i++){
+              var end=new Date(this.saleTime[i]);
               var now = new Date();
               var seconds =(end.getTime()-now.getTime())/1000;
               seconds=Math.floor(seconds);
-              console.log(seconds)
               var days = seconds/(24*60*60);
               days = Math.floor(days);
               var hours = seconds%(24*60*60)/(60*60);
