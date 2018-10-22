@@ -21,6 +21,21 @@ router.get('/sale',(req,res)=>{
     case 10: //询价
       sql='SELECT * FROM zm_sale WHERE saleType="xj" ORDER BY endTime desc LIMIT 0,15';
       break;
+    case 11: //热拍热卖
+      sql='SELECT * FROM zm_sale ORDER BY offer DESC LIMIT 0,15';
+      break;
+    case 12: //即将结束
+      sql='SELECT * FROM zm_sale ORDER BY endTime LIMIT 0,15';
+      break;
+    case 13: //一口价
+      sql='SELECT * FROM zm_sale WHERE saleType="ykj" ORDER BY endTime LIMIT 0,15';
+      break;
+    case 14: //竞价
+      sql='SELECT * FROM zm_sale WHERE saleType="jj" ORDER BY endTime LIMIT 0,15';
+      break;
+    case 15: //询价
+      sql='SELECT * FROM zm_sale WHERE saleType="xj" ORDER BY endTime desc LIMIT 0,15';
+      break;
     default:
       sql='SELECT * FROM zm_sale';
       break;

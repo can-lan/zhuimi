@@ -26,9 +26,8 @@
        }
     }
   });
-//2--console控制1:点击当前元素,①替换所有及当前元素图片src,②将所有box关闭,展开自己对应box,③为当前元素添加三角形下标志,取消其他下标志
-  
-//2--console控制2:
+
+//2--console控制1:
   new Vue({
     el:"#box",
     data:{
@@ -37,10 +36,11 @@
     methods:{
       getDomain(control){
         $.ajax({  //进行查询
-          url:`http://localhost:7000/domain/sale?control=${control}`,
+          url:`/domain/sale?control=${control}`,
           type:"get",
           success:(res)=>{
             this.datas=res;
+            console.log(this.datas)
             //每秒计算一次endTime-nowTime
             setInterval(()=>{
               for(var i in this.datas){
@@ -64,6 +64,33 @@
       }        
     }
   });
+//2--console控制1:点击当前元素,①替换所有及当前元素图片src,②将所有box关闭,展开自己对应box,③为当前元素添加三角形下标志,取消其他下标志
+var controls=$("[data-toggle='tab']");
+var boxs=$(".box>ul")
+for(var control of controls){
+  control.onclick=function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    var id=this.getAttribute("data-target");
+    if(!$(id).hasClass("hidden")){  //如果当前box没有hidden,是显示的
+      $(this).children("img").attr("src","/img/index/"+id.slice(1)+".png");//当前control下的img换原图片
+      $(id).addClass("hidden");     //让当前boxhidden
+      this.className="";            //让当前control取消三角形下标志
+    }else{                              
+      for(var box of boxs){           
+        box.className="hidden";     //否则所有box隐藏
+      } 
+      $(id).removeClass("hidden");  //当前box显示
+      for(var control2 of controls){
+        control2.className="";  //所有control移出三角形下标志
+        var id2=control2.getAttribute("data-target");
+        $(control2).children("img").attr("src","/img/index/"+id2.slice(1)+".png");//所有control下的img换原图片
+      }
+      this.className="visible"; //为当前control添加三角形下标志
+      $(this).children("img").attr("src","/img/index/"+id.slice(1)+"-bg.png");//当前control下的img换背景图片
+    }
+  }
+}
 
 //3--轮播图2
   function banBefore(){
@@ -86,29 +113,3 @@
       }
   });
 
-  var controls=$("[data-toggle='tab']");
-  var boxs=$(".box>ul")
-  for(var control of controls){
-    control.onclick=function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      var id=this.getAttribute("data-target");
-      if(!$(id).hasClass("hidden")){  //如果当前box没有hidden,是显示的
-        $(this).children("img").attr("src","/img/index/"+id.slice(1)+".png");//当前control下的img换原图片
-        $(id).addClass("hidden");     //让当前boxhidden
-        this.className="";            //让当前control取消三角形下标志
-      }else{                              
-        for(var box of boxs){           
-          box.className="hidden";     //否则所有box隐藏
-        } 
-        $(id).removeClass("hidden");  //当前box显示
-        for(var control2 of controls){
-          control2.className="";  //所有control移出三角形下标志
-          var id2=control2.getAttribute("data-target");
-          $(control2).children("img").attr("src","/img/index/"+id2.slice(1)+".png");//所有control下的img换原图片
-        }
-        this.className="visible"; //为当前control添加三角形下标志
-        $(this).children("img").attr("src","/img/index/"+id.slice(1)+"-bg.png");//当前control下的img换背景图片
-      }
-    }
-  }

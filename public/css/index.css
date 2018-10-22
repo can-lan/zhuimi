@@ -393,9 +393,6 @@
 #box>.control>li>a>img{
   width:80px;
 }
-#box>.control>li>a>p{
-  margin-top:0;
-}
 #box>.control>li{
   color:#000;
   text-align: center;
@@ -407,11 +404,13 @@
 #box .box{
   width:100%;
   background:#F5F5F6;
+  padding-left:30px;
 }
 #box .box>ul{
   width:1200px;
   margin:0 auto;
   padding-top:20px;
+  padding-bottom:20px;
   transform: all 3s linear;
 }
 .box>ul.hidden{
@@ -419,11 +418,40 @@
 }
 #box .box>ul>li{
   float:left;
-  width:33.3%;
+  width:33.33333%;
 }
 #box .box p{
   color:#9b9ea0;
   font-size:13px;
+}
+#box>div.box:not(:nth-child(2)) a>p{
+  color:#9b9ea0;
+  font-size:13px;
+  float:left;
+  line-height:25px;
+}
+#box div.box:not(:nth-child(2)) a>p:first-child{
+  width:200px;
+}
+#box .box .domainname{
+  color:#00c1de;
+  font-size:17px;
+  font-weight:bold;
+}
+#box .box .startPrice{
+  color:red;
+
+}
+#box .box .saleTime{
+  color:#888;
+
+}
+#box .box .offer{
+  color:#00a2ca;
+
+}
+#box div.box:nth-child(2) p{
+  margin-top:7px;
 }
 #box .box a{
   display:block;
@@ -457,7 +485,8 @@
 }
 #box .box a:hover{
   background:#fff;
-  box-shadow: 0 0 8px 0 rgba(0,0,0,.15)
+  box-shadow: 0 0 8px 0 rgba(0,0,0,.15);
+  border-radius:3px;
 }
 .box .clear_a:hover{
   background:#F5F5F6 !important;
@@ -474,7 +503,7 @@
 }
 .box img{
   width:26px;
-  margin-bottom:15px;
+  margin-bottom:5px;
   margin-left:5px;
 }
 .box .clear_a h6{
@@ -486,15 +515,19 @@
 .box .clear_a h6:hover{
   color:#00C1DE;
 }
+#box1 li:first-child p{
+  margin-top:15px !important;
+}
 .box .btn{
   display:block;
   width:100px !important;
   height:30px !important;
   border:1px solid #373d41;
   line-height:10px !important;
-  border-radius:0;
-  margin-bottom:50px;
-  margin-left:20px;
+  border-radius:2px;
+  margin-top:12px;
+  margin-bottom:30px;
+  margin-left:30px;
 }
 .box .btn:hover{
   border:1px solid #00C1DE;
@@ -503,6 +536,9 @@
 }
 .box .btn:after{
   content:"" !important;
+}
+#box1{
+  padding-left:35px;
 }
 .box .btn:hover:after{
   content:"" !important;
@@ -582,7 +618,7 @@
   width:20px;
   padding:0 2px;
   border-bottom:2px solid #fff;
-  margin:20px auto 0;
+  margin:30px auto 0;
   transition: all .5s linear;
 }
 #ban h4{
@@ -620,7 +656,7 @@
   color:#bbb;
   font-size:32px;
   line-height:415px;
-  text-align: center;
+  text-align: left;
   cursor: pointer;
   overflow: hidden;
   transition: all .4s linear;
@@ -635,7 +671,7 @@
   color:#bbb;
   font-size:32px;
   line-height:415px;
-  text-align: center;
+  text-align: right;
   cursor: pointer;
   overflow: hidden;
   transition: all .4s linear;

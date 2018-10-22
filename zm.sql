@@ -29,7 +29,7 @@ CREATE TABLE zm_sale(
     offer INT,                          #出价次数
     nowPrice INT,                      #当前价格
     star INT DEFAULT 0,                #推荐指数取值 1,2,3,4,5 用来按推荐排序
-    saleTime VARCHAR(32) DEFAULT ''
+    saleTime VARCHAR(32) DEFAULT ''    #截止交易结束剩余时间,默认空,前端计算获得
 );
 /*抢注竞价域名表*/
 

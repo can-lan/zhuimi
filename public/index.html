@@ -191,7 +191,7 @@
                             </li>
                             <li>
                                 <a href="#" class="clear_a">
-                                    <h6>推荐注册</h6>
+                                    <h6>推荐域名注册</h6>
                                     <p>右侧都是主流常用域名</p>
                                 </a>
                                 <a href="#" class="btn">立即注册</a>
@@ -472,7 +472,7 @@
                     <p style="clear:both"></p>
                 </ul>
                 <!--box5 中文域名-->
-                <ul id="box5" class="hidden" @click="active($event)">
+                <ul id="box5" class="hidden">
                     <!--第1列-->
                     <li>
                         <a href="#">
@@ -560,25 +560,25 @@
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box7" @click="getDomain(7);getSaleTime()">
+                    <a  data-toggle="tab" data-target="#box7" @click="getDomain(7)">
                         <img src="img/index/box7.png">
                         <p>即将结束</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box8" @click="getDomain(8);getSaleTime()">
+                    <a  data-toggle="tab" data-target="#box8" @click="getDomain(8)">
                         <img src="img/index/box8.png">
                         <p>一口价</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box9" @click="getDomain(9);getSaleTime()">
+                    <a  data-toggle="tab" data-target="#box9" @click="getDomain(9)">
                         <img src="img/index/box9.png">
                         <p>竞价</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box10" @click="getDomain(10);getSaleTime()">
+                    <a  data-toggle="tab" data-target="#box10" @click="getDomain(10)">
                         <img src="img/index/box10.png">
                         <p>询价</p>
                     </a>
@@ -589,11 +589,13 @@
                 <ul id="box6" class="hidden">           
                     <li v-for="item of datas">
                         <a href="#">
-                            <h6 v-text="item.domainname"></h6>
                             <p>
-                                <span>剩余: {{item.saleTime}}</span><br>
-                                <span>当前价格: {{item.offer}}</span>&nbsp;&nbsp;
-                                <span>出价次数: {{item.offer}}</span>
+                                <span class="domainname" v-text="item.domainname"></span><br>
+                                <span>剩余: </span><span class="saleTime" v-text="item.saleTime"></span>
+                            </p>
+                            <p>
+                                <span>当前价格: </span><span class="startPrice">{{item.startPrice}} ¥</span><br>
+                                <span>出价次数: </span><span class="offer" v-text="item.offer"></span>
                             </p>
                         </a>
                     </li>                     
@@ -602,11 +604,13 @@
                 <ul id="box7" class="hidden">
                     <li v-for="item of datas">
                         <a href="#">
-                            <h6 v-text="item.domainname"></h6>
                             <p>
-                                <span>剩余: {{item.saleTime}}</span><br>
-                                <span>当前价格: {{item.offer}}</span>&nbsp;&nbsp;
-                                <span>出价次数: {{item.offer}}</span>
+                                <span class="domainname" v-text="item.domainname"></span><br>
+                                <span>剩余: </span><span class="saleTime" v-text="item.saleTime"></span>
+                            </p>
+                            <p>
+                                <span>当前价格: </span><span class="startPrice">{{item.startPrice}} ¥</span><br>
+                                <span>出价次数: </span><span class="offer" v-text="item.offer"></span>
                             </p>
                         </a>
                     </li>                     
@@ -615,11 +619,13 @@
                 <ul id="box8" class="hidden">
                     <li v-for="item of datas">
                         <a href="#">
-                            <h6 v-text="item.domainname"></h6>
                             <p>
-                                <span>剩余: {{item.endTime}}</span><br>
-                                <span>当前价格: {{item.offer}}</span>&nbsp;&nbsp;
-                                <span>出价次数: {{item.offer}}</span>
+                                <span class="domainname" v-text="item.domainname"></span><br>
+                                <span>剩余: </span><span class="saleTime" v-text="item.saleTime"></span>
+                            </p>
+                            <p>
+                                <span>当前价格: </span><span class="startPrice">{{item.startPrice}} ¥</span><br>
+                                <span>出价次数: </span><span class="offer" v-text="item.offer"></span>
                             </p>
                         </a>
                     </li>                     
@@ -628,11 +634,13 @@
                 <ul id="box9" class="hidden">
                     <li v-for="item of datas">
                         <a href="#">
-                            <h6 v-text="item.domainname"></h6>
                             <p>
-                                <span>剩余: {{item.endTime}}</span><br>
-                                <span>当前价格: {{item.offer}}</span>&nbsp;&nbsp;
-                                <span>出价次数: {{item.offer}}</span>
+                                <span class="domainname" v-text="item.domainname"></span><br>
+                                <span>剩余: </span><span class="saleTime" v-text="item.saleTime"></span>
+                            </p>
+                            <p>
+                                <span>当前价格: </span><span class="startPrice">{{item.startPrice}} ¥</span><br>
+                                <span>出价次数: </span><span class="offer" v-text="item.offer"></span>
                             </p>
                         </a>
                     </li>                     
@@ -641,11 +649,13 @@
                 <ul id="box10" class="hidden">
                     <li v-for="item of datas">
                         <a href="#">
-                            <h6 v-text="item.domainname"></h6>
                             <p>
-                                <span>剩余: {{item.endTime}}</span><br>
-                                <span>当前价格: {{item.offer}}</span>&nbsp;&nbsp;
-                                <span>出价次数: {{item.offer}}</span>
+                                <span class="domainname" v-text="item.domainname"></span><br>
+                                <span>剩余: </span><span class="saleTime" v-text="item.saleTime"></span>
+                            </p>
+                            <p>
+                                <span>当前价格: </span><span class="startPrice">{{item.startPrice}} ¥</span><br>
+                                <span>出价次数: </span><span class="offer" v-text="item.offer"></span>
                             </p>
                         </a>
                     </li>                     
@@ -655,31 +665,31 @@
             <!--第三行控制-->
             <ul class="control">
                 <li>
-                    <a  data-toggle="tab" data-target="#box11">
+                    <a  data-toggle="tab" data-target="#box11" @click="getDomain(11)">
                         <img src="img/index/box11.png">
                         <p>推荐预定</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box12">
+                    <a  data-toggle="tab" data-target="#box12" @click="getDomain(12)">
                         <img src="img/index/box12.png">
                         <p>国内域名预定</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box13">
+                    <a  data-toggle="tab" data-target="#box13" @click="getDomain(13)">
                         <img src="img/index/box13.png">
                         <p>国际域名预定</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box14">
+                    <a  data-toggle="tab" data-target="#box14" @click="getDomain(14)">
                         <img src="img/index/box14.png">
                         <p>热门竞价</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box15">
+                    <a  data-toggle="tab" data-target="#box15" @click="getDomain(15)">
                         <img src="img/index/box15.png">
                         <p>即将结束</p>
                     </a>
@@ -690,11 +700,13 @@
                 <ul id="box11" class="hidden">           
                     <li v-for="item of datas">
                         <a href="#">
-                            <h6 v-text="item.domainname"></h6>
                             <p>
-                                <span>剩余: {{item.endTime}}</span><br>
-                                <span>当前价格: {{item.offer}}</span>&nbsp;&nbsp;
-                                <span>出价次数: {{item.offer}}</span>
+                                <span class="domainname" v-text="item.domainname"></span><br>
+                                <span>剩余: </span><span class="saleTime" v-text="item.saleTime"></span>
+                            </p>
+                            <p>
+                                <span>当前价格: </span><span class="startPrice">{{item.startPrice}} ¥</span><br>
+                                <span>出价次数: </span><span class="offer" v-text="item.offer"></span>
                             </p>
                         </a>
                     </li>                     
@@ -703,11 +715,13 @@
                 <ul id="box12" class="hidden">
                     <li v-for="item of datas">
                         <a href="#">
-                            <h6 v-text="item.domainname"></h6>
                             <p>
-                                <span>剩余: {{item.endTime}}</span><br>
-                                <span>当前价格: {{item.offer}}</span>&nbsp;&nbsp;
-                                <span>出价次数: {{item.offer}}</span>
+                                <span class="domainname" v-text="item.domainname"></span><br>
+                                <span>剩余: </span><span class="saleTime" v-text="item.saleTime"></span>
+                            </p>
+                            <p>
+                                <span>当前价格: </span><span class="startPrice">{{item.startPrice}} ¥</span><br>
+                                <span>出价次数: </span><span class="offer" v-text="item.offer"></span>
                             </p>
                         </a>
                     </li>                     
@@ -716,11 +730,13 @@
                 <ul id="box13" class="hidden">
                     <li v-for="item of datas">
                         <a href="#">
-                            <h6 v-text="item.domainname"></h6>
                             <p>
-                                <span>剩余: {{item.endTime}}</span><br>
-                                <span>当前价格: {{item.offer}}</span>&nbsp;&nbsp;
-                                <span>出价次数: {{item.offer}}</span>
+                                <span class="domainname" v-text="item.domainname"></span><br>
+                                <span>剩余: </span><span class="saleTime" v-text="item.saleTime"></span>
+                            </p>
+                            <p>
+                                <span>当前价格: </span><span class="startPrice">{{item.startPrice}} ¥</span><br>
+                                <span>出价次数: </span><span class="offer" v-text="item.offer"></span>
                             </p>
                         </a>
                     </li>                     
@@ -729,11 +745,13 @@
                 <ul id="box14" class="hidden">
                     <li v-for="item of datas">
                         <a href="#">
-                            <h6 v-text="item.domainname"></h6>
                             <p>
-                                <span>剩余: {{item.endTime}}</span><br>
-                                <span>当前价格: {{item.offer}}</span>&nbsp;&nbsp;
-                                <span>出价次数: {{item.offer}}</span>
+                                <span class="domainname" v-text="item.domainname"></span><br>
+                                <span>剩余: </span><span class="saleTime" v-text="item.saleTime"></span>
+                            </p>
+                            <p>
+                                <span>当前价格: </span><span class="startPrice">{{item.startPrice}} ¥</span><br>
+                                <span>出价次数: </span><span class="offer" v-text="item.offer"></span>
                             </p>
                         </a>
                     </li>                     
@@ -742,11 +760,13 @@
                 <ul id="box15" class="hidden">
                     <li v-for="item of datas">
                         <a href="#">
-                            <h6 v-text="item.domainname"></h6>
                             <p>
-                                <span>剩余: {{item.endTime}}</span><br>
-                                <span>当前价格: {{item.offer}}</span>&nbsp;&nbsp;
-                                <span>出价次数: {{item.offer}}</span>
+                                <span class="domainname" v-text="item.domainname"></span><br>
+                                <span>剩余: </span><span class="saleTime" v-text="item.saleTime"></span>
+                            </p>
+                            <p>
+                                <span>当前价格: </span><span class="startPrice">{{item.startPrice}} ¥</span><br>
+                                <span>出价次数: </span><span class="offer" v-text="item.offer"></span>
                             </p>
                         </a>
                     </li>                     
@@ -887,8 +907,8 @@
                 </div>
             </li>
         </ul>
-        <p class="before" onclick="banBefore()">&lt;</p>
-        <p class="next" onclick="banNext()">&gt;</p>
+        <p class="before" onclick="banBefore()">〈</p>
+        <p class="next" onclick="banNext()">〉</p>
     </div>
     <!--域名经纪-->
     <div id="broker">
