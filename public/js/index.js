@@ -26,79 +26,41 @@
        }
     }
   });
-
-//2--box控制
+//2--console控制1:点击当前元素,①替换所有及当前元素图片src,②将所有box关闭,展开自己对应box,③为当前元素添加三角形下标志,取消其他下标志
+  
+//2--console控制2:
   new Vue({
     el:"#box",
     data:{
-      datas:[],
-      saleTime:[]
+      datas:[]
     },
     methods:{
-      //方法一:关闭所有盒子代开自己盒子,修改自己图片途径
-      active(){
-        var controls=document.querySelectorAll("[data-toggle='tab']");
-        for(var control of controls){
-          control.onclick=function(){
-            for(var con of controls){
-                con.className="";
-            }
-            this.className="visible";
-            var id=this.getAttribute("data-target");
-            var box=document.querySelector(id);
-            console.log(box)
-            var boxs=box.parentNode.parentNode.children;
-            if(box.className=="") {
-              box.className = "hidden";
-              this.className="";
-            }else{
-              for(var b of boxs){
-                  if(b.tagName=="DIV"){
-                      var c=b.children;
-                      for(var d of c){
-                          d.className="hidden";
-                      }
-                  }
-              }
-              box.className="";
-            }
-          }
-        }
-      },
       getDomain(control){
-        //进行查询
-        $.ajax({
+        $.ajax({  //进行查询
           url:`http://localhost:7000/domain/sale?control=${control}`,
           type:"get",
           success:(res)=>{
             this.datas=res;
-            console.log(this.datas)
+            //每秒计算一次endTime-nowTime
+            setInterval(()=>{
+              for(var i in this.datas){
+                var end=new Date(this.datas[i].endTime);
+                var now = new Date();
+                var seconds =(end.getTime()-now.getTime())/1000;
+                seconds=Math.floor(seconds);
+                var days = seconds/(24*60*60);
+                days = Math.floor(days);
+                var hours = seconds%(24*60*60)/(60*60);
+                hours = Math.floor(hours);
+                var minutes = seconds%(60*60)/60;
+                minutes = Math.floor(minutes);
+                var seconds = seconds%60;
+                seconds = Math.floor(seconds);
+                this.datas[i].saleTime=`${days}天${hours}小时${minutes}分钟${seconds}秒`;
+              }
+            },1000) 
           }
         });
-      },
-      getSaleTime(){
-        for(var item of this.datas){
-          this.saleTime.push(item.endTime);
-          
-        }
-        setInterval(()=>{
-          for(var i=0;i<=14;i++){
-              var end=new Date(this.saleTime[i]);
-              var now = new Date();
-              var seconds =(end.getTime()-now.getTime())/1000;
-              seconds=Math.floor(seconds);
-              var days = seconds/(24*60*60);
-              days = Math.floor(days);
-              var hours = seconds%(24*60*60)/(60*60);
-              hours = Math.floor(hours);
-              var minutes = seconds%(60*60)/60;
-              minutes = Math.floor(minutes);
-              var seconds = seconds%60;
-              seconds = Math.floor(seconds);
-              this.datas[i].endTime=('剩余时间'+days+'天'+hours+'小时'+minutes+'分钟'+seconds+'秒');
-          }
-        },1000)
-        
       }        
     }
   });
@@ -123,41 +85,30 @@
         }
       }
   });
-/*
- *废弃--->第一版jquery--->请求替换导航栏
- *第二版Vue请求导航栏---在header.js
-(async function(){
-    var res=await ajax({
-        url:"http://localhost:7000/index/",
-        type:"get",
-        dataType:"json"
-    });
-    var {firstlist,secondlist}=res;
-    var html1="";
-    for(var fls of firstlist){
-        var {fname,fid}=fls;
-        var fid1=fid;
-        var html2="";
 
-        for(var sls of secondlist){
-            var {sname,fid}=sls;
-            var fid2=fid;
-            if(fid1==fid2){
-                html2+=`<li><a href="#">${sname}</a></li>`
-            }
+  var controls=$("[data-toggle='tab']");
+  var boxs=$(".box>ul")
+  for(var control of controls){
+    control.onclick=function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var id=this.getAttribute("data-target");
+      if(!$(id).hasClass("hidden")){  //如果当前box没有hidden,是显示的
+        $(this).children("img").attr("src","/img/index/"+id.slice(1)+".png");//当前control下的img换原图片
+        $(id).addClass("hidden");     //让当前boxhidden
+        this.className="";            //让当前control取消三角形下标志
+      }else{                              
+        for(var box of boxs){           
+          box.className="hidden";     //否则所有box隐藏
+        } 
+        $(id).removeClass("hidden");  //当前box显示
+        for(var control2 of controls){
+          control2.className="";  //所有control移出三角形下标志
+          var id2=control2.getAttribute("data-target");
+          $(control2).children("img").attr("src","/img/index/"+id2.slice(1)+".png");//所有control下的img换原图片
         }
-
-        html1 +=`<div class="col-1 position-relative">
-                    <a href="#">${fname}</a>
-                    <ul class="list-unstyled position-absolute bg-white pt-2 pb-2">
-                    ${html2}
-                    <div class="arrow"></div>
-                    </ul>
-                </div>`;
+        this.className="visible"; //为当前control添加三角形下标志
+        $(this).children("img").attr("src","/img/index/"+id.slice(1)+"-bg.png");//当前control下的img换背景图片
+      }
     }
-    html1 =`<div class="col-1"><a href="#" class="text-color">首页</a></div>${html1}<div class="col-4"></div>
-        <div class="col-1 register"><a href="#" class="text-white">免费注册</a></div>`;
-    //将html插入导航栏.nav2
-    document.querySelector(".nav2").innerHTML=html1;
-})()
-*/
+  }

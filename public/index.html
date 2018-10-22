@@ -141,43 +141,43 @@
         </div>
         <!--15个box-->
         <div id="box">
-            <!--第一行控制-->
+            <!--第一行control-->
             <ul class="control">
                 <li>
-                    <a  data-toggle="tab" data-target="#box1" @click="active();getDomain(1)">
-                        <img src="img/box1.png">
+                    <a  data-toggle="tab" data-target="#box1" class="visible">
+                        <img src="img/index/box1-bg.png">
                         <p>推荐注册</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box2" @click="active();getDomain(2)">
-                        <img src="img/box2.png">
+                    <a  data-toggle="tab" data-target="#box2">
+                        <img src="img/index/box2.png">
                         <p>热销域名</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box3" @click="active(),getDomain(3)">
-                        <img src="img/box3.png">
+                    <a  data-toggle="tab" data-target="#box3">
+                        <img src="img/index/box3.png">
                         <p>国别域名</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box4" @click="active(),getDomain(4)">
-                        <img src="img/box4.png">
+                    <a  data-toggle="tab" data-target="#box4">
+                        <img src="img/index/box4.png">
                         <p>新顶级域名</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box5" @click="active(),getDomain(5)">
-                        <img src="img/box5.png">
+                    <a  data-toggle="tab" data-target="#box5">
+                        <img src="img/index/box5.png">
                         <p>中文域名</p>
                     </a>
                 </li>
             </ul>
-            <!--第一行展示-->       
+            <!--第一行box-->       
             <div class="box">
-                <!--第1个 推荐注册-->
-                <ul id="box1">
+                <!--box1 推荐注册-->
+                <ul id="box1" @click="active($event)">
                     <!--第1列-->
                     <li>
                         <ul>
@@ -199,385 +199,354 @@
                         </ul>
                     </li>
                     <!--第2列-->
+                    <li>                       
+                        <a href="#">
+                            <h6>.COM</h6>
+                            <img src="img/gTLDs.png">
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
                     <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.COM</h6>
-                                    <img src="img/gTLDs.png">
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.CN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.COM.CN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.NET</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
+                        <a href="#">
+                            <h6>.CN</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.COM.CN</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.NET</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>                    
                     </li>
                     <!--第3列-->
+                    <li>              
+                        <a href="#">
+                            <h6>.CC</h6>
+                            <img src="img/gTLDs.png">
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
                     <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.CC</h6>
-                                    <img src="img/gTLDs.png">
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.TV</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.APP</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.IO</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
+                        <a href="#">
+                            <h6>.TV</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.APP</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.IO</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
                     </li>
                     <p style="clear:both"></p>
                 </ul>
-                <!--第2个 热销域名-->
-                <ul id="box2" class="hidden">
+                <!--box2 热销域名-->
+                <ul id="box2" class="hidden" @click="active($event)">
                     <!--第1列-->
+                    <li> 
+                        <a href="#">
+                            <h6>.TOP</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
                     <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.COM</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.CN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.NET</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
+                        <a href="#">
+                            <h6>.WANG</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.VIP</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
                     </li>
                     <!--第2列-->
+                    <li> 
+                        <a href="#">
+                            <h6>.TOP</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
                     <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.TOP</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.WANG</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.VIP</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
+                        <a href="#">
+                            <h6>.WANG</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.VIP</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
                     </li>
                     <!--第3列-->
+                    <li>  
+                        <a href="#">
+                            <h6>.APP</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
                     <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.APP</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.XYZ</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.CC</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
+                        <a href="#">
+                            <h6>.XYZ</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.CC</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
                     </li>
                     <p style="clear:both"></p>
                 </ul>
-                <!--第3个 国别域名-->
-                <ul id="box3" class="hidden">
+                <!--box3 国别域名-->
+                <ul id="box3" class="hidden" @click="active($event)">
                     <!--第1列-->
                     <li>
-                        <ul>
-                            <li>
-                                <a href="#" class="clear_a">
-                                    <h6>国别域名</h6>
-                                    <img src="img/HOT.png">
-                                    <p>代表国家</p>
-                                </a>
-                                <a href="#" class="btn">立即注册</a>
-                            </li>
-                            <li>
-                                <a href="#" class="clear_a">
-                                    <h6>推荐注册</h6>
-                                    <p>右侧都是主流常用域名</p>
-                                </a>
-                                <a href="#" class="btn">立即注册</a>
-                            </li>
-                        </ul>
+                        <a href="#">
+                            <h6>.CN</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.CO</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.CC</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.TV</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
                     </li>
                     <!--第2列-->
                     <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.CN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.CO</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.CC</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.TV</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
+                        <a href="#">
+                            <h6>.CN</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.CO</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.CC</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.TV</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
                     </li>
                     <!--第3列-->
                     <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.DE</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.US</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.IT</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.ME</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
+                        <a href="#">
+                            <h6>.DE</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.US</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.IT</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.ME</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
                     </li>
                     <p style="clear:both"></p>
                 </ul>
-                <!--第4个 新顶级域名-->
-                <ul id="box4" class="hidden">
+                <!--box4 新顶级域名-->
+                <ul id="box4" class="hidden" @click="active($event)">
                     <!--第1列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#" class="clear_a">
-                                    <h6>新顶级域名</h6>
-                                    <img src="img/HOT.png">
-                                    <p>nTLDs</p>
-                                </a>
-                                <a href="#" class="btn">立即注册</a>
-                            </li>
-                            <li>
-                                <a href="#" class="clear_a">
-                                    <h6>推荐注册</h6>
-                                    <p>右侧都是主流常用域名</p>
-                                </a>
-                                <a href="#" class="btn">立即注册</a>
-                            </li>
-                        </ul>
+                    <li>   
+                        <a href="#">
+                            <h6>.LTD</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
                     </li>
+                    <li>
+                        <a href="#">
+                            <h6>.CLUB</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.WANG</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.VIP</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li> 
                     <!--第2列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.LTD</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.CLUB</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.WANG</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.VIP</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
+                    <li>   
+                        <a href="#">
+                            <h6>.LTD</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
                     </li>
-                    <!--第3列-->
                     <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.XIN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.SHOP</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.TEAM</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    <h6>.LOVE</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
+                        <a href="#">
+                            <h6>.CLUB</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.WANG</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.VIP</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>  
+                    <!--第3列-->
+                    <li>            
+                        <a href="#">
+                            <h6>.XIN</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.SHOP</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.TEAM</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.LOVE</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>            
                     </li>
                     <p style="clear:both"></p>
                 </ul>
-                <!--第5个 中文域名-->
-                <ul id="box5" class="hidden">
+                <!--box5 中文域名-->
+                <ul id="box5" class="hidden" @click="active($event)">
                     <!--第1列-->
                     <li>
-                        <ul>
-                            <li>
-                                <a href="#" class="clear_a">
-                                    <h6>中文域名</h6>
-                                    <img src="img/HOT.png">
-                                    <p>以中文为后缀的域名</p>
-                                </a>
-                                <a href="#" class="btn">立即注册</a>
-                            </li>
-                            <li>
-                                <a href="#" class="clear_a">
-                                    <h6>推荐注册</h6>
-                                    <p>右侧都是主流常用域名</p>
-                                </a>
-                                <a href="#" class="btn">立即注册</a>
-                            </li>
-                        </ul>
+                        <a href="#">
+                            <h6>.中国</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.公司</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.网络</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.集团</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
                     </li>
                     <!--第2列-->
                     <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.中国</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.公司</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.网络</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.集团</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
+                        <a href="#">
+                            <h6>.中国</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.公司</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.网络</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.集团</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
                     </li>
                     <!--第3列-->
                     <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.网址</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.在线</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.游戏</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    <h6>.我爱你</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
+                        <a href="#">
+                            <h6>.网址</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.在线</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.游戏</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h6>.我爱你</h6>
+                            <p>com是全球注册量第一的顶级域名</p>
+                        </a>
                     </li>
                     <p style="clear:both"></p>
                 </ul>
@@ -585,32 +554,32 @@
             <!--第二行控制-->
             <ul class="control">
                 <li>
-                    <a  data-toggle="tab" data-target="#box6" @click="active();getDomain(6);getSaleTime()">
-                        <img src="img/box6.png">
+                    <a  data-toggle="tab" data-target="#box6" @click="getDomain(6)">
+                        <img src="img/index/box6.png">
                         <p>热拍热卖</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box7" @click="active();getDomain(7);getSaleTime()">
-                        <img src="img/box7.png">
+                    <a  data-toggle="tab" data-target="#box7" @click="getDomain(7);getSaleTime()">
+                        <img src="img/index/box7.png">
                         <p>即将结束</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box8" @click="active();getDomain(8);getSaleTime()">
-                        <img src="img/box8.png">
+                    <a  data-toggle="tab" data-target="#box8" @click="getDomain(8);getSaleTime()">
+                        <img src="img/index/box8.png">
                         <p>一口价</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box9" @click="active();getDomain(9);getSaleTime()">
-                        <img src="img/box9.png">
+                    <a  data-toggle="tab" data-target="#box9" @click="getDomain(9);getSaleTime()">
+                        <img src="img/index/box9.png">
                         <p>竞价</p>
                     </a>
                 </li>
                 <li>
-                    <a  data-toggle="tab" data-target="#box10" @click="active();getDomain(10);getSaleTime()">
-                        <img src="img/box10.png">
+                    <a  data-toggle="tab" data-target="#box10" @click="getDomain(10);getSaleTime()">
+                        <img src="img/index/box10.png">
                         <p>询价</p>
                     </a>
                 </li>
@@ -622,7 +591,7 @@
                         <a href="#">
                             <h6 v-text="item.domainname"></h6>
                             <p>
-                                <span>剩余: {{item.endTime}}</span><br>
+                                <span>剩余: {{item.saleTime}}</span><br>
                                 <span>当前价格: {{item.offer}}</span>&nbsp;&nbsp;
                                 <span>出价次数: {{item.offer}}</span>
                             </p>
@@ -635,7 +604,7 @@
                         <a href="#">
                             <h6 v-text="item.domainname"></h6>
                             <p>
-                                <span>剩余: {{item.endTime}}</span><br>
+                                <span>剩余: {{item.saleTime}}</span><br>
                                 <span>当前价格: {{item.offer}}</span>&nbsp;&nbsp;
                                 <span>出价次数: {{item.offer}}</span>
                             </p>
@@ -687,428 +656,103 @@
             <ul class="control">
                 <li>
                     <a  data-toggle="tab" data-target="#box11">
-                        <img src="img/box11.png">
+                        <img src="img/index/box11.png">
                         <p>推荐预定</p>
                     </a>
                 </li>
                 <li>
                     <a  data-toggle="tab" data-target="#box12">
-                        <img src="img/box12.png">
+                        <img src="img/index/box12.png">
                         <p>国内域名预定</p>
                     </a>
                 </li>
                 <li>
                     <a  data-toggle="tab" data-target="#box13">
-                        <img src="img/box13.png">
+                        <img src="img/index/box13.png">
                         <p>国际域名预定</p>
                     </a>
                 </li>
                 <li>
                     <a  data-toggle="tab" data-target="#box14">
-                        <img src="img/box14.png">
+                        <img src="img/index/box14.png">
                         <p>热门竞价</p>
                     </a>
                 </li>
                 <li>
                     <a  data-toggle="tab" data-target="#box15">
-                        <img src="img/box15.png">
+                        <img src="img/index/box15.png">
                         <p>即将结束</p>
                     </a>
                 </li>
             </ul>
             <!--第三行展示-->
             <div class="box">
-                <!--第1个-->
-                <ul id="box11" class="hidden">
-                    <!--第1列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#" class="clear_a">
-                                    <h6>推荐预定域名</h6>
-                                    <img src="img/HOT.png">
-                                    <p>专业域名注册平台全球注册量第一</p>
-                                </a>
-                                <a href="#" class="btn">立即注册</a>
-                            </li>
-                            <li>
-                                <a href="#" class="clear_a">
-                                    <h6>推荐注册</h6>
-                                    <p>右侧都是主流常用域名</p>
-                                </a>
-                                <a href="#" class="btn">立即注册</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第2列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.COM</h6>
-                                    <img src="img/gTLDs.png">
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.CN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.COM.CN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.NET</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.ORG</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第3列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.CC</h6>
-                                    <img src="img/gTLDs.png">
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.TV</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.APP</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.IO</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.TOP</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                <ul id="box11" class="hidden">           
+                    <li v-for="item of datas">
+                        <a href="#">
+                            <h6 v-text="item.domainname"></h6>
+                            <p>
+                                <span>剩余: {{item.endTime}}</span><br>
+                                <span>当前价格: {{item.offer}}</span>&nbsp;&nbsp;
+                                <span>出价次数: {{item.offer}}</span>
+                            </p>
+                        </a>
+                    </li>                     
                     <p style="clear:both"></p>
                 </ul>
-                <!--第2个-->
                 <ul id="box12" class="hidden">
-                    <!--第1列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.COM.CN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.NET</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.ORG</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第2列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.COM.CN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.NET</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.ORG</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第3列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.COM.CN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.NET</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.ORG</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    <li v-for="item of datas">
+                        <a href="#">
+                            <h6 v-text="item.domainname"></h6>
+                            <p>
+                                <span>剩余: {{item.endTime}}</span><br>
+                                <span>当前价格: {{item.offer}}</span>&nbsp;&nbsp;
+                                <span>出价次数: {{item.offer}}</span>
+                            </p>
+                        </a>
+                    </li>                     
                     <p style="clear:both"></p>
                 </ul>
-                <!--第3个-->
                 <ul id="box13" class="hidden">
-                    <!--第1列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.COM.CN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.NET</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.ORG</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第2列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.COM.CN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.NET</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.ORG</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第3列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.COM.CN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.NET</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.ORG</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    <li v-for="item of datas">
+                        <a href="#">
+                            <h6 v-text="item.domainname"></h6>
+                            <p>
+                                <span>剩余: {{item.endTime}}</span><br>
+                                <span>当前价格: {{item.offer}}</span>&nbsp;&nbsp;
+                                <span>出价次数: {{item.offer}}</span>
+                            </p>
+                        </a>
+                    </li>                     
                     <p style="clear:both"></p>
                 </ul>
-                <!--第4个-->
                 <ul id="box14" class="hidden">
-                    <!--第1列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.COM.CN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.NET</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.ORG</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第2列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.COM.CN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.NET</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.ORG</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第3列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.COM.CN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.NET</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.ORG</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    <li v-for="item of datas">
+                        <a href="#">
+                            <h6 v-text="item.domainname"></h6>
+                            <p>
+                                <span>剩余: {{item.endTime}}</span><br>
+                                <span>当前价格: {{item.offer}}</span>&nbsp;&nbsp;
+                                <span>出价次数: {{item.offer}}</span>
+                            </p>
+                        </a>
+                    </li>                     
                     <p style="clear:both"></p>
                 </ul>
-                <!--第5个-->
                 <ul id="box15" class="hidden">
-                    <!--第1列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.COM.CN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.NET</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.ORG</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第2列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.COM.CN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.NET</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.ORG</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--第3列-->
-                    <li>
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <h6>.COM.CN</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.NET</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <h6>.ORG</h6>
-                                    <p>com是全球注册量第一的顶级域名</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    <li v-for="item of datas">
+                        <a href="#">
+                            <h6 v-text="item.domainname"></h6>
+                            <p>
+                                <span>剩余: {{item.endTime}}</span><br>
+                                <span>当前价格: {{item.offer}}</span>&nbsp;&nbsp;
+                                <span>出价次数: {{item.offer}}</span>
+                            </p>
+                        </a>
+                    </li>                     
                     <p style="clear:both"></p>
                 </ul>
             </div>
-        </div>
-    </div>
     <!--轮播图-->
     <div id="ban">
         <ul>
@@ -1363,5 +1007,8 @@
   <script src="js/header.js"></script>
   <script src="js/footer.js"></script>
   <script src="js/index.js"></script>
+  <script>
+
+  </script>
 </body>
 </html>

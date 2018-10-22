@@ -1,4 +1,4 @@
-         /***index.html#content***/
+/**index.html#content**/
 #content{
   width:100%;
 }
@@ -19,7 +19,6 @@
 #banner>div{
   widows: 100%;
   height:640px;
-  /*float:right;*/
   position: absolute;
   right:0;
   overflow: hidden;
@@ -31,7 +30,6 @@
 }
 #banner>div>img{
   height:100%;
-  /*overflow: hidden;*/
 }
 #banner>div>img:last-child{
   position:absolute;
@@ -91,8 +89,7 @@
 #pagination>ul>li>p:last-child.active{
   animation: pagination 6s linear 0s ;
 }
-/*搜索*/
-/*#search*/
+/*搜索#search*/
 #search{
   width:100%;
   min-width: 1200px;
@@ -359,7 +356,7 @@
   background:#fff;
   box-shadow: 0 0 6px 0 rgba(0,0,0,.2);
 }
-/***********box*************/
+/**控制台#console**/
 .header{
   text-align: center;
 }
@@ -378,7 +375,6 @@
 .header h5{
   font-size:24px;
 }
-
 #box .control{
   width:1200px;
   margin:0 auto;
@@ -397,6 +393,9 @@
 #box>.control>li>a>img{
   width:80px;
 }
+#box>.control>li>a>p{
+  margin-top:0;
+}
 #box>.control>li{
   color:#000;
   text-align: center;
@@ -413,6 +412,10 @@
   width:1200px;
   margin:0 auto;
   padding-top:20px;
+  transform: all 3s linear;
+}
+.box>ul.hidden{
+  display:none;
 }
 #box .box>ul>li{
   float:left;
@@ -503,9 +506,6 @@
 }
 .box .btn:hover:after{
   content:"" !important;
-}
-.hidden{
-  display: none;
 }
 .visible:after{
   content:"";
