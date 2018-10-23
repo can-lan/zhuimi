@@ -139,3 +139,38 @@ for(var control of controls){
       },10);
     });
   }
+  //6.页面滚动到.bool,执行抢注次数++
+  $(window).scroll(function(){
+    var scrollTop=$(this).scrollTop();
+    var $span=$(".book p span");
+    var number=3564278;
+    function setNumber(){ //1.创建更改页面函数
+      var timer=setInterval(()=>{
+        number+=8
+        $span.html(number);
+      },250)  //定时器每100ms+98
+      setTimeout(function(){
+        clearInterval(timer);
+      },2500) //2500ms后停止定时器
+    }
+    if(scrollTop > 2000 && scrollTop < 2100){
+      setNumber();  //2.屏幕滚动到显示时 调用一次
+      setInterval(()=>{ 
+        setNumber();
+      },15000)  //3.然后每隔15秒调用一次
+    }
+  });
+  //7.页面滚动到.list, 执行margin改变
+  $(window).scroll(function(){
+    var scrollTop=$(this).scrollTop();
+    var $spans=$(".list li span");
+    var $ps=$(".list li p");
+    if(scrollTop > 1700 && scrollTop < 2300){
+      for(var span of $spans){
+        $(span).slideUp(1200);
+      }
+      for(var p of $ps){
+        $(p).fadeIn(1200);
+      }
+    }
+  });
