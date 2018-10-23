@@ -27,7 +27,7 @@
     }
   });
 
-//2--console控制1:
+//2.1--console控制1:
   new Vue({
     el:"#box",
     data:{
@@ -64,7 +64,7 @@
       }        
     }
   });
-//2--console控制1:点击当前元素,①替换所有及当前元素图片src,②将所有box关闭,展开自己对应box,③为当前元素添加三角形下标志,取消其他下标志
+//2.2--console控制1:点击当前元素,①替换所有及当前元素图片src,②将所有box关闭,展开自己对应box,③为当前元素添加三角形下标志,取消其他下标志
 var controls=$("[data-toggle='tab']");
 var boxs=$(".box>ul")
 for(var control of controls){
@@ -112,4 +112,30 @@ for(var control of controls){
         }
       }
   });
-
+  //5--#list动画
+  var lists=$(".list0");
+  for(var list of lists){
+    var y=0;
+    $(list).mouseenter(function(){
+      var positionY=parseInt($(this).css("backgroundPosition"));
+      var timer=setInterval(()=>{
+        $(this).css("backgroundPosition",`0 ${positionY}px`);
+        positionY-=75
+        if(positionY < -4425){
+          y=positionY ;
+          clearInterval(timer);
+        }
+      },10);
+    })
+    $(list).mouseleave(function(){
+    
+      var positionY =y ;
+      var timer=setInterval(()=>{
+        positionY += 75
+        $(this).css("backgroundPosition",`0 ${positionY}px`);
+        if(positionY >= 0){
+          clearInterval(timer);
+        }
+      },10);
+    });
+  }

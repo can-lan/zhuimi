@@ -625,7 +625,7 @@
                             </p>
                             <p>
                                 <span>当前价格: </span><span class="startPrice">{{item.startPrice}} ¥</span><br>
-                                <span>出价次数: </span><span class="offer" v-text="item.offer"></span>
+                                <span>关注度: </span><span class="offer" v-text="item.offer"></span>
                             </p>
                         </a>
                     </li>                     
@@ -654,8 +654,8 @@
                                 <span>剩余: </span><span class="saleTime" v-text="item.saleTime"></span>
                             </p>
                             <p>
-                                <span>当前价格: </span><span class="startPrice">{{item.startPrice}} ¥</span><br>
-                                <span>出价次数: </span><span class="offer" v-text="item.offer"></span>
+                                <span>关注度: </span><span class="startPrice">{{item.startPrice}}</span><br>
+                                <span>询价次数: </span><span class="offer" v-text="item.offer"></span>
                             </p>
                         </a>
                     </li>                     
@@ -775,145 +775,147 @@
             </div>
     <!--轮播图-->
     <div id="ban">
-        <ul>
-            <li>
-                <img src="img/ban1.jpg">
-                <div>
+        <div>
+            <ul>
+                <li>
+                    <img src="img/ban1.jpg">
                     <div>
-                        <img src="img/ban-1.png" class="ban_sm">
-                        <img src="img/ban_1.png" class="ban_hidden">
+                        <div>
+                            <img src="img/ban-1.png" class="ban_sm">
+                            <img src="img/ban_1.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>域名注册</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
                     </div>
-                    <p class="ban_line"></p>
-                    <h4>域名注册</h4>
-                    <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
-                    <a class="ban_hidden" href="#">查看详情</a>
-                </div>
-            </li>
-            <li>
-                <img src="img/ban2.jpg">
-                <div>
+                </li>
+                <li>
+                    <img src="img/ban2.jpg">
                     <div>
-                        <img src="img/ban-2.png" class="ban_sm">
-                        <img src="img/ban_2.png" class="ban_hidden">
+                        <div>
+                            <img src="img/ban-2.png" class="ban_sm">
+                            <img src="img/ban_2.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>域名交易</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
                     </div>
-                    <p class="ban_line"></p>
-                    <h4>域名交易</h4>
-                    <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
-                    <a class="ban_hidden" href="#">查看详情</a>
-                </div>
-            </li>
-            <li>
-                <img src="img/ban3.jpg">
-                <div>
+                </li>
+                <li>
+                    <img src="img/ban3.jpg">
                     <div>
-                        <img src="img/ban-3.png" class="ban_sm">
-                        <img src="img/ban_3.png" class="ban_hidden">
+                        <div>
+                            <img src="img/ban-3.png" class="ban_sm">
+                            <img src="img/ban_3.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>域名预定</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
                     </div>
-                    <p class="ban_line"></p>
-                    <h4>域名预定</h4>
-                    <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
-                    <a class="ban_hidden" href="#">查看详情</a>
-                </div>
-            </li>
-            <li>
-                <img src="img/ban4.jpg">
-                <div>
+                </li>
+                <li>
+                    <img src="img/ban4.jpg">
                     <div>
-                        <img src="img/ban-4.png" class="ban_sm">
-                        <img src="img/ban_4.png" class="ban_hidden">
+                        <div>
+                            <img src="img/ban-4.png" class="ban_sm">
+                            <img src="img/ban_4.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>预定竞价</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
                     </div>
-                    <p class="ban_line"></p>
-                    <h4>预定竞价</h4>
-                    <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
-                    <a class="ban_hidden" href="#">查看详情</a>
-                </div>
-            </li>
-            <li>
-                <img src="img/ban5.jpg">
-                <div>
+                </li>
+                <li>
+                    <img src="img/ban5.jpg">
                     <div>
-                        <img src="img/ban-5.png" class="ban_sm">
-                        <img src="img/ban_5.png" class="ban_hidden">
+                        <div>
+                            <img src="img/ban-5.png" class="ban_sm">
+                            <img src="img/ban_5.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>域名经纪</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
                     </div>
-                    <p class="ban_line"></p>
-                    <h4>域名经纪</h4>
-                    <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
-                    <a class="ban_hidden" href="#">查看详情</a>
-                </div>
-            </li>
-            <li>
-                <img src="img/ban1.jpg">
-                <div>
+                </li>
+                <li>
+                    <img src="img/ban1.jpg">
                     <div>
-                        <img src="img/ban-1.png" class="ban_sm">
-                        <img src="img/ban_1.png" class="ban_hidden">
+                        <div>
+                            <img src="img/ban-1.png" class="ban_sm">
+                            <img src="img/ban_1.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>域名米表</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
                     </div>
-                    <p class="ban_line"></p>
-                    <h4>域名米表</h4>
-                    <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
-                    <a class="ban_hidden" href="#">查看详情</a>
-                </div>
-            </li>
-            <li>
-                <img src="img/ban2.jpg">
-                <div>
+                </li>
+                <li>
+                    <img src="img/ban2.jpg">
                     <div>
-                        <img src="img/ban-2.png" class="ban_sm">
-                        <img src="img/ban_2.png" class="ban_hidden">
+                        <div>
+                            <img src="img/ban-2.png" class="ban_sm">
+                            <img src="img/ban_2.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>域名行情</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
                     </div>
-                    <p class="ban_line"></p>
-                    <h4>域名行情</h4>
-                    <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
-                    <a class="ban_hidden" href="#">查看详情</a>
-                </div>
-            </li>
-            <li>
-                <img src="img/ban3.jpg">
-                <div>
+                </li>
+                <li>
+                    <img src="img/ban3.jpg">
                     <div>
-                        <img src="img/ban-3.png" class="ban_sm">
-                        <img src="img/ban_3.png" class="ban_hidden">
+                        <div>
+                            <img src="img/ban-3.png" class="ban_sm">
+                            <img src="img/ban_3.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>域名拍卖</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
                     </div>
-                    <p class="ban_line"></p>
-                    <h4>域名拍卖</h4>
-                    <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
-                    <a class="ban_hidden" href="#">查看详情</a>
-                </div>
-            </li>
-            <li>
-                <img src="img/ban4.jpg">
-                <div>
+                </li>
+                <li>
+                    <img src="img/ban4.jpg">
                     <div>
-                        <img src="img/ban-4.png" class="ban_sm">
-                        <img src="img/ban_4.png" class="ban_hidden">
+                        <div>
+                            <img src="img/ban-4.png" class="ban_sm">
+                            <img src="img/ban_4.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>微信公众号</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
                     </div>
-                    <p class="ban_line"></p>
-                    <h4>微信公众号</h4>
-                    <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
-                    <a class="ban_hidden" href="#">查看详情</a>
-                </div>
-            </li>
-            <li>
-                <img src="img/ban5.jpg">
-                <div>
+                </li>
+                <li>
+                    <img src="img/ban5.jpg">
                     <div>
-                        <img src="img/ban-5.png" class="ban_sm">
-                        <img src="img/ban_5.png" class="ban_hidden">
+                        <div>
+                            <img src="img/ban-5.png" class="ban_sm">
+                            <img src="img/ban_5.png" class="ban_hidden">
+                        </div>
+                        <p class="ban_line"></p>
+                        <h4>追米APP</h4>
+                        <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
+                        <a class="ban_hidden" href="#">查看详情</a>
                     </div>
-                    <p class="ban_line"></p>
-                    <h4>追米APP</h4>
-                    <p class="ban_hidden ban_p">结合大数据能力帮助电商企业快速搭建平台、应对业务高并发，剖析秒杀、视频直播等场景</p>
-                    <a class="ban_hidden" href="#">查看详情</a>
-                </div>
-            </li>
-        </ul>
-        <p class="before" onclick="banBefore()">〈</p>
-        <p class="next" onclick="banNext()">〉</p>
+                </li>
+            </ul>
+            <p class="before" onclick="banBefore()">〈</p>
+            <p class="next" onclick="banNext()">〉</p>
+        </div>  
     </div>
     <!--域名经纪-->
     <div id="broker">
-        <div>
-            <h4>海纳百川，精选全球的高品质软件与服务</h4>
+        <div class="header">
+            <h5>海纳百川，精选全球的高品质软件与服务</h5>
             <p>开发者工具、建站、API、企业应用，支撑云端应用服务</p>
         </div>
         <div class="list">

@@ -357,6 +357,9 @@
   box-shadow: 0 0 6px 0 rgba(0,0,0,.2);
 }
 /**控制台#console**/
+#console{
+  margin-top:20px;
+}
 .header{
   text-align: center;
 }
@@ -366,14 +369,15 @@
   margin-bottom:24px;
 }
 .header p{
-  margin-top:8px;
+  margin-top:10px;
   margin-bottom:57px;
 }
 .header p:hover{
   color:#00C1DE;
 }
 .header h5{
-  font-size:24px;
+  font-size:22px;
+  font-weight:500;
 }
 #box .control{
   width:1200px;
@@ -555,25 +559,33 @@
   bottom:-22px;
 }
 #ban{
-  margin-top:100px;
+  width:100%;
   height:415px;
-  overflow:hidden;
+  margin-top:70px;
+  background:#373d41;
+}
+#ban>div{
+  width:1440px;
+  height:415px;
+  margin:0 auto;
   position:relative;
+  overflow: hidden;
 }
-#ban>ul{
-  transition: all 2s linear;
-  width:200%;
+#ban>div>ul{
+  width:2880px;
+  margin-left:0;
+  transition: all 1.5s linear;
 }
-#ban>ul>li{
+#ban>div>ul>li{
   position:relative;
   width:10%;
   float:left;
 }
-#ban>ul>li>img{
+#ban>div>ul>li>img{
   width:100%;
   height:415px;
 }
-#ban>ul>li>div{
+#ban>div>ul>li>div{
   position:absolute;
   top:0;
   left:0;
@@ -584,31 +596,31 @@
   height:100%;
   transition:all .2s linear;
 }
-#ban>ul>li>div:hover{
+#ban>div>ul>li>div:hover{
   background:rgba(0,193,222,.82);
 }
-#ban>ul>li>div:hover .ban_hidden{
+#ban>div>ul>li>div:hover .ban_hidden{
   opacity:1;
   margin:0px auto;
 }
-#ban>ul>li>div:hover div{
+#ban>div>ul>li>div:hover div{
   margin-top:50px;
 }
-#ban>ul>li>div:hover .ban_line{
+#ban>div>ul>li>div:hover .ban_line{
   opacity: 0;
   margin:0 auto 0;
 }
-#ban>ul>li>div:hover .ban_p{
+#ban>div>ul>li>div:hover .ban_p{
   padding:10px 15px 35px;
 }
-#ban>ul>li>div>div{
+#ban>div>ul>li>div>div{
   position: relative;
   width:25%;
   height:71px;
   margin:100px auto 0px;
   transition:all .3s linear;
 }
-#ban>ul>li>div>div>img{
+#ban>div>ul>li>div>div>img{
   width:100%;
   position: absolute;
   left:0;
@@ -618,17 +630,18 @@
   width:20px;
   padding:0 2px;
   border-bottom:2px solid #fff;
-  margin:30px auto 0;
+  margin:20px auto 0;
   transition: all .5s linear;
 }
 #ban h4{
+  font-size:18px;
   margin:20px auto;
 }
-#ban>ul>li>div>p.ban_p{
+#ban>div>ul>li>div>p.ban_p{
   padding:30px 15px 50px;
   transition:all .7s linear;
 }
-#ban>ul>li>div>a{
+#ban>div>ul>li>div>a{
   display: block;
   width:120px;
   height:35px;
@@ -638,7 +651,7 @@
   margin:30px auto;
   font-size:14px;
 }
-#ban>ul>li>div>a:hover{
+#ban>div>ul>li>div>a:hover{
   background:#fff;
   color:#00C1DE;
 }
@@ -684,31 +697,43 @@
 }
 
 #broker{
-  padding-top:100px;
+  padding-top:80px;
   width:1200px;
   margin:0 auto;
   text-align: center;
 }
-#broker >div>h4{
-  margin-bottom:15px;
+#broker .list{
+  width:1200px;
+  margin:0 auto;
 }
-#broker >div:first-child{
-  margin-bottom:20px;
+#broker .list ul{
+  display:flex;
+  justify-content: space-around;
+}
+#broker .list  ul li{
+  width:400px;
+  padding:20px;
+  text-align: center;
+}
+#broker .list li h5{
+  color:#333;
+  font-size: 20px;
+  font-weight:bold;
+  margin:20px auto 10px;
+}
+#broker .list li:hover h5{
+  transition:0.5s;
+  color:#00C1DE;
+}
+#broker .list li p{
+  color:#A9B0B4;
+  font-size:16px;
 }
 #broker .list0{
-  position:relative;
   width:75px;
   height:75px;
   margin:0 auto;
-  position: relative;
-}
-@keyframes pics{
-  0%{
-      background-position: 0 0;
-  }
-  100%{
-      background-position: 0 50%;
-  }
+  cursor:pointer;
 }
 #broker .list1{
   background:url('../img/list1.jpg') no-repeat 0px 0px;
@@ -734,37 +759,7 @@
   background:url('../img/list6.jpg') no-repeat 0px 0px;
   background-size: 75px;
 }
-
-#broker .list0:hover{
-  animation: pics 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0s 1;
-}
-#broker .list ul{
-  display:flex;
-  justify-content: space-around;
-}
-#broker .list{
-  width:1200px;
-  margin:0 auto;
-}
-#broker .list  ul li{
-  width:400px;
-  padding:20px;
-  text-align: center;
-}
-
-#broker .list li h5{
-  font-size: 20px;
-  font-weight:bold;
-  margin-top:20px;
-}
-#broker .list li:hover h5{
-  transition:0.5s;
-  color:#00C1DE;
-}
-#broker .list li p{
-  color:#A9B0B4;
-}
-
+/*预定*/
 .book img{
   width:100%;
   margin:50px auto;
