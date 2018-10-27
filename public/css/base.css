@@ -18,6 +18,13 @@ a{
 a:hover{
   color:#00c1de !important;
 }
+/*竖线*/
+.line::after{
+  content:"";
+  display:"inline-block";
+  border-right:1px solid #fff;
+  margin-left:40px;
+}
 /*插入空table*/
 .table::before{
   content:"";
@@ -29,6 +36,7 @@ a:hover{
   display:block;
   clear:both;
 }
+/*箭头*/
 .lt::after{
   content:"〉";
   display:inline-block;
@@ -38,9 +46,11 @@ a:hover{
 .lt:hover::after{
   color:#00c1de;
 }
+/*小号字体*/
 .small{ 
   font-size:15px;
 }
+/*颜色*/
 .cblack{color:rgb(31, 25, 25) !important;}
 .cred{color:#b91d39 !important;}
 .cblue{color:#00c1de !important;}

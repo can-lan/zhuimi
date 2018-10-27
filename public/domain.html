@@ -11,8 +11,147 @@
 <body>
   <header></header>
   <div id="content">
-    <div id="banner">
-      输入要查询的域名: <input type="text" style="width:300px;height:80px;margin:200px 0;">
+    <!--横幅搜索框-->
+    <div id="banner">  
+      <img src="img/domain/logo.png">
+      <p>超过<span>20,000,000域名</span>在这里注册</p>
+      <div class="search">
+          <input v-model="keyword" type="text" placeholder="请输入您要查询的域名，如 zhuimi" >
+          <div class="postfix_btn">
+            <select id="suffix" v-model="suffix" name="suffix">
+                <option value=".com">.com</option>
+                <option value=".cn">.cn</option>
+                <option value=".com.cn">.com.cn</option>
+                <option value=".net">.net</option>
+                <option value=".org">.org</option>
+                <option value=".cc">.cc</option>
+                <option value=".tv">.tv</option>
+                <option value=".app">.app</option>
+                <option value=".top">.top</option>
+                <option value=".vip">.vip</option>
+                <option value=".co">.co</option>
+                <option value=".love">.love</option>
+                <option value=".中国">.中国</option>
+            </select>
+          </div>
+          <div class="search_btn" @click="getSearch()">查域名</div>
+        </div>
+      <ul>
+        <li class="line"><a href="">whois查询</a></li>
+        <li class="line"><a href="/registered.html">批量注册</a></li>
+        <li class="line"><a href="/sale.html">域名交易</a></li>
+        <li class="line"><a href="/book.html">域名抢注</a></li>
+        <li class="line"><a href="/bid.html">域名竞价</a></li>
+        <li><a href="/broker.html">域名回购</a></li>
+      </ul>
+    </div>
+    <!--内容部分-->
+    <div id="data">
+      <div class="left">
+        <!--左侧-查询结果-->
+        <div class="result">
+          <ul>
+            <li>
+              <span>挑选您喜欢的域名</span>
+            </li>
+            <li class="disable">
+              <span class="domainname">baidu.com</span>
+              <a href="#" class="broker">委托购买</a>
+              <a href="#" class="whois">Whois 信息 &gt;</a>
+            </li>
+            <li class="enable">
+              <span class="domainname">baidu.com</span>
+              <a href="#" class="cart">加入购物车</a>
+              <span class="price">&yen;49
+                <span style="font-size:11px;color:#ff8a00;">&#47;首年</span>
+              <span>
+            </li>
+          </ul>
+        </div>
+        <!--左侧-推荐域名-->
+        <div class="result recommend">
+          <ul>
+            <li>
+              <span>为您推荐的域名</span>
+            </li>
+            <li class="enable">
+              <span class="domainname">baidu123.com</span>
+              <a href="#" class="cart">加入购物车</a>
+              <span class="price">&yen;49
+                <span style="font-size:11px;color:#ff8a00;">&#47;首年</span>
+              <span>
+            </li>
+            <li class="enable">
+              <span class="domainname">baidu365.com</span>
+              <a href="#" class="cart">加入购物车</a>
+              <span class="price">&yen;49
+                <span style="font-size:11px;color:#ff8a00;">&#47;首年</span>
+              <span>
+            </li>
+            <li class="enable">
+              <span class="domainname">ibaidu.com</span>
+              <a href="#" class="cart">加入购物车</a>
+              <span class="price">&yen;49
+                <span style="font-size:11px;color:#ff8a00;">&#47;首年</span>
+              <span>
+            </li>
+            <li class="enable">
+              <span class="domainname">91baidu.cn</span>
+              <a href="#" class="cart">加入购物车</a>
+              <span class="price">&yen;49
+                <span style="font-size:11px;color:#ff8a00;">&#47;首年</span>
+              <span>
+            </li>
+            <li class="enable">
+              <span class="domainname">51baidu.com</span>
+              <a href="#" class="cart">加入购物车</a>
+              <span class="price">&yen;49
+                <span style="font-size:11px;color:#ff8a00;">&#47;首年</span>
+              <span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="right">
+        <!--右侧-轮播图-->
+        <div class="ban">
+          <ul class="wrapper">
+            <li>
+              <a href="#">
+                <img src="img/domain/ban1.png">
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="img/domain/ban2.jpg">
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="img/domain/ban3.jpg">
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="img/domain/ban1.png">
+              </a>
+            </li>
+          </ul>
+          <ul class="pagination">
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <!--右侧-购物车-->
+        <div class="cart">
+  
+        </div>
+        <!--右侧-公告-->
+        <div class="public">
+
+        </div>
+      </div> 
     </div>
   </div>
   <script src="js/header.js"></script>
