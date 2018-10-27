@@ -165,7 +165,7 @@ for(var control of controls){
     var scrollTop=$(this).scrollTop();
     var $spans=$(".list li span");
     var $ps=$(".list li p");
-    if(scrollTop > 1700 && scrollTop < 2300){
+    if(scrollTop > 1700 && scrollTop < 2500){
       for(var span of $spans){
         $(span).slideUp(1200);
       }
@@ -174,3 +174,69 @@ for(var control of controls){
       }
     }
   });
+  //8.抢注节点node
+  var n1s=$(".n1");
+  for(let n1 of n1s){
+    var w1=10;
+    var opa1=1;
+    setInterval(()=>{
+      w1+=0.02;
+      if(w1>75){opa1-=0.0003}
+      if(opa1<0){
+        w1=10;
+        opa1=1;
+      }
+      $(n1).css({
+        "width":w1,
+        "height":w1,
+        "left":(40-w1/2)+"px",
+        "top":(40-w1/2)+"px",
+        "border":`1px solid rgba(106,215,233,${opa1})`
+      });
+    },10);
+  }
+  var n2s=$(".n2");
+  setTimeout(function(){
+    var w1=10;
+    var opa1=1;
+    for(let n2 of n2s){
+      setInterval(()=>{
+        w1+=0.02;
+        if(w1>75){opa1-=0.0003}
+        if(opa1<0){
+          w1=10;
+          opa1=1;
+        }
+        $(n2).css({
+          "width":w1,
+          "height":w1,
+          "left":(40-w1/2)+"px",
+          "top":(40-w1/2)+"px",
+          "border":`1px solid rgba(106,215,233,${opa1})`
+        });
+      },10);
+    }
+  },1200)
+  var n3s=$(".n3");
+  setTimeout(function(){
+    var w1=10;
+    var opa1=1;
+    for(let n3 of n3s){
+      setInterval(()=>{
+        w1+=0.02;
+        if(w1>75){opa1-=0.0003}
+        if(opa1<0){
+          w1=10;
+          opa1=1;
+        }
+        $(n3).css({
+          "width":w1,
+          "height":w1,
+          "left":(40-w1/2)+"px",
+          "top":(40-w1/2)+"px",
+          "border":`1px solid rgba(106,215,233,${opa1})`
+        });
+      },10);
+    }
+  },2000)
+ 
