@@ -1,9 +1,9 @@
 //1--轮播图1
   var timer=setInterval(function(){ 
-    vm.count++ 
-    if(vm.count==5) vm.count=0
+    hvm.count++ 
+    if(hvm.count==5) vm.count=0
   },6000);
-  var vm=new Vue({
+  var hvm=new Vue({
     el:"#carrousel",
     data:{
       imgs:[
@@ -17,11 +17,11 @@
     },
     methods:{
       carrousel(i){ 
-        vm.count=i
+        hvm.count=i
         clearInterval(timer);
         timer=setInterval(function(){ 
-          vm.count++ 
-          if(vm.count==5) vm.count=0
+          hvm.count++ 
+          if(hvm.count==5) hvm.count=0
         },6000);
        }
     }
