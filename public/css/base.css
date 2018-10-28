@@ -54,3 +54,10 @@ a:hover{
 .cblack{color:rgb(31, 25, 25) !important;}
 .cred{color:#b91d39 !important;}
 .cblue{color:#00c1de !important;}
+/*div#loading*/
+#loading{
+  width:865px !important;
+  height:300px !important;
+  background:url('../img/pub/loading.gif') no-repeat 0 -90px;
+  background-size:100%;
+}

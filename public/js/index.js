@@ -100,7 +100,7 @@ for(var control of controls){
     document.getElementsByClassName("next")[0].parentElement.children[0].style.marginLeft="-100%";
   }
 //4--搜索框
-  new Vue({
+  var vm=new Vue({
       el:"#search",
       data:{
         keyword:"",
@@ -108,10 +108,40 @@ for(var control of controls){
       },
       methods:{
         getSearch(){
-          location.href="/api?d="+this.keyword+this.suffix 
+          var suffix=this.suffix;
+          if(this.keyword.indexOf(".") != -1){
+            suffix=""
+          };//如果用户输入了 .  则取消options选择的后缀, 去查询
+          $.ajax({
+            url:"/api?d="+this.keyword+suffix,  
+            method:'get',
+            success:(res)=>{
+              console.log(res);
+              if(res.Avail==1){ //1.如果返回可注册,直接跳转
+                alert("可注册")
+                location.href="/domain.html?d="+this.keyword+suffix
+              }else if(res.Reason=='Illegal domain'){ //2.如果返回非法域名
+                var keyword=this.keyword;
+                if(keyword.indexOf(".") != -1){  //如果是输入了不可查询的后缀
+                  var keyword=keyword.slice(0,keyword.indexOf('.'));//则截取.前面
+                  suffix='.com';                                        //默认查询.com
+                  location.href="/domain.html?d="+keyword+suffix //跳转
+                }
+              }else if(res.Reason==undefined){  //3.如果Reason不存在, 就是已注册
+                alert("已注册")
+                location.href="/domain.html?d="+this.keyword+suffix
+              }else{  //4.Invalid Domain Name无效域名 跳转页面,domain.html页面显示 没有查询到附合条件的域名，或正在查询...
+                location.href="/domain.html?d=''"
+              }
+            }
+          });
         }
       }
   });
+    //4.1输入框回车触发查询事件
+    $("#keyword").keydown(function(event){
+      if (event.keyCode == 13) { vm.getSearch() }
+    })
   //5--#list动画
   var lists=$(".list0");
   for(var list of lists){
