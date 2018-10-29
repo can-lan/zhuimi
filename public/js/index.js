@@ -1,9 +1,9 @@
 //1--轮播图1
   var timer=setInterval(function(){ 
-    vm.count++ 
-    if(vm.count==5) vm.count=0
+    hvm.count++ 
+    if(hvm.count==5) hvm.count=0
   },6000);
-  var vm=new Vue({
+  var hvm=new Vue({
     el:"#carrousel",
     data:{
       imgs:[
@@ -17,16 +17,15 @@
     },
     methods:{
       carrousel(i){ 
-        vm.count=i
+        hvm.count=i
         clearInterval(timer);
         timer=setInterval(function(){ 
-          vm.count++ 
-          if(vm.count==5) vm.count=0
+          hvm.count++ 
+          if(hvm.count==5) hvm.count=0
         },6000);
        }
     }
   });
-
 //2.1--console控制1:
   new Vue({
     el:"#box",
@@ -91,7 +90,6 @@ for(var control of controls){
     }
   }
 }
-
 //3--轮播图2
   function banBefore(){
     document.getElementsByClassName("before")[0].parentElement.children[0].style.marginLeft="0%";
@@ -111,26 +109,24 @@ for(var control of controls){
           var suffix=this.suffix;
           if(this.keyword.indexOf(".") != -1){
             suffix=""
-          };//如果用户输入了 .  则取消options选择的后缀, 去查询
+          };//0. 如果用户输入了 .  则取消options选择的后缀, 去查询
           $.ajax({
             url:"/api?d="+this.keyword+suffix,  
             method:'get',
             success:(res)=>{
-              console.log(res);
-              if(res.Avail==1){ //1.如果返回可注册,直接跳转
-                alert("可注册")
+              console.log(res)
+              if(res.Avail==1){ //1.如果返回可注册,=>直接跳转
                 location.href="/domain.html?d="+this.keyword+suffix
               }else if(res.Reason=='Illegal domain'){ //2.如果返回非法域名
                 var keyword=this.keyword;
                 if(keyword.indexOf(".") != -1){  //如果是输入了不可查询的后缀
                   var keyword=keyword.slice(0,keyword.indexOf('.'));//则截取.前面
                   suffix='.com';                                        //默认查询.com
-                  location.href="/domain.html?d="+keyword+suffix //跳转
+                  location.href="/domain.html?d="+keyword+suffix //=>跳转
                 }
               }else if(res.Reason==undefined){  //3.如果Reason不存在, 就是已注册
-                alert("已注册")
                 location.href="/domain.html?d="+this.keyword+suffix
-              }else{  //4.Invalid Domain Name无效域名 跳转页面,domain.html页面显示 没有查询到附合条件的域名，或正在查询...
+              }else{  //4.Invalid Domain Name无效域名 跳转页面,domain.html页面显示 =>没有查询到附合条件的域名，或正在查询...
                 location.href="/domain.html?d=''"
               }
             }
