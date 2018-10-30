@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0;}
+        ul,li{list-style:none;}
+        a{text-decoration:none;}
+        body{background:#f5f5f6;}
+        header{width:100%;height:60px;border-bottom:1px solid#d5d6d7;}
+        header img{position:absolute;width:103px;height:24px;left:20px;top:18px;}
+        #content{width:1000px;height:530px;margin:75px auto;background:#fff;border-radius:2px;font-size:14px;color:#f15533;}
+        #info{width:66.6666%;float:right;}
+        #info>p{width:100%;}
+        input{width:345px;height:38px;margin-top:20px;border:1px solid #C3C5C6;padding-left:10px;border-radius:1px;outline:none;color:#00c1de;}
+        h1{font-size:30px;color:#373d41;font-weight:normal;padding:40px 60px 20px;}
+        div.test,div.reg{width:355px;height:38px;margin-top:20px;border-radius:1px;text-align:center;font-size:16px;line-height:38px;color:#fff;background:#00c1de;}
+        p.area{display:inline-block;width:45px !important;height:38px;line-height:38px;margin-right:-5px;border:1px solid #C3C5C6;text-align: center;color:#7E8184;}
+        input.phone{width:300px !important;}
+        input.checkbox{width:15px;height:15px;vertical-align:bottom;margin-right:10px;}
+        #info a:last-child{color:#00c1de;}
+    </style>
+</head>
+<body>
+    <header>
+        <img src="img/header/logo_balck.gif">
+        <img src="img/header/logo_black.png">
+    </header>
+    <div id="content">
+        <div id="info">
+            <h1>欢迎注册阿里云</h1>
+            <p>
+                <input type="text" name="uname" placeholder="设置会员名">
+                <span>会员名为5-25字符，需要包含字母或者汉字</span>
+            </p>
+            <p>
+                <input type="password" name="upwd" placeholder="设置你的登陆密码">
+                <span>密码设置不符合要求</span>
+            </p>
+            <p>
+                <input type="password" name="cpwd" placeholder="请再次输入你的密码">
+                <span>两次输入的密码不一致，请重新输入</span>
+            </p>
+            <p> 
+                <p class="area">+86</p>
+                <input class="phone" type="num" minlength="11" maxlength="11" name="phone" placeholder="请输入手机号">
+                <span>手机号码格式不正确，请重新输入</span>
+            </p>
+            <div class="test">请拖动滑块</div>
+            <div class="reg">同意条款并注册</div>
+            <input class="checkbox" type="checkbox"><a href="#">&lt;&lt;阿里云网站服务条款&gt;&gt;</a>
+        </div>
+    </div>
+</body>
+</html>

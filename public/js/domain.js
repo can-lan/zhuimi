@@ -10,7 +10,9 @@ $(function(){
       add:["123","365","360","i","91","51"],//推荐域名前面拼接字符
       recomment:[],
       resulte:[],  //后缀和对应结果
-      ban:0 //轮播图判断值
+      local:['baidu'],
+      hasLocal:false,
+      ban:0, //轮播图判断值
     },
     methods:{
       //1.1 input btn点击刷新页面,并传递input内keyword和suffix(页面加载调getSearch)
@@ -82,6 +84,10 @@ $(function(){
           });
           console.log(this.recomment)
         }*/
+      },
+      clearCart(){  //4.2清空清单
+        localStorage.clear();
+        this.local=[]
       }
     },
     created(){
@@ -112,12 +118,44 @@ $(function(){
     }
   });
   //↑ VM监视结束
-
+  //2.轮播图.ban
+  setInterval(()=>{
+    this.ban++;
+    var wrapper=$(".ban ul.wrapper")[0];
+    if(this.ban==4){
+      $(wrapper).css("transition","none");
+      $(wrapper).css("marginLeft",0);
+      this.ban=1;
+      setTimeout(function(){
+        $(wrapper).css("transition","all .6s linear");
+        $(wrapper).css("marginLeft",-283);
+      })
+    }else{
+      $(wrapper).css("marginLeft",this.ban * -283);
+    }
+  },3000)
   //3.找到input,为其绑定回车触发事件
   $("#keyword").keyup(function(event){
     if (event.keyCode == 13) { 
       domainVm.toUrl();
     }
   })
-  
+  //4.添加购物车按钮绑定事件
+  var addCarts=$('.cart');
+  for(var addCart of addCarts){
+    $(addCart).on('click',function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var domain=$(this).attr('data-keyword')+"."+$(this).attr('data-suffix');
+      localStorage.setItem(domain,"domain");
+    })
+  }
+  //4.1将localStorage值为domain的名称添加到local数组
+  for(var i=0;i<localStorage.length;i++){
+    var name=localStorage.key(i); //找到localStorage中所有的name
+    var value=localStorage.getItem(name);
+    if(value == 'domain'){  //value为'domain'的
+      domainVm.local.push(name); 
+    }
+  }
 })
