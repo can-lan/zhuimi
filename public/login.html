@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/qs.min.js"></script>
     <title>Document</title>
     <style>
         *{margin:0;padding:0;}
@@ -19,11 +21,12 @@
         input{width:345px;height:38px;margin-top:20px;border:1px solid #C3C5C6;padding-left:10px;border-radius:1px;outline:none;color:#00c1de;}
         h1{font-size:30px;color:#373d41;font-weight:normal;padding:40px 60px 20px;}
         div.test,div.reg{width:355px;height:38px;margin-top:20px;border-radius:1px;text-align:center;font-size:16px;line-height:38px;color:#fff;background:#00c1de;}
-        #info a:last-child{color:#00c1de;}
+        #info>a{color:#00c1de;}
         #info>p>span{display:inline-block;height:38px;box-shadow:0px 0px 6px #7E8184;line-height:38px;font-size:13px;padding:0 15px;margin-left:15px;position: relative;border-radius: 1px;}
         #info>p>span>img{width:25px;height:25px;vertical-align: middle;margin-left:-5px;margin-right:-5px;margin-top:-3px;}
         #info>p>span::before{content:'';display:inline-block;width:8px;height:8px;position:absolute;top:15px;left:-4px;background:#fff;box-shadow:-1px 1px 1px #7E8184;transform: rotate(45deg);}
         input.checkbox{width:15px;height:15px;vertical-align:bottom;margin-right:10px;}
+        span.tips{margin-left:30px;color:#f15533;}
    </style>
 </head>
 <body>
@@ -36,27 +39,30 @@
             <h1>欢迎注册阿里云</h1>
             <p>
                 <input type="text" name="uname" placeholder="设置会员名" v-model="uname" @focus="checkUname()">
-                <span v-if="uname.length>=5 && uname.length<=25"><img src="img/pub/true.png"></span>
-                <span v-else>会员名为5-25字符，需要包含字母或者汉字</span>
+                <span v-if="unameFocus==1 && (uname.length<5 || uname.length>25) ">会员名为5-25字符，需要包含字母或者汉字</span>
+                <span v-else-if="haveUname">用户名已存在</span>
+                <span v-else-if="uname.length>=5 && uname.length<=25"><img src="img/pub/true.png"></span>   
             </p>
             <p>
-                <input type="password" name="upwd" placeholder="设置你的登陆密码" v-model="upwd" @blur="checkUpwd()">
+                <input type="password" name="upwd" placeholder="设置你的登陆密码" v-model="upwd" @focus="checkUpwd()">
+                <span  v-if="upwdFocus==1 && (upwd.length<6 || upwd.length>20)">6-20个字符，只能包含字母和数字</span>
                 <span v-if="upwd.length>=6 && upwd.length<=20"><img src="img/pub/true.png"></span>
-                <span v-else>6-20个字符，只能包含字母和数字</span>
             </p>
             <p>
-                <input type="password" name="cpwd" placeholder="请再次输入你的密码" v-model="cpwd" @blur="checkCpwd()">
+                <input type="password" name="cpwd" placeholder="请再次输入你的密码" v-model="cpwd" @focus="checkCpwd()">
+                <span  v-if="cpwdFocus==1 && (upwd!=cpwd || cpwd=='')">两次输入的密码不一致，请重新输入</span>
                 <span v-if="upwd==cpwd && cpwd!=''"><img src="img/pub/true.png"></span>
-                <span v-else>两次输入的密码不一致，请重新输入</span>
             </p>
             <p> 
-                <input class="phone" type="num" minlength="11" maxlength="11" name="phone" placeholder="请输入手机号" v-model="phone" @blur="checkPhone()">
+                <input class="phone" type="number" name="phone" placeholder="请输入手机号" v-model="phone" @focus="checkPhone()">
+                <span  v-if="phoneFocus==1 && phone.length!=11">手机号码格式不正确，请重新输入</span>
                 <span class="phone" v-if="phone.length==11"><img src="img/pub/true.png"></span>
-                <span v-else>手机号码格式不正确，请重新输入</span>
             </p>
             <div class="test">请拖动滑块</div>
-            <div class="reg">同意条款并注册</div>
-            <input class="checkbox" type="checkbox"><a href="#">&lt;&lt;阿里云网站服务条款&gt;&gt;</a>
+            <div class="reg" @click="register()">同意条款并注册</div>
+            <input class="checkbox" type="checkbox" @change="check()" v-model="isCheck">
+            <a href="#">&lt;&lt;阿里云网站服务条款&gt;&gt;</a>
+            <span class="tips" v-if="allow && !isCheck">请勾选同意协议</span><br>
         </div>
     </div>
     <script>
@@ -66,23 +72,59 @@
                 uname:'',
                 upwd:'',
                 cpwd:'',
-                phone:''
+                phone:'',
+                unameFocus:0,
+                upwdFocus:0,
+                cpwdFocus:0,
+                phoneFocus:0,
+                haveUname:false,
+                allow:false,
+                isCheck:false
             },
             create(){
-
             },
             methods:{
                 checkUname(){
-                    
+                    this.unameFocus=1;
                 },
                 checkUpwd(){
-
+                    this.upwdFocus=1;
                 },
                 checkCpwd(){
-
+                    this.cpwdFocus=1;
                 },
                 checkPhone(){
-
+                    this.phoneFocus=1;
+                },
+                check(){
+                    console.log(this.isCheck)
+                },
+                register(){
+                    this.allow=this.uname.length>=5 && this.uname.length<=25 && !this.haveUname && this.upwd.length>=6 && this.upwd.length<=20 && this.upwd==this.cpwd && this.cpwd!='' && this.phone.length==11;
+                    if( this.allow && this.isCheck){
+                        console.log("全部通过");
+                        axios.post(
+                            'http://127.0.0.1:7000/users/register',
+                            Qs.stringify({
+                                uname:this.uname,
+                                upwd:this.upwd,
+                                phone:this.phone
+                            })
+                        ).then(res=>{
+                            console.log('是否注册成功'+res);
+                        }).catch();
+                    }
+                }
+            },
+            watch:{
+                uname(){
+                    axios.get('http://127.0.0.1:7000/users/has',{
+                        params:{
+                            uname:this.uname
+                        }
+                    }).then(res=>{
+                        this.haveUname=res.data.length;
+                    }).catch();
                 }
             }
         });

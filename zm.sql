@@ -31,6 +31,14 @@ CREATE TABLE zm_sale(
     star INT DEFAULT 0,                #推荐指数取值 1,2,3,4,5 用来按推荐排序
     saleTime VARCHAR(32) DEFAULT ''    #截止交易结束剩余时间,默认空,前端计算获得
 );
+/*用户表*/
+CREATE TABLE zm_users(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    uname VARCHAR(16),
+    upwd VARCHAR(32),
+    phone VARCHAR(20),
+    domains VARCHAR(10240)
+);
 /*抢注竞价域名表*/
 
 /**导入数据**/
@@ -187,4 +195,5 @@ INSERT INTO zm_sale VALUES
 (null,"efrf.cn","域名简介",	91	,91,	"2019/01/25 12:32:40"	,"xj",	193,	68,	214,	0,DEFAULT),
 (null,"efrg.cn","域名简介",	92	,92,	"2019/01/25 12:32:51"	,"xj",	194,	69,	215,	0,DEFAULT),
 (null,"efrm.cn","域名简介",	93	,93,	"2019/01/25 12:32:12"	,"xj",	195,	70,	216,	0,DEFAULT);
-
+/*用户表数据*/
+INSERT INTO zm_users VALUES(null,'admin','123456','01234567890','admin.com');
