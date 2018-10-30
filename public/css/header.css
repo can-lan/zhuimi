@@ -2,9 +2,9 @@ header a{
   color:#fff;
   text-decoration: none;
 }
-a:hover{
+header a:hover{
   color:#00c1de !important;
-}
+} 
 header{
   background:transparent;
   transition:all .7s linear;

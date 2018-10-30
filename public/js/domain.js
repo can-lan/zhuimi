@@ -10,7 +10,7 @@ $(function(){
       add:["123","365","360","i","91","51"],//推荐域名前面拼接字符
       recomment:[],
       resulte:[],  //后缀和对应结果
-      local:['baidu'],
+      local:[],
       hasLocal:false,
       ban:0, //轮播图判断值
     },
@@ -27,8 +27,13 @@ $(function(){
         var keyword=d.slice(0,d.indexOf('.'));//获取到前缀keyword
         this.keyword=keyword;//将domain插入到input输入框
         var suf=d.slice(d.indexOf('.')+1);  //找到suffix(不带.)
-        var index=this.suffixs.indexOf(suf);//找到suffix在后缀数组中的位置
-        var key=this.suffixs.splice(index,1);//将该后缀从数组中删除
+        //循环找到suf在数组中的下标
+        for(var i=0;i<this.suffixs.length;i++){
+          if(this.suffixs[i].d==suf){
+            var sufIndex=i;
+          }
+        } //找到suffix在后缀数组中的位置
+        var key=this.suffixs.splice(sufIndex,1);//将该后缀从数组中删除
         this.suffixs.unshift(key[0]);//将该后缀插入到数组的最前面
         //2.
         if(this.keyword != ''){ //输入值不为空     
@@ -85,9 +90,30 @@ $(function(){
           console.log(this.recomment)
         }*/
       },
-      clearCart(){  //4.2清空清单
+      clearCart(e){  //4.2清空购物车
+        e.preventDefault();
         localStorage.clear();
-        this.local=[]
+        this.local=[];
+        var addBtns=$(".addCart");
+        for(var addBtn of addBtns){
+            $(addBtn).html("加入购物车");
+            $(addBtn).css({"background":"#00c1de","color":"#fff","border":"none"});          
+        }
+      },  //4.3移除购物车单个域名
+      delCart(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var cartDomain=$(e.target).attr("data-cartDomain");
+        this.local.splice(this.local.indexOf(cartDomain),1);
+        localStorage.removeItem(cartDomain);
+        var cartSuffix=cartDomain.slice(cartDomain.indexOf('.')+1); //将左侧resulte中对应的改回加入购物车
+        var addBtns=$(".addCart");
+        for(var addBtn of addBtns){
+          if($(addBtn).attr("data-suffix")==cartSuffix){
+            $(addBtn).html("加入购物车");
+            $(addBtn).css({"background":"#00c1de","color":"#fff","border":"none"});
+          }
+        }
       }
     },
     created(){
@@ -141,21 +167,42 @@ $(function(){
     }
   })
   //4.添加购物车按钮绑定事件
-  var addCarts=$('.cart');
-  for(var addCart of addCarts){
+  var addCarts=$('.addCart');
+  for(let addCart of addCarts){
     $(addCart).on('click',function(e){
       e.preventDefault();
       e.stopPropagation();
-      var domain=$(this).attr('data-keyword')+"."+$(this).attr('data-suffix');
-      localStorage.setItem(domain,"domain");
+      var domain=$(e.target).attr("data-keyword")+"."+$(e.target).attr("data-suffix");
+      if($(this).html()=="加入购物车"){ //点击加入购物车, 按钮变为移出清单, 不同功能
+        $(addCart).html("移出清单");
+        $(addCart).css({"background":"#fff","color":"#00c1de","border":"1px solid #00c1de"});
+        localStorage.setItem(domain,"domain");
+        domainVm.local.unshift(domain);
+      }else{
+        $(addCart).html("加入购物车");  //点击移出清单, 按钮变为移出清单, 不同功能
+        $(addCart).css({"background":"#00c1de","color":"#fff","border":"none"});
+        localStorage.removeItem(domain);
+        domainVm.local.splice(domainVm.local.indexOf(domain),1);
+      }
     })
   }
-  //4.1将localStorage值为domain的名称添加到local数组
+  //4.1页面一加载,将localStorage值为domain的名称添加到local数组
   for(var i=0;i<localStorage.length;i++){
     var name=localStorage.key(i); //找到localStorage中所有的name
     var value=localStorage.getItem(name);
     if(value == 'domain'){  //value为'domain'的
       domainVm.local.push(name); 
+    }
+  }
+  //4.2页面一加载,将localStorage值为domain==result中的按钮, 则按钮为"移出清单";
+  var abtns=$(".addCart");
+  for(var loc of domainVm.local){
+    for(var abtn of abtns){
+      var keysuf = $(abtn).attr("data-keyword")+"."+$(abtn).attr("data-suffix");
+      if(loc==keysuf){
+        $(abtn).html("移出清单");
+        $(abtn).css({"background":"#fff","color":"#00c1de","border":"1px solid #00c1de"});
+      }
     }
   }
 })

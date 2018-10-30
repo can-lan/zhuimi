@@ -1,7 +1,7 @@
 //1--轮播图1
   var timer=setInterval(function(){ 
     hvm.count++ 
-    if(hvms.count==5) hvm.count=0
+    if(hvm.count==5) hvm.count=0
   },6000);
   var hvm=new Vue({
     el:"#carrousel",

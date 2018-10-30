@@ -15,9 +15,9 @@ a{
   color:#fff;
   text-decoration: none;
 }
-a:hover{
-  color:#00c1de !important;
-}
+/*a:hover{
+  color:#00c1de;
+}*/
 /*竖线*/
 .line::after{
   content:"";
