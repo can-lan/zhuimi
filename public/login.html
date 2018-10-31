@@ -16,26 +16,37 @@
         body{background:#f5f5f6;}
         header{width:100%;height:60px;border-bottom:1px solid#d5d6d7;}
         header img{position:absolute;width:103px;height:24px;left:20px;top:18px;}
-        #content{width:1000px;height:530px;margin:75px auto;background:#fff;border-radius:2px;font-size:14px;color:#00c1de;}
-        #info{width:66.6666%;float:right;}
+        #content{width:1000px;padding-bottom:45px;margin:75px auto;background:#fff;border-radius:2px;font-size:14px;color:#00c1de;overflow:hidden;}
+        #content::after{content:"";display:block;clear:both;}
+        .info{width:66.6666%;float:right;position:relative;}
         input{width:345px;height:38px;margin-top:20px;border:1px solid #C3C5C6;padding-left:10px;border-radius:1px;outline:none;color:#00c1de;}
         h1{font-size:30px;color:#373d41;font-weight:normal;padding:40px 60px 20px;}
-        div.test,div.reg{width:355px;height:38px;margin-top:20px;border-radius:1px;text-align:center;font-size:16px;line-height:38px;color:#fff;background:#00c1de;}
-        #info>a{color:#00c1de;}
-        #info>p>span{display:inline-block;height:38px;box-shadow:0px 0px 6px #7E8184;line-height:38px;font-size:13px;padding:0 15px;margin-left:15px;position: relative;border-radius: 1px;}
-        #info>p>span>img{width:25px;height:25px;vertical-align: middle;margin-left:-5px;margin-right:-5px;margin-top:-3px;}
-        #info>p>span::before{content:'';display:inline-block;width:8px;height:8px;position:absolute;top:15px;left:-4px;background:#fff;box-shadow:-1px 1px 1px #7E8184;transform: rotate(45deg);}
+        div.test,div.reg{width:355px;height:38px;margin-top:20px;border-radius:1px;text-align:center;font-size:16px;line-height:38px;color:#fff;background:#00c1de;cursor:pointer;}
+        .info>a{color:#00c1de;}
+        .info>p>span{display:inline-block;height:38px;box-shadow:0px 0px 6px #7E8184;line-height:38px;font-size:13px;padding:0 15px;margin-left:15px;position: relative;border-radius: 1px;}
+        .info>p>span>img{width:25px;height:25px;vertical-align: middle;margin-left:-5px;margin-right:-5px;margin-top:-3px;}
+        .info>p>span::before{content:'';display:inline-block;width:8px;height:8px;position:absolute;top:15px;left:-4px;background:#fff;box-shadow:-1px 1px 1px #7E8184;transform: rotate(45deg);}
         input.checkbox{width:15px;height:15px;vertical-align:bottom;margin-right:10px;}
         span.tips{margin-left:30px;color:#f15533;}
+        .ico{position:absolute;top:0;right:0;width:45px;}
+        .icobg{position:absolute;top:-60px;right:-60px;width:120px;height:120px;transform:rotate(45deg);background:rgba(0,193,222,.2);cursor:pointer;}
+        .icotext{position:absolute;top:14px;right:82px;width:70px;height:25px;line-height:25px;text-align:center;border:1px solid #00c1de;font-size:13px;background-color:#e6f9fc;}
+        .icotext::after{position:absolute;top:8px;right:-4px;content:"";width:6px;height:6px;border-right:1px solid #00c1de;border-top:1px solid #00c1de;transform:rotate(45deg);background-color:#e6f9fc;}
+        .userico{top:3px;right:3px;}
    </style>
 </head>
 <body>
     <header>
-        <img src="img/header/logo_balck.gif">
-        <img src="img/header/logo_black.png">
+        <a href="/">
+            <img src="img/header/logo_balck.gif">
+            <img src="img/header/logo_black.png">
+        </a>
     </header>
     <div id="content">
-        <div id="info">
+        <div class="info" v-if="page==2">
+            <img src="img/pub/user_success.png" class="ico userico">
+            <div class="icobg" @click="changePage()"></div>
+            <div class="icotext">密码登录</div>
             <h1>欢迎注册阿里云</h1>
             <p>
                 <input type="text" name="uname" placeholder="设置会员名" v-model="uname" @focus="checkUname()">
@@ -60,9 +71,26 @@
             </p>
             <div class="test">请拖动滑块</div>
             <div class="reg" @click="register()">同意条款并注册</div>
-            <input class="checkbox" type="checkbox" @change="check()" v-model="isCheck">
+            <input class="checkbox" type="checkbox" v-model="isCheck">
             <a href="#">&lt;&lt;阿里云网站服务条款&gt;&gt;</a>
             <span class="tips" v-if="allow && !isCheck">请勾选同意协议</span><br>
+        </div>
+        <div class="info" v-if="page==1">
+            <img src="img/pub/reg_gray.png" class="ico">
+            <div class="icobg" @click="changePage()"></div>
+            <div class="icotext">注册账户</div>
+            <h1>欢迎登录阿里云</h1>
+            <p>
+                <input type="text" name="uname" placeholder="请输入用户名" v-model="lname" @focus="checkUname()">
+                <span v-if="unameFocus==1 && (lname.length<5 || lname.length>25) ">用户名为5-25字符</span>
+            </p>
+            <p>
+                <input type="password" name="upwd" placeholder="请输入登陆密码" v-model="lpwd" @focus="checkUpwd()">
+                <span v-if="!checkLpwd">用户名或密码不正确</span>
+                <span  v-else-if="upwdFocus==1 && (lpwd.length<6 || lpwd.length>20)">登录密码为6-20个字符</span>
+            </p>
+            <div class="test">请拖动滑块</div>
+            <div class="reg" @click="login()">登录</div>
         </div>
     </div>
     <script>
@@ -77,11 +105,21 @@
                 upwdFocus:0,
                 cpwdFocus:0,
                 phoneFocus:0,
-                haveUname:false,
-                allow:false,
-                isCheck:false
+                haveUname:false,//是否存在此用户名
+                allow:false,    //是否所有条件合法
+                isCheck:false,  //是否勾选协议
+                page:1,   //1登录页 2注册页
+                lname:'',       //登录用户名
+                lpwd:'',        //登录密码
+                checkLpwd:true  //登录密码是否正确
             },
-            create(){
+            created(){
+                var page=window.location.search.slice(location.search.indexOf('=')+1);
+                if(page==1){
+                    this.page=1;
+                }else{
+                    this.page=2;
+                }
             },
             methods:{
                 checkUname(){
@@ -96,14 +134,11 @@
                 checkPhone(){
                     this.phoneFocus=1;
                 },
-                check(){
-                    console.log(this.isCheck)
-                },
                 register(){
                     this.allow=this.uname.length>=5 && this.uname.length<=25 && !this.haveUname && this.upwd.length>=6 && this.upwd.length<=20 && this.upwd==this.cpwd && this.cpwd!='' && this.phone.length==11;
                     if( this.allow && this.isCheck){
                         console.log("全部通过");
-                        axios.post(
+                        axios.post(  //提交用户注册信息
                             'http://127.0.0.1:7000/users/register',
                             Qs.stringify({
                                 uname:this.uname,
@@ -111,18 +146,51 @@
                                 phone:this.phone
                             })
                         ).then(res=>{
-                            console.log('是否注册成功'+res);
-                        }).catch();
+                            if(res.data.code==1){
+                                this.page=1;
+                                alert('注册成功, 请登录 !');
+                            }else{
+                                alert('注册失败, 请核对注册信息 !')
+                            }
+                        }).catch(err=>{
+                            console.log(err)
+                        });
+                    }
+                },
+                login(){  //验证登录密码是否正确
+                    axios.get('http://127.0.0.1:7000/users/check',{
+                        params:{
+                            lname:this.lname,
+                            lpwd:this.lpwd
+                        }
+                    }).then(res=>{
+                        if(res.data.code==1){
+                            this.checkLpwd=true;
+                            location.href="/";
+                            sessionStorage.setItem('uname',this.lname);
+                            sessionStorage.setItem('upwd',this.lpwd);
+                        }else{
+                            this.checkLpwd=false;
+                        }
+                    }).catch(err=>{
+                        console.log(err);
+                    });
+                },
+                changePage(){ //点击右上角icon,跳转页面
+                    if(this.page==1){
+                        this.page=2;
+                    }else{
+                        this.page=1;
                     }
                 }
             },
             watch:{
-                uname(){
+                uname(){  //验证用户名是否存在
                     axios.get('http://127.0.0.1:7000/users/has',{
                         params:{
                             uname:this.uname
                         }
-                    }).then(res=>{
+                    },).then(res=>{
                         this.haveUname=res.data.length;
                     }).catch();
                 }

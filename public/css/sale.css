@@ -49,20 +49,27 @@ header{
   width:1200px;
   height:350px;
   margin:0 auto;
+  font-size:14px;
 }
 #query>table{
   width:1200px;
   margin:0 auto;
-  border-spacing: 0;
+  border-spacing: 7px 20px;
   text-align:center;
 }
 #query>table td{
   width:80px;
-  height:50px;
-  border-bottom:1px dashed #eee;
+  height:30px;
+  border-radius:3px;
+  box-shadow: 0 0 3px #999;
+}
+#query>table input.put{
+  width:140px;
+  height:20px;
 }
 #query>table input.inp{
-  width:100px;
+  width:67px;
+  height:20px;
 }
 /*返回数据#data*/
 #data{

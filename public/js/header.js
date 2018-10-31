@@ -18,18 +18,51 @@ $(function(){
 
     new Vue({
       el:"#header",
-      data:{function(){
-          return {
-              firstlist:{},
-              secondlist:{}
-          }
-      }},
+      data:{
+        firstlist:{},
+        secondlist:{},
+        whois:'',
+        isLogin:false,
+        uname:'',
+        phone:'',
+        photo:'',
+        dCount:''
+      },
       created(){
         this.firstlist=res.firstlist;
         this.secondlist=res.secondlist;
+        //查询sessionStorage
+        if(window.sessionStorage.getItem('uname')){
+          this.isLogin=true;
+          this.uname=window.sessionStorage.getItem('uname');
+          $.ajax({
+            url:'/users/has?uname='+this.uname,
+            method:'get',
+            success:(res)=>{
+              console.log(res)
+              this.uname=res[0].uname;
+              this.phone=res[0].phone;
+              this.photo=res[0].photo;
+              if(res[0].domains){ //如果domains为null,则false; 如果不为null,则为true,会进行赋值;
+                this.dCount=res[0].domains.split(',').length;
+              }else{
+                this.dCount=0;
+              }
+              
+            }
+          });
+        }
+      },
+      methods:{
+        logout(e){
+          e.preventDefault();
+          window.sessionStorage.clear();
+          window.location.href='';
+        },
+        searchWhois(){
+          window.open(`http://api.chinaz.com/CallAPI/Whois?key=e1caa93f865f40968b43b2445a2a4460&domainName=${this.whois}`);
+        }
       }
     });
   })();
-  //为搜索框绑定事件, 并且可发送请求
-  
 })

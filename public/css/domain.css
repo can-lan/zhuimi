@@ -100,9 +100,6 @@ body{background:#F9F9F9;}
   background-color:#fff;
   min-height:300px;
 }
-[v-cloak] {
-  display:none;
-}
 .left>.result>ul>li{
   height:50px;
   border-bottom:1px solid #e9e9e9;

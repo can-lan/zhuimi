@@ -21,20 +21,21 @@
       <div>
           <ul>
             <li>
-              <img src="img/header/cart.png">
-              <a href="#">登录</a>
+              <img src="img/pub/user_white.png">
+              <a v-if="!isLogin" href="/login.html?page=1">登录</a>
+              <a href="#" v-text="uname"></a>
             </li>
             <li>
-              <img src="img/header/cart.png">
-              <a href="#">控制台</a>
+              <img src="img/pub/console.png">
+              <a href="/admin.html">控制台</a>
             </li>
             <li>
               <img src="img/header/cart.png">
               <a href="#">购物车</a>
             </li>
             <li>
-              <input type="text" placeholder="WHOIS查询">
-              <img src="img/header/search.png">
+              <input type="text" placeholder="WHOIS查询" v-model="whois" @keyup.13="searchWhois()">
+              <img src="img/header/search.png" @click="searchWhois()">
             </li>
           </ul>
       </div>
@@ -52,6 +53,33 @@
           </ul>
         </li>
       </ul>
-      <a href="#">免费注册</a>
+      <a v-if="!isLogin" href="/login.html?page=2" v-cloak>免费注册</a>
+      <a v-else href="/admin.html" class="loginA" v-cloak>
+        <img :src="photo">
+        <div class="loginInfo">
+          <ul>
+            <li>
+                <img src="./img/pub/user.png">
+                <span>{{uname}}</span>
+            </li>
+            <li>
+                <img src="./img/pub/phone.png">
+                <span>{{phone}}</span>
+            </li>
+            <li>
+                <img src="./img/pub/console.png">
+                <span>控制台</span>
+            </li>
+            <li>
+                <img src="./img/pub/domain.png">
+                <span>域名 {{dCount}}个</span>
+            </li>
+            <li>
+                <img src="./img/pub/out.png">
+                <span @click="logout($event)">退出</span>
+            </li>
+          </ul>
+        </div>
+      </a>
     </div>
   </header>

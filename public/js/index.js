@@ -55,6 +55,7 @@
                 minutes = Math.floor(minutes);
                 var seconds = seconds%60;
                 seconds = Math.floor(seconds);
+                if(days<2){days=3}
                 this.datas[i].saleTime=`${days}天${hours}小时${minutes}分钟${seconds}秒`;
               }
             },1000) 

@@ -37,6 +37,7 @@ CREATE TABLE zm_users(
     uname VARCHAR(16),
     upwd VARCHAR(32),
     phone VARCHAR(20),
+    photo VARCHAR(256) DEFAULT './img/pub/photo.png',
     domains VARCHAR(10240)
 );
 /*抢注竞价域名表*/
@@ -196,4 +197,4 @@ INSERT INTO zm_sale VALUES
 (null,"efrg.cn","域名简介",	92	,92,	"2019/01/25 12:32:51"	,"xj",	194,	69,	215,	0,DEFAULT),
 (null,"efrm.cn","域名简介",	93	,93,	"2019/01/25 12:32:12"	,"xj",	195,	70,	216,	0,DEFAULT);
 /*用户表数据*/
-INSERT INTO zm_users VALUES(null,'admin','123456','01234567890','admin.com');
+INSERT INTO zm_users VALUES(null,'admin','123456','01234567890','./img/pub/huoshan.jpg','admin.com');

@@ -61,3 +61,6 @@ a{
   background:url('../img/pub/loading.gif') no-repeat 0 -90px;
   background-size:100%;
 }
+[v-cloak] {display:none;}
+.fl{float:left !important};
+.fr{float:right !important};
