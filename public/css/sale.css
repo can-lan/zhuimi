@@ -47,9 +47,10 @@ header{
 /*#query的table*/
 #query{
   width:1200px;
-  height:350px;
+  height:380px;
   margin:0 auto;
   font-size:14px;
+  color:#666;
 }
 #query>table{
   width:1200px;
@@ -63,22 +64,56 @@ header{
   border-radius:3px;
   box-shadow: 0 0 3px #999;
 }
+#query table tr td:first-child{
+  background:#ff8a00 !important;
+  border-radius:0 ;
+  color:#fff;
+  cursor:default !important;
+}
+#query td.active{
+  background:#00c1de !important;
+  color:#fff !important;
+}
+#query td.white{
+  background:#fff !important;
+  color:#666 !important;
+  cursor:default !important;
+}
 #query>table input.put{
-  width:140px;
-  height:20px;
+  width:150px;
+  height:22px;
+  border-radius:2px;
+  outline: none;
+  margin:0;
+  padding:0;
 }
 #query>table input.inp{
-  width:67px;
-  height:20px;
+  width:70px;
+  height:22px;
+  border-radius:2px;
+  outline: none;
+}
+#submit{
+  width:180px;
+  height:40px;
+  margin:20px auto;
+  text-align:center;
+  line-height:40px;
+  background:#00c1de;
+  color:#fff;
+  font-size:18px;
+  border-radius:2px;
+  cursor: pointer;
 }
 /*返回数据#data*/
 #data{
   width:1200px;
   margin:0 auto;
-  margin-top:40px;
+  margin-top:80px;
+  color:#666;
+  font-size:14px;
 }
 #data>table{
-  color:#333;
   width:1200px;
   text-align:center;
   border-spacing: 0;

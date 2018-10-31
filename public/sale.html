@@ -28,7 +28,7 @@
     <!--查询条件框#query-->
     <div id="query">
       <table>
-        <tr>
+        <tr id="type">
           <td><span>快速: </span></td>
           <td><span>不限</span></td>
           <td><span>纯数字</span></td>
@@ -45,40 +45,39 @@
           <td><span>3杂</span></td>
           <td><span>4杂</span></td>
         </tr>
-        <tr>
+        <tr id="has">
           <td><span>包含: </span></td>
-          <td colspan="2"><input type="text" class="put"></td>
-          <td><input type="checkbox">开头</td>
-          <td><input type="checkbox">结尾</td>
-          <td><span></span></td>
-          <td><span></span></td>
-          <td><span></span></td>
-          <td><span></span></td>
-          <td><span></span></td>
-          <td><span></span>排除: </td>
-          <td colspan="2"><input type="text" class="put"></td>
-          <td><input type="checkbox">开头</td>
-          <td><input type="checkbox">结尾</td>
-          
+          <td colspan="2" class="white"><input type="text" class="put"></td>
+          <td>开头</td>
+          <td>结尾</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="white">排除:</td>
+          <td colspan="2" class="white"><input type="text" class="put" id="nothave"></td>
+          <td>开头</td>
+          <td>结尾</td>   
         </tr>
-        <tr>
+        <tr id="suffix">
           <td><span>后缀: </span></td>
           <td><span>不限</span></td>
-          <td><input type="checkbox">.com</td>
-          <td><input type="checkbox">.cn</td>
-          <td><input type="checkbox">.com.cn</td>
-          <td><input type="checkbox">.net</td>
-          <td><input type="checkbox">.org</td>
-          <td><input type="checkbox">.cc</td>
-          <td><input type="checkbox">.tv</td>
-          <td><input type="checkbox">.top</td>
-          <td><input type="checkbox">.vip</td>
-          <td><input type="checkbox">.co</td>
-          <td><input type="checkbox">.love</td>
-          <td><input type="checkbox">.中国</td>
+          <td>.com</td>
+          <td>.cn</td>
+          <td>.com.cn</td>
+          <td>.net</td>
+          <td>.org</td>
+          <td>.cc</td>
+          <td>.tv</td>
+          <td>.top</td>
+          <td>.vip</td>
+          <td>.co</td>
+          <td>.love</td>
+          <td>.中国</td>
           <td><span>清空</span></td>
         </tr>
-        <tr>
+        <tr id="price">
           <td><span>价格: </span></td>
           <td><span>不限</span></td>
           <td><span>0-50</span></td>
@@ -89,12 +88,12 @@
           <td><span>3k-5k</span></td>
           <td><span>5k-1w</span></td>
           <td><span>1w以上</span></td>
-          <td><span>自定价格:</span></td>
-          <td colspan="2"><span><input type="text" class="inp">-<input type="text" class="inp"></span></td>
-          <td><span></span></td>
-          <td><span></span></td>
+          <td class="white"><span>自定价格:</span></td>
+          <td colspan="2" class="white"><span><input type="text" class="inp"> - <input type="text" class="inp"></span></td>
+          <td></td>
+          <td></td>
         </tr>
-        <tr>
+        <tr id="length">
           <td><span>长度: </span></td>
           <td><span>不限</span></td>
           <td><span>1个</span></td>
@@ -105,12 +104,12 @@
           <td><span>6个</span></td>
           <td><span>7个</span></td>
           <td><span>7个以上</span></td>
-          <td><span>自定长度:</span></td>
-          <td colspan="2"><span><input type="text" class="inp">-<input type="text" class="inp"></span></td>
-          <td><span></span></td>
-          <td><span></span></td>
+          <td class="white"><span>自定长度:</span></td>
+          <td colspan="2" class="white"><span><input type="text" class="inp"> - <input type="text" class="inp"></span></td>
+          <td></td>
+          <td></td>
         </tr>
-        <tr>
+        <tr  id="registar">
           <td><span>注册商: </span></td>
           <td><span>追米网</span></td>
           <td><span>万网</span></td>
@@ -119,14 +118,14 @@
           <td><span>西部数码</span></td>
           <td><span>域名城</span></td>
           <td><span>godaddy</span></td>
-          <td><span></span></td>
-          <td><span></span></td>
-          <td><span>结束时间:</span></td>
-          <td colspan="2"><span><input type="text" class="put"></span></td>
-          <td><span></span></td>
-          <td><span></span></td>
+          <td></td>
+          <td></td>
+          <td class="white"><span>结束时间:</span></td>
+          <td colspan="2" class="white"><span><input type="text" class="put"></span></td>
+          <td></td>
+          <td></td>
         </tr>
-        <tr>
+        <tr id="sell">
           <td><span>交易: </span></td>
           <td><span>一口价</span></td>
           <td><span>竞价</span></td>
@@ -135,18 +134,19 @@
           <td><span>一元起拍</span></td>
           <td><span>域名预定</span></td>
           <td><span>预定竞价</span></td>
-          <td><span></span></td>
-          <td><span></span></td>
-          <td><span>到期时间: </span></td>
-          <td colspan="2"><span><input type="text" class="put"></span></td>
-          <td><span></span></td>
-          <td><span></span></td>
+          <td></td>
+          <td></td>
+          <td class="white"><span>到期时间: </span></td>
+          <td colspan="2" class="white"><span><input type="text" class="put"></span></td>
+          <td></td>
+          <td></td>
         </tr>
       </table>
+      <div id="submit" @click="submit()">查询域名</div>
+     
     </div>
     <!--返回数据#data-->
     <div id="data">
-      <h4>共有104007983个搜索结果（最多显示5000个结果）</h4>
       <table>
         <tr>
           <th>域名</th>
@@ -201,10 +201,10 @@
       </table>   
       <div>
           <p>
-            <img src="img/transaction/i.png">
+            <img src="img/sale/i.png">
             域名价格可能存在由于系统或页面延迟导致非最新价格的情况，在购买过程中请务必仔细核对，以生成订单价格为准。</p>
           <p>
-            <img src="img/transaction/i.png">
+            <img src="img/sale/i.png">
             为了交易安全，阿里云（万网）域名交易全面接入支付宝付款，暂不支持账户余额和信用卡结算；</p>
           <p>阿里云（万网）非域名交易当事人，仅为域名交易提供平台，不负责审核交易域名的状态是否存在瑕疵、无法对域名交易款项开具发票。</p>
       </div>
@@ -213,5 +213,6 @@
   <footer></footer>
   <script src="js/header.js"></script>
   <script src="js/footer.js"></script>
+  <script src="js/sale.js"></script>
 </body>
 </html>
