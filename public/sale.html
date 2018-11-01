@@ -30,7 +30,7 @@
       <table>
         <tr id="type">
           <td><span>快速: </span></td>
-          <td><span>不限</span></td>
+          <td class="active bx"><span>不限</span></td>
           <td><span>纯数字</span></td>
           <td><span>3数</span></td>
           <td><span>4数</span></td>
@@ -46,23 +46,23 @@
           <td><span>4杂</span></td>
         </tr>
         <tr id="has">
-          <td><span>包含: </span></td>
-          <td colspan="2" class="white"><input type="text" class="put"></td>
-          <td>开头</td>
-          <td>结尾</td>
+          <td><span>包含:</span></td>
+          <td colspan="2" class="white nochange"><input type="text" class="put" id="hasVal"></td>
+          <td class="hasbtn changeb">开头</td>
+          <td class="hasbtn changeb">结尾</td>
+          <td class="hasbtn changeb">全部</td>
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
-          <td class="white">排除:</td>
-          <td colspan="2" class="white"><input type="text" class="put" id="nothave"></td>
-          <td>开头</td>
-          <td>结尾</td>   
+          <td class="white nochange">排除:</td>
+          <td colspan="2" class="white nochange"><input type="text" class="put" id="notHaveVal"></td>
+          <td class="notbtn changeb">开头</td>
+          <td class="notbtn changeb">结尾</td>   
+          <td class="notbtn changeb">全部</td>   
         </tr>
-        <tr id="suffix">
+        <tr id="suffix" class="suffix">
           <td><span>后缀: </span></td>
-          <td><span>不限</span></td>
+          <td class="bx active"><span>不限</span></td>
           <td>.com</td>
           <td>.cn</td>
           <td>.com.cn</td>
@@ -74,12 +74,12 @@
           <td>.vip</td>
           <td>.co</td>
           <td>.love</td>
-          <td>.中国</td>
+          <td>.xin</td>
           <td><span>清空</span></td>
         </tr>
         <tr id="price">
           <td><span>价格: </span></td>
-          <td><span>不限</span></td>
+          <td class="bx active"><span>不限</span></td>
           <td><span>0-50</span></td>
           <td><span>50-100</span></td>
           <td><span>100-500</span></td>
@@ -88,14 +88,14 @@
           <td><span>3k-5k</span></td>
           <td><span>5k-1w</span></td>
           <td><span>1w以上</span></td>
-          <td class="white"><span>自定价格:</span></td>
-          <td colspan="2" class="white"><span><input type="text" class="inp"> - <input type="text" class="inp"></span></td>
+          <td class="white nochange"><span>自定价格:</span></td>
+          <td colspan="2" class="white"><span><input v-model="pLeast" type="number" class="inp" id="pLeast">-<input v-model="pMost" type="number" class="inp" id="pMost"></span></td>
           <td></td>
           <td></td>
         </tr>
         <tr id="length">
           <td><span>长度: </span></td>
-          <td><span>不限</span></td>
+          <td class="active bx"><span>不限</span></td>
           <td><span>1个</span></td>
           <td><span>2个</span></td>
           <td><span>3个</span></td>
@@ -104,13 +104,14 @@
           <td><span>6个</span></td>
           <td><span>7个</span></td>
           <td><span>7个以上</span></td>
-          <td class="white"><span>自定长度:</span></td>
-          <td colspan="2" class="white"><span><input type="text" class="inp"> - <input type="text" class="inp"></span></td>
+          <td class="white nochange"><span>自定长度:</span></td>
+          <td colspan="2" class="white"><span><input v-model="lenLeast" type="number" class="inp">-<input v-model="lenMost" type="number" class="inp"></span></td>
           <td></td>
           <td></td>
         </tr>
         <tr  id="registar">
           <td><span>注册商: </span></td>
+          <td class="active bx">不限</td>
           <td><span>追米网</span></td>
           <td><span>万网</span></td>
           <td><span>易名中国</span></td>
@@ -119,14 +120,14 @@
           <td><span>域名城</span></td>
           <td><span>godaddy</span></td>
           <td></td>
-          <td></td>
-          <td class="white"><span>结束时间:</span></td>
-          <td colspan="2" class="white"><span><input type="text" class="put"></span></td>
+          <td class="white nochange"><span>结束时间:</span></td>
+          <td colspan="2" class="white nochange"><input type="datetime-local" class="put" v-model="endTime"></td>
           <td></td>
           <td></td>
         </tr>
         <tr id="sell">
           <td><span>交易: </span></td>
+          <td class="active bx">不限</td>
           <td><span>一口价</span></td>
           <td><span>竞价</span></td>
           <td><span>询价</span></td>
@@ -135,9 +136,8 @@
           <td><span>域名预定</span></td>
           <td><span>预定竞价</span></td>
           <td></td>
-          <td></td>
-          <td class="white"><span>到期时间: </span></td>
-          <td colspan="2" class="white"><span><input type="text" class="put"></span></td>
+          <td class="white nochange"><span>到期时间: </span></td>
+          <td colspan="2" class="white nochange"><span><input type="datetime-local" class="put"></span></td>
           <td></td>
           <td></td>
         </tr>
@@ -157,46 +157,24 @@
           <th>操作</th>
           <th></th>
           <th></th>
-        </tr>
-        <tr>
-          <td>baidu.com</td>
-          <td>¥100</td>
-          <td>50秒</td>
-          <td>2020-4-3</td>
-          <td>一口价</td>
+        </tr>                                     
+        <tr v-for="item of data" v-if="type.test( item.domainname.slice(0,item.domainname.indexOf('.')) ) && 
+                                       has.test( item.domainname.slice(0,item.domainname.indexOf('.')) ) && 
+                                       !notHave.test( item.domainname.slice(0,item.domainname.indexOf('.')) ) && 
+                                       suffix.test( item.domainname.slice(item.domainname.indexOf('.')+1) ) && 
+                                       item.domainname.slice(0,item.domainname.indexOf('.')).length >= lenLeast &&
+                                       item.domainname.slice(0,item.domainname.indexOf('.')).length <= lenMost &&
+                                       item.nowPrice >= pLeast && item.nowPrice <= pMost &&
+                                       sell.test(item.saleType) && startPrice.test(item.startPrice)
+                                       ">
+          <td>{{item.domainname}}</td>
+          <td>{{item.info}}</td>
+          <td>¥{{item.nowPrice}}</td>
+          <td>{{item.offer}}</td>
+          <td>{{item.endTime}}</td>
+          <td>{{item.saleType}}</td>
           <td>加入购物车</td>
           <td>立即购买</td>
-          <td>查看详情</td>
-        </tr>
-        <tr>
-          <td>baidu.com</td>
-          <td>¥100</td>
-          <td>50秒</td>
-          <td>2020-4-3</td>
-          <td>一口价</td>
-          <td>加入购物车</td>
-          <td>立即购买</td>
-          <td>查看详情</td>
-        </tr>
-        <tr>
-          <td>baidu.com</td>
-          <td>¥100</td>
-          <td>50秒</td>
-          <td>2020-4-3</td>
-          <td>一口价</td>
-          <td>加入购物车</td>
-          <td>立即购买</td>
-          <td>查看详情</td>
-        </tr>
-        <tr>
-          <td>baidu.com</td>
-          <td>¥100</td>
-          <td>50秒</td>
-          <td>2020-4-3</td>
-          <td>一口价</td>
-          <td>加入购物车</td>
-          <td>立即购买</td>
-          <td>查看详情</td>
         </tr>
       </table>   
       <div>

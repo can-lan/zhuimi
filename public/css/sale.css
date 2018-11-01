@@ -68,6 +68,8 @@ header{
   background:#ff8a00 !important;
   border-radius:0 ;
   color:#fff;
+
+  font-size:15px;
   cursor:default !important;
 }
 #query td.active{
@@ -84,15 +86,20 @@ header{
   height:22px;
   border-radius:2px;
   outline: none;
-  margin:0;
+  margin:0 -20px;
   padding:0;
+  text-align:center;
+  border-radius:3px;
 }
 #query>table input.inp{
   width:70px;
   height:22px;
   border-radius:2px;
   outline: none;
+  text-align:center;
+  border-radius:3px;
 }
+#query .nochange,.changeb{box-shadow: 0 0 3px #999 !important;}
 #submit{
   width:180px;
   height:40px;
