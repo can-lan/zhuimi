@@ -6,10 +6,22 @@ router.get('/sale',(req,res)=>{
   var control=parseInt(req.query.control);
   var sql='';
   switch(control){
-    case 6: //热拍热卖
+    case 1: //字母顺序
+      sql='SELECT * FROM zm_sale ORDER BY domainname';
+      break;
+    case 2: //价格排序
+      sql='SELECT * FROM zm_sale ORDER BY nowPrice';
+      break;
+    case 3: //出价次数
+      sql='SELECT * FROM zm_sale ORDER BY offer';
+      break;
+    case 4: //剩余时间
+      sql='SELECT * FROM zm_sale ORDER BY endTime';
+      break;
+    case 6: //热拍热卖--出价次数排序
       sql='SELECT * FROM zm_sale ORDER BY offer DESC LIMIT 0,15';
       break;
-    case 7: //即将结束
+    case 7: //即将结束--结束时间排序
       sql='SELECT * FROM zm_sale ORDER BY endTime LIMIT 0,15';
       break;
     case 8: //一口价

@@ -149,16 +149,18 @@
     <div id="data">
       <table>
         <tr>
-          <th>域名</th>
+          <th>域名
+            <img class="order" src="img/pub/upArrow.png" @click="order(1,$event)">
+          </th>
           <th>简介</th>
           <th>当前价格 
-            <img src="img/pub/upArrow.png" data-img="img/pub/downArrow.png">
+            <img class="order" src="img/pub/upArrow.png" @click="order(2,$event)">
           </th>
           <th>出价次数
-            <img src="img/pub/upArrow.png" data-img="img/pub/downArrow.png">
+            <img class="order" src="img/pub/upArrow.png" @click="order(3,$event)">
           </th>
           <th>到期时间
-            <img src="img/pub/upArrow.png" data-img="img/pub/downArrow.png">
+            <img class="order" src="img/pub/upArrow.png" @click="order(4,$event)">
           </th>
           <th>交易类型</th>
           <th>操作</th>

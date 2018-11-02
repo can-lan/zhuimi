@@ -150,6 +150,7 @@ header:hover #nav2{
   line-height:50px;
   color:#fff;
   background:#00c1de;
+  margin-top:-1px;
 }
 #nav2>a:hover{
   background:#28d0e9;
@@ -250,7 +251,24 @@ a.loginA>div>ul>li>img{width:20px;margin-right:15px;vertical-align:middle;}
 a.loginA>div>ul>li{width:100%;height:45px;padding-left:15px;text-align:left;line-height:45px;}
 a.loginA>div>ul>li>span:hover{color:#00C1DE;}
 /*购物车*/
+
 .cart{position: relative;}
+.cart .count{
+  position:absolute;
+  top:5px;
+  left:4px;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#f60;
+  color:#fff;
+  text-align:center;
+  line-height:16px;
+  font-size:12px;
+}
+.cart:hover #cart{
+  display:block;
+}
 #cart{
   position: absolute;
   width:276px;
@@ -263,10 +281,18 @@ a.loginA>div>ul>li>span:hover{color:#00C1DE;}
   font-size:16px;
   padding:0 15px 0 15px;
   padding-bottom:15px;
+  max-height:780px;
+  overflow:auto;
+  display:none;
+  z-index:1;
 }
 #cart>p{
   height:40px;
+  line-height:40px;
 }
+#cart>p:first-child>span:first-child{float: left;margin-left:20px;}
+#cart>p:first-child>span:nth-child(2){float: right;margin-right:-8px;}
+#cart>p:first-child>span:last-child{float: right;margin-right:30px;}
 #cart>p>span.buy{
   display:inline-block;
   width:80px;
@@ -278,8 +304,9 @@ a.loginA>div>ul>li>span:hover{color:#00C1DE;}
   font-size:15px;
   cursor: pointer;
   border-radius:1px;
+  margin-right:20px;
 }
-#cart>p>span.cartDomain{float: left;}
+#cart>p>span.cartDomain{float: left;max-width: 115px;white-space: nowrap;text-overflow: ellipsis}
 #cart>p>span.cartPrice{float:right;margin-right:30px;color:#f60;}
-#cart>p>span.cartDel{float:right;}
+#cart>p>span.cartDel{float:right;border:1px solid #ddd;cursor:pointer;width:17px;height:17px;margin-top:13px;border-radius:50%;text-align:center;line-height:13px;}
 #cart>p>span.buy:hover{background:#fff;color:#00C1DE;}

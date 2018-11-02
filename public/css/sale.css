@@ -135,6 +135,7 @@ header{
 }
 #data>table tr td{
   border-bottom:1px dashed #ccc;
+  width:12%;
 }
 
 #data>table tr>th{
@@ -152,11 +153,11 @@ header{
   background-color:#5B7783;
 }
 #data>table td.domain{
-  width:250px;
   text-align:left;
   padding-left:15px;
   color:#2086ee;
   font-size:15px;
+  width:16%;
 }
 #data>table td.domain:hover{
   color:#f60;
@@ -254,4 +255,7 @@ header{
 }
 #data>div.pagination>div.disable{
   background:#ddd;
+}
+#data img.order{
+  transform: rotate(180deg);
 }

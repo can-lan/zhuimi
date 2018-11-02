@@ -31,22 +31,23 @@
             </li>
             <li class="cart">
               <img src="img/header/cart.png">
+              <span class="count" v-if="cart.length != 0" v-text="cart.length" v-cloak></span>
               <a href="#">购物车</a>
-              <div id="cart">
+              <div id="cart" v-if="cart.length != 0">
                 <p>
-                      <span class="fl">域名</span>  
-                      <span class="fr">移出</span>
-                      <span class="fr">价格</span>
+                    <span>域名</span>  
+                    <span>移除</span>
+                    <span>价格</span>
                 </p>
                 <p v-for="item of cart">
                   <span class="cartDomain">{{item.domainname}}</span>
-                  <span class="cartDel">X</span>
+                  <span class="cartDel" @click="cartDel($event)">x</span>
                   <span class="cartPrice">{{item.nowPrice}} &yen;</span>
                   
                 </p>
                 <p>
                     <span class="buy">立即结算</span>
-                    <span>总价:</span>
+                    <span class="total">总价: {{total}}元</span>
                 </p>
               </div>
             </li>

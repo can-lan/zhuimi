@@ -407,11 +407,33 @@ var saleVm = new Vue({
             $(e.target).html("加入购物车");       //4.2 点击移出清单, 按钮变为移出清单, 不同功能
             $(e.target).css({"background":"#00c1de","color":"#fff","border":"none"});
             localStorage.removeItem(domainname);
-            headerVm.splice(headerVm.cart.indexOf(domainname),1);
+            headerVm.cart.splice(headerVm.cart.indexOf(domainname),1);
             }
         },
         buy(){
 
+        },
+        async order(id,e){
+            if($(e.target).hasClass('order')){
+                $(e.target).removeClass('order');//翻转图片为向上
+                await $.ajax({
+                    url:'http://127.0.0.1:7000/domain/sale?control='+id, //默认正序查询
+                    method:'get',
+                    success:(res)=>{
+                        this.data=res;
+                    }
+                })
+            }else{
+                $(e.target).addClass('order');//翻转图片为向下
+                await $.ajax({
+                    url:'http://127.0.0.1:7000/domain/sale?control='+id,
+                    method:'get',
+                    success:(res)=>{
+                        this.data=res.reverse();    //翻转数组-->变成倒序
+                    }
+                })
+            }
+            this.submit();  //调用查询条件-->然后将同样?筛选后的结果放入result数组-->前端遍历
         }
     }
 });

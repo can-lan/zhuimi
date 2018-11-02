@@ -27,7 +27,8 @@ $(function(){
         phone:'',
         photo:'',
         dCount:'',
-        cart:[]
+        cart:[],
+        total:0
       },
       created(){
         this.firstlist=res.firstlist;
@@ -41,7 +42,6 @@ $(function(){
           this.cart.push(carItem);
           
         }
-        console.log(this.cart)
         //查询sessionStorage--个人信息
         if(window.sessionStorage.getItem('uname')){
           this.isLogin=true;
@@ -72,6 +72,25 @@ $(function(){
         },
         searchWhois(){
           window.open(`http://api.chinaz.com/CallAPI/Whois?key=e1caa93f865f40968b43b2445a2a4460&domainName=${this.whois}`);
+        },
+        cartDel(e){
+          var domain=$(e.target).prev().text();
+          localStorage.removeItem(domain);
+          for(var i=0;i<this.cart.length;i++){
+            if(this.cart[i].domainname==domain){
+              this.cart.splice(i,1); 
+              return;  
+            }
+          };      
+        }
+      },
+      watch:{
+        cart(){ //购物车一但变化,总价变化
+          var total=0;
+          for(var item of this.cart){
+            total+=parseInt(item.nowPrice);
+          }
+          this.total=total;
         }
       }
     });
