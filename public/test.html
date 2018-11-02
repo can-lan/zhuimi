@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="js/jquery-3.2.1.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  $.ajax({
+    url:'http://api01.idataapi.cn:8000/sight/tongcheng?apikey=EN4UfMgKBjmi7pVKPwe7x5Zg6vqud1N3FDOBzIbcNpP2jBGhww4sEGfnunauoNa1&kw=北京',
+    method:'get',
+    type:'jsonp',
+    
+    success:(res)=>{
+      console.log(res)
+    }
+  });
+  </script>
+</body>
+</html>

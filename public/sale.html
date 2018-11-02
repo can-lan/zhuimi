@@ -18,11 +18,11 @@
         <p>基于支付宝担保交易打造的域名交易系统，为买卖双方提供安全、便捷的域名交易服务。</p>
       </div>
       <ul>
-        <li class="active"><a href="#">推荐交易</a></li>
-        <li><a href="#">一口价</a></li>
-        <li><a href="#">竞价</a></li>
-        <li><a href="#">询价</a></li>
-        <li><a href="#">拍卖</a></li>
+        <li class="active"><a href="/sale.html">推荐交易</a></li>
+        <li><a href="#" @click.prevent="href('ykj',$event)">一口价</a></li>
+        <li><a href="#" @click.prevent="href('jj',$event)">竞价</a></li>
+        <li><a href="#" @click.prevent="href('xj',$event)">询价</a></li>
+        <li><a href="#" @click.prevent="href('pm',$event)">拍卖</a></li>
       </ul>
     </div>
     <!--查询条件框#query-->
@@ -128,10 +128,10 @@
         <tr id="sell">
           <td><span>交易: </span></td>
           <td class="active bx">不限</td>
-          <td><span>一口价</span></td>
-          <td><span>竞价</span></td>
-          <td><span>询价</span></td>
-          <td><span>拍卖</span></td>
+          <td id="ykj"><span>一口价</span></td>
+          <td id="jj"><span>竞价</span></td>
+          <td id="xj"><span>询价</span></td>
+          <td id="pm"><span>拍卖</span></td>
           <td><span>一元起拍</span></td>
           <td><span>域名预定</span></td>
           <td><span>预定竞价</span></td>
@@ -150,33 +150,66 @@
       <table>
         <tr>
           <th>域名</th>
-          <th>当前价格</th>
-          <th>剩余时间</th>
-          <th>到期时间</th>
+          <th>简介</th>
+          <th>当前价格 
+            <img src="img/pub/upArrow.png" data-img="img/pub/downArrow.png">
+          </th>
+          <th>出价次数
+            <img src="img/pub/upArrow.png" data-img="img/pub/downArrow.png">
+          </th>
+          <th>到期时间
+            <img src="img/pub/upArrow.png" data-img="img/pub/downArrow.png">
+          </th>
           <th>交易类型</th>
           <th>操作</th>
-          <th></th>
-          <th></th>
-        </tr>                                     
-        <tr v-for="item of data" v-if="type.test( item.domainname.slice(0,item.domainname.indexOf('.')) ) && 
+          <th>购买</th>
+        </tr>          
+        <!--数据在Vue内操作-->                           
+        <!--<tr class="recommend" v-for="item,index of data" v-if="type.test( item.domainname.slice(0,item.domainname.indexOf('.')) ) && 
                                        has.test( item.domainname.slice(0,item.domainname.indexOf('.')) ) && 
                                        !notHave.test( item.domainname.slice(0,item.domainname.indexOf('.')) ) && 
                                        suffix.test( item.domainname.slice(item.domainname.indexOf('.')+1) ) && 
                                        item.domainname.slice(0,item.domainname.indexOf('.')).length >= lenLeast &&
                                        item.domainname.slice(0,item.domainname.indexOf('.')).length <= lenMost &&
                                        item.nowPrice >= pLeast && item.nowPrice <= pMost &&
-                                       sell.test(item.saleType) && startPrice.test(item.startPrice)
-                                       ">
-          <td>{{item.domainname}}</td>
-          <td>{{item.info}}</td>
-          <td>¥{{item.nowPrice}}</td>
+                                       sell.test(item.saleType) && startPrice.test(item.startPrice) &&
+                                       item.endTime < endTime &&  
+                                       index >= (pageNum-1)*pageSize &&
+                                       index <= (pageNum*pageSize)-1
+                                       ">-->
+        <tr class="recommend" v-for="item,index of result" v-if="index >= (pageNum-1)*pageSize && index <= (pageNum*pageSize)-1">                          
+          <td class="domain">{{item.domainname}}</td>
+          <td class="info">{{item.info}}</td>
+          <td class="price">¥{{item.nowPrice}}</td>
           <td>{{item.offer}}</td>
-          <td>{{item.endTime}}</td>
-          <td>{{item.saleType}}</td>
-          <td>加入购物车</td>
-          <td>立即购买</td>
+          <td>{{new Date(item.endTime).getFullYear()+"-"+new Date(item.endTime).getMonth()+"-"+new Date(item.endTime).getDate()}}</td>
+          <td>{{item.saleType | saleType}}</td>
+          <td class="addCart"><a href="#" :data-id="item.id" @click.prevent="addCart(item.domainname,item.nowPrice,$event)">加入购物车</a></td>
+          <td :data-id="item.id" class="buy"><a href="#" :data-id="item.id" @click.prevent="buy()">立即购买</a></td>
         </tr>
-      </table>   
+      </table>  
+      <div class="pagination">
+        <span>每页显示: </span>  
+        <select name="pageSize" v-model="pageSize" @change="option($event)">
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+        <span>条</span>
+        <div class="prev" :class="pageNum <= 1?'disable':''" @click="prev($event)">上一页</div>
+        <div v-if="pageNum > 3" :class="pageNum==1?'active':''" @click="frontendPage(1)">1</div>
+        <div v-if="pageNum > 4">···</div>
+
+        <!--当前页前两条和后两条显示-->
+        <div v-for="page of pageCount" v-if="page >= pageNum - 2 && page <= pageNum + 2" :class="pageNum==page?'active':''" @click="toPage(page)">{{page}}</div>
+        
+        <div v-if="pageCount>pageNum+2">···</div>
+        <div v-if="pageCount>pageNum+2" :class="pageNum==pageCount?'active':''" @click="frontendPage(pageCount)">{{pageCount}}</div>
+        <div class="prev next" :class="pageNum >= pageCount?'disable':''"  @click="next($event)">下一页</div>
+        <span>跳转至: </span><input type="text" class="pageNum"><div class="jump" @click="jump($event)">前往</div>
+      </div> 
       <div>
           <p>
             <img src="img/sale/i.png">

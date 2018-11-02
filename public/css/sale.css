@@ -42,8 +42,12 @@ header{
   height:51px;
 }
 #banner>ul>li>a{
+  display: inline-block;
+  width:100%;
+  height:100%;
   color:#333;
 }
+#banner>ul>li>a:hover{color:#00c1de;}
 /*#query的table*/
 #query{
   width:1200px;
@@ -129,22 +133,59 @@ header{
 #data>table tr{
   height:40px;
 }
+#data>table tr td{
+  border-bottom:1px dashed #ccc;
+}
+
 #data>table tr>th{
   font-size:16px;
   font-weight:500;
-  color:#000;
+  color:#fff;
+}
+#data>table tr>th>img{
+  width:20px;
+  margin-bottom:-4px;
+  cursor: pointer;
+  margin-right:-10px;
 }
 #data>table tr:first-child{
-  background-color:#ededed;
+  background-color:#5B7783;
 }
-#data>table td:first-child{
-  width:270px;
+#data>table td.domain{
+  width:250px;
   text-align:left;
   padding-left:15px;
-  color:#00a2cc;
+  color:#2086ee;
+  font-size:15px;
 }
-#data>table td:nth-child(2){
+#data>table td.domain:hover{
   color:#f60;
+}
+#data>table td.info{
+  color:#669BD8;
+}
+#data>table td.price{
+  color:#FF4800;
+}
+#data>table td.addCart>a{
+  display:inline-block;
+  width:100px;
+  height:28px;
+  border:1px solid #00c1de;
+  border-radius:2px;
+  color:#fff;
+  line-height: 28px;
+  background:#00c1de;
+}
+#data>table td.buy>a{
+  display:inline-block;
+  width:100px;
+  height:28px;
+  border:1px solid #00c1de;
+  border-radius:2px;
+  color:#fff;
+  line-height: 28px;
+  background:#00c1de;
 }
 #data>div>p{
   font-size:14px;
@@ -162,4 +203,55 @@ header{
 }
 #data>div>p>img{
   vertical-align: middle
+}
+/*分页样式*/
+#data>div.pagination{
+  width:1200px;
+  margin:20px auto;
+  border:1px solid #ccc;
+  border-radius:3px;
+  background:#ddd;
+  display:flex;
+  justify-content:flex-end;
+  align-items: center;
+}
+#data>div.pagination>div{
+  width:30px;
+  height:30px;
+  border:1px solid #ccc;
+  text-align:center;
+  line-height:30px;
+  margin:5px;
+  border-radius:1px;
+  cursor: pointer;
+  background:#fff;
+}
+#data>div.pagination>div:hover{
+  background:#e6f9fc;
+}
+#data>div.pagination>div.active{
+  background:#00c1de;
+  color:#fff;
+}
+#data>div.pagination>div.prev,div.next{
+  width:70px;
+  height:30px;
+}
+#data>div.pagination>span{
+  margin:0 10px;
+}
+#data>div.pagination>div.jump{
+  width:40px;
+  background:#669BD8;
+  color:#fff;
+  border-radius:1px;
+  cursor:pointer;
+}
+#data>div.pagination>input{
+  width:30px;
+  height:25px;
+  text-align:center;
+}
+#data>div.pagination>div.disable{
+  background:#ddd;
 }

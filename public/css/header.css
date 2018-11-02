@@ -249,3 +249,37 @@ a.loginA>div>ul{padding-top:10px;}
 a.loginA>div>ul>li>img{width:20px;margin-right:15px;vertical-align:middle;}
 a.loginA>div>ul>li{width:100%;height:45px;padding-left:15px;text-align:left;line-height:45px;}
 a.loginA>div>ul>li>span:hover{color:#00C1DE;}
+/*购物车*/
+.cart{position: relative;}
+#cart{
+  position: absolute;
+  width:276px;
+  top:50px;
+  left:-40px;
+  background:#373D41;
+  display: flex;
+  flex-direction:column;
+  color:#fff;
+  font-size:16px;
+  padding:0 15px 0 15px;
+  padding-bottom:15px;
+}
+#cart>p{
+  height:40px;
+}
+#cart>p>span.buy{
+  display:inline-block;
+  width:80px;
+  height:30px;
+  border:1px solid #fff;
+  text-align:center;
+  line-height:28px;
+  margin-top:12px;
+  font-size:15px;
+  cursor: pointer;
+  border-radius:1px;
+}
+#cart>p>span.cartDomain{float: left;}
+#cart>p>span.cartPrice{float:right;margin-right:30px;color:#f60;}
+#cart>p>span.cartDel{float:right;}
+#cart>p>span.buy:hover{background:#fff;color:#00C1DE;}

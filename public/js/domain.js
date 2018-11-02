@@ -33,10 +33,9 @@ $(function(){
           var sufIndex=i;
         }
       } //找到suffix在后缀数组中的位置
+      
       var key=this.suffixs.splice(sufIndex,1);//将该后缀从数组中删除
       this.suffixs.unshift(key[0]);//将该后缀插入到数组的最前面
-      //2.
-      
       if(this.keyword != ''){ //输入值不为空     
         for(let item of this.suffixs){  //ajax遍历suffixs,请求每一个后缀是否注册
           $.ajax({

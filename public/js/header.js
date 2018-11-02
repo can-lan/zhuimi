@@ -16,7 +16,7 @@ $(function(){
         type:'get',
     });
 
-    new Vue({
+    headerVm=new Vue({
       el:"#header",
       data:{
         firstlist:{},
@@ -26,12 +26,23 @@ $(function(){
         uname:'',
         phone:'',
         photo:'',
-        dCount:''
+        dCount:'',
+        cart:[]
       },
       created(){
         this.firstlist=res.firstlist;
         this.secondlist=res.secondlist;
-        //查询sessionStorage
+        //查询localStorage--购物车
+        
+        for(var i=0;i<localStorage.length;i++){
+          var carItem={};
+          carItem.domainname=localStorage.key(i);
+          carItem.nowPrice=localStorage.getItem(localStorage.key(i));
+          this.cart.push(carItem);
+          
+        }
+        console.log(this.cart)
+        //查询sessionStorage--个人信息
         if(window.sessionStorage.getItem('uname')){
           this.isLogin=true;
           this.uname=window.sessionStorage.getItem('uname');

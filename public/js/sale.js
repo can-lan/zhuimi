@@ -15,13 +15,50 @@ var saleVm = new Vue({
         lenMost:63,
         startPrice:/[\s\S]*/,    //起始价, 一元起拍时等于1  /^[1]$]\
         endTime:'2020-01-01T00:00',
-        data:[]
+        data:[],    //所有域名
+        result:[],  //每次查询结果
+        number:20,  //总个数---符合查询条件的
+        pageSize:20,//每页个数
+        pageCount:1,  //页数
+        pageNum:1     //当前页码
     },
-    created(){
-        this.submit();
+    async created(){
+        await $.ajax({
+            url:'http://127.0.0.1:7000/domain/sale',
+            method:'get',
+            success:(res)=>{
+                this.data=res;
+                this.result=res;
+            }
+        });
+        //分页计算           
+        this.number=this.result.length; //总数据个数
+        this.pageCount=Math.ceil(this.number/this.pageSize); //总页数
+        //this.pageSize=20; 默认 每页个数
+        //this.pageNum=1; 默认 当前页   
+    },
+    filters:{   //过滤器--过滤交易类型 ykj==>一口价
+        saleType(value){  
+            if(value=='ykj'){
+                return '一口价';
+            }else if(value=='jj'){
+                return '竞价';
+            }else if(value=='xj'){
+                return '询价';
+            }else{
+                return null;
+            }
+        }
     },
     methods:{
-        submit(){
+        href(sellType,e){  //顶部标签跳转--更改交易类型   
+            $(e.target).parent().parent().find('.active').removeClass('active');
+            $(e.target).parent().addClass('active');
+            $('#sell td.active').removeClass('active');
+            $('#'+sellType).addClass('active');
+            this.submit();
+        },
+        submit(){   //判断按钮.active并计算全部参数-->根据参数查询
             //1.判断type按钮
             var type=$("#type").find('td.active').text();//找到td.active,并找到该文本内容
             switch(type){
@@ -71,8 +108,6 @@ var saleVm = new Vue({
             //2.判断has按钮,只有input有值才做修改
             var hasVal=$('#hasVal').val();
             var notHaveVal=$('#notHaveVal').val();
-            console.log("notHaveVal:1 "+notHaveVal)
-
             var hasClass=$("#has").find('td.hasbtn.active').text(); //第二行tr所有的 has开始或结束 全部btn 的 文本
             var notClass=$("#has").find('td.notbtn.active').text(); //第二行tr所有 nohave开始或结束 全部btn 的 文本
             //2.1 如果包含框--有值, 并且 hasClass按钮点击
@@ -114,8 +149,8 @@ var saleVm = new Vue({
                     }
             }
             //2.4 如果排除框--有值, 并且 notClass按钮没有点击
-            if(hasVal && !hasClass){ 
-                this.has=new RegExp(hasVal, "gim");    //包含 v-if取反--就是排除
+            if(notHaveVal && !notClass){ 
+                this.notHave=new RegExp(notHaveVal, "im");    //包含 v-if取反--就是排除
             }
             //3.判断suffix按钮,可以多选
             if($('#suffix').find('td.active').text() != '不限'){    //不等于不限时操作, 等于不限时,是默认
@@ -128,7 +163,23 @@ var saleVm = new Vue({
                 //4: ['com','cn','com','cn','net','org']
                 //5: com|cn|com|cn|net|org
                 this.suffix=new RegExp("^("+suffixs+")$","gim");  //6: /^(cn|com|cn|net|tv|vip)$/
+            }else{
+                this.suffix=/[\s\S]*/;
             }
+            //
+            if(!hasVal){
+                this.has=/[\s\S]*/; //如果包含输入框--没有值,则限制条件恢复为不限
+                $('#hasVal').parent().next().removeClass('active');
+                $('#hasVal').parent().next().next().removeClass('active');
+                $('#hasVal').parent().next().next().next().removeClass('active');
+            };
+            if(!notHaveVal){
+                this.notHave=/^$/;  //如果包含输入框--没有值,则限制条件恢复为不限
+                $('#notHaveVal').parent().next().removeClass('active');
+                $('#notHaveVal').parent().next().next().removeClass('active');
+                $('#notHaveVal').parent().next().next().next().removeClass('active');
+            }
+
             //4.判断价格
             var priceText=$('#price').find('td.active').text();
             switch(priceText){
@@ -256,12 +307,16 @@ var saleVm = new Vue({
                 case '一元起拍':
                     this.sell=/^jj$/;
                     this.startPrice=/^[1]$/;    //一元起拍过滤
-                    console.log('一元起拍');
+                    break;
+                case '域名预定':
+                    location.href='/book.html';
+                    break;
+                case '域名竞价':
+                    location.href='/bid.html';
                     break;
                 default:
                     this.sell=/[\s\S]*/;
                     this.startPrice=/[\s\S]*/;
-                    console.log('default')
                     break;
             } 
             //8.限制结束时间
@@ -269,33 +324,100 @@ var saleVm = new Vue({
             //9.限制过期时间
                 //发送whois请求,找到过期时间,比较,略...
             
- /*计算完成执行*/
-            console.log("type: "+this.type);
-            console.log("has: "+this.has);
-            console.log("notHave: "+this.notHave);
-            console.log("suffix: "+this.suffix);
-            console.log("pLeast: "+this.pLeast);
-            console.log("pMost: "+this.pMost);
-            console.log("lenLeast: "+this.lenLeast);
-            console.log("lenMost: "+this.lenMost);
-            console.log("sell: "+this.sell);
-            console.log("startPrice: "+this.startPrice);
-            this.search();
+            /*******************计算完成执行****************************/
+            console.log("以下是查询的条件")
+            console.log("品相type: "+this.type);
+            console.log("包含has: "+this.has);
+            console.log("排除notHave: "+this.notHave);
+            console.log("后缀suffix: "+this.suffix);
+            console.log("最低价格pLeast: "+this.pLeast);
+            console.log("最高价格pMost: "+this.pMost);
+            console.log("最小长度lenLeast: "+this.lenLeast);
+            console.log("最大长度lenMost: "+this.lenMost);
+            console.log("交易类型sell: "+this.sell);
+            console.log("起始价格startPrice: "+this.startPrice);
+            console.log("结束时间endTime: "+this.endTime);
+            /*****************判断data:[]内符合条件的域名对象, 插入新数组, 页面遍历新数组, 解决未渲染完成不能操作DOM, 直接渲染有用的数据*******/
+            //重新获得查询后的数组
+            this.result=[];
+            for(var item of this.data){
+                //↓ 条件判断
+                if(
+                    this.type.test( item.domainname.slice(0,item.domainname.indexOf('.')) ) && 
+                    this.has.test( item.domainname.slice(0,item.domainname.indexOf('.')) ) && 
+                    !this.notHave.test( item.domainname.slice(0,item.domainname.indexOf('.')) ) && 
+                    this.suffix.test( item.domainname.slice(item.domainname.indexOf('.')+1) ) && 
+                    item.domainname.slice(0,item.domainname.indexOf('.')).length >=  this.lenLeast &&
+                    item.domainname.slice(0,item.domainname.indexOf('.')).length <=  this.lenMost &&
+                    item.nowPrice >=  this.pLeast &&  item.nowPrice <=  this.pMost &&
+                    this.sell.test(item.saleType) &&  this.startPrice.test(item.startPrice) &&
+                    item.endTime <  this.endTime   
+                ){
+                   this.result.push(item); 
+                }//↑ 插入新数组
+            }
+            /*************************************************************************************/         
+            //根据新数组--分页准备
+            this.number=this.result.length;                 //重新赋值总个数
+            this.pageCount=Math.ceil(this.number/this.pageSize); //重新赋值总页数
+            this.pageSize=20;                               //重新赋值页大小为20
+            this.pageNum=1;  
+            console.log('以下是本次分页信息');                               //重新赋值当前页为1         
+            console.log('总数number: '+this.number);
+            console.log('每页个数pageSize: '+this.pageSize);
+            console.log('总页数pageCount: '+this.pageCount);
+            console.log('当前页码pageNum: '+this.pageNum)
         },
-        search(){ //ajax请求
-            $.ajax({
-                url:'http://127.0.0.1:7000/domain/sale',
-                method:'get',
-                success:(res)=>{
-                    console.log(res)
-                    this.data=res;
-                }
-            });
-        } 
+        option(e){  //选择每页显示多少条
+            this.pageSize=$(e.target).val();
+            this.pageCount=Math.floor(this.number/this.pageSize);
+            this.pageNum=1;
+        },
+        toPage(page){ //点击按钮到该页
+            this.pageNum=page;
+        },
+        frontendPage(page){ //到第一页 最后一页
+            this.pageNum=page;
+        },
+        jump(e){ //跳转到某页
+            var jump=parseInt($(e.target).prev().val());  //获取输入框值
+            if(jump <= this.pageCount && jump > 1){
+                this.pageNum=jump;
+            }
+            $(e.target).prev().val(''); //清空输入框值
+        },
+        prev(){ //上一页
+            if(this.pageNum>1){
+                this.pageNum--;
+            }
+        },
+        next(){ //下一页
+            if(this.pageNum<this.pageCount){
+                this.pageNum++;
+            }
+        },
+        addCart(domainname,nowPrice,e){
+            console.log(headerVm)
+            if($(e.target).html()=="加入购物车"){   //4.1 点击加入购物车, 按钮变为移出清单, 不同功能
+            $(e.target).html("移出清单");
+            $(e.target).css({"background":"#fff","color":"#00c1de","border":"1px solid #00c1de"});
+            localStorage.setItem(domainname,nowPrice);
+            headerVm.cart.unshift({domainname,nowPrice});
+            }else{
+            $(e.target).html("加入购物车");       //4.2 点击移出清单, 按钮变为移出清单, 不同功能
+            $(e.target).css({"background":"#00c1de","color":"#fff","border":"none"});
+            localStorage.removeItem(domainname);
+            headerVm.splice(headerVm.cart.indexOf(domainname),1);
+            }
+        },
+        buy(){
+
+        }
     }
 });
-/*****************************************/
-//找到#query下所有的td
+
+/**************为部分元素绑定事件***************************/
+//1: 找到#query下所有的td
 var tds=$("#query table tr td");
 for(var td of tds){
     if($(td).html() != '' && !$(td).parent().hasClass('suffix') && !$(td).hasClass('trname') && !$(td).hasClass('nochange') && !$(td).hasClass('changeb') ){
@@ -308,10 +430,9 @@ for(var td of tds){
         $(td).click(function(){
             //如果有.active,点击移除(取消功能);
             if($(this).hasClass('active')){
-                //文本为'不限'的排除, 不会移出自身的背景
-                var bxbtn=$("#query td").hasClass('bx');
-                if(!$(this).hasClass('bx')){
-                    $(this).removeClass('active') 
+                $(this).removeClass('active') 
+                if($(this).parent().find('td.active').length==0){  //如果取消当前后,行内没有.active的后缀,则给'不限'加上.active
+                    $(this).parent().find('td.bx').addClass('active');
                 }          
             }else{
             //如果没有,点击移除父元素的所有子元素的active,给自己添加active
@@ -326,7 +447,7 @@ for(var td of tds){
         $(td).css('box-shadow','none');
     }
 }
-//为tr2 has 开始 结尾 绑定事件: 只移出兄弟的active
+//2: 为tr2 has 开始 结尾 全部 绑定事件: 只移出兄弟的active
 var htds =$('#has').find('.changeb');
 for(var htd of htds){
     //↓ 加悬浮背景功能
@@ -344,13 +465,20 @@ for(var htd of htds){
         $(this).prev().prev().removeClass('active');
         $(this).next().next().removeClass('active');       
         if($(this).hasClass('active')){ //如果有.active,点击移除自己的(取消功能);
-            $(this).removeClass('active') 
+            $(this).removeClass('active');
+            if($(this).hasClass('hasbtn')){ //当取消当前按钮时, 把限制条件改为不限
+                saleVm.has=/[\s\S]*/;       //立即生效
+                $(this).parent().find('#hasVal').val(''); //清空输入框值
+            }else{                          //立即生效
+                saleVm.notHave=/^$/;        //当取消当前按钮时, 把限制条件改为不限
+                $(this).parent().find('#notHaveVal').val(''); //清空输入框值
+            }
         }else{
             $(this).addClass('active'); //如果没有,给自己添加active
         }
     });
 }
-//为tr3 suffix绑定事件,加入可多选功能
+//3: 为tr3 suffix绑定事件,加入可多选功能
 var stds=$('#suffix').children();
 for(let std of stds){
     var stdText=$(std).text();
@@ -371,14 +499,17 @@ for(let std of stds){
             bxtd.removeClass('active');//先移除下面会加上
             //如果有.active,点击移除(取消功能);
             if($(this).hasClass('active')){
-                    $(this).removeClass('active') 
+                    $(this).removeClass('active');
+                    if($('#suffix').find('td.active').length==0){  //如果取消当前后,行内没有.active的后缀,则给'不限'加上.active
+                        bxtd.addClass('active');
+                    }           
             }else{
             //如果没有,点击移除父元素的所有子元素的active,给自己添加active
                 $(this).addClass('active'); 
             }
         });
     } 
-    //2: 为'不限'绑定事件
+    //4: 为'不限'绑定事件
     if(stdText == '不限'){
         //↓ 加悬浮背景功能
         $(std).on('mouseenter',function(){
@@ -397,7 +528,7 @@ for(let std of stds){
             }
         );
     }
-    //3: 为'清空'绑定事件
+    //5: 为'清空'绑定事件
     if(stdText == '清空'){
         //↓ 加悬浮背景功能
         $(std).on('mouseenter',function(){
