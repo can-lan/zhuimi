@@ -1,7 +1,7 @@
 $(function(){
 
   //1.监视整页#content
-  var domainVm=new Vue({
+  domainVm=new Vue({
     el:"#content",
     data:{
       keyword:'', //双向绑定keyword输入框
@@ -57,7 +57,6 @@ $(function(){
               this.resulte.push(obj);
             }
           });
-          console.log(this.resulte)
         }
       }
       //1.4 请求成功后移出loading
@@ -82,13 +81,12 @@ $(function(){
       
       //4.1页面一加载,将localStorage值为domain的名称添加到local数组
       for(var i=0;i<localStorage.length;i++){
-        var name=localStorage.key(i); //找到localStorage中所有的name
+        var name=localStorage.key(i); //找到localStorage中所有的domainname
         var value=localStorage.getItem(name);
-        if(value == 'domain'){  //value为'domain'的
+        if(value != '' && value != ' ' && !isNaN(value)){  //value中带'/每年的'的放到数组
           this.local.push(name); 
         }
       }   
-
        //3.请求推荐域名
       var add=this.add;
       for(let i=0;i<add.length;i++){
@@ -118,6 +116,7 @@ $(function(){
           }         
         });
       }
+      //0
     },
     methods:{
       //1.1 input btn点击刷新页面,并传递input内keyword和suffix(页面加载调getSearch)
@@ -127,40 +126,57 @@ $(function(){
       },
       addCart(e){ //4.添加购物车按钮绑定事件
         e.preventDefault();
-        var domain=$(e.target).attr("data-keyword")+"."+$(e.target).attr("data-suffix");
+        headerVm.now='domainVm';
+        var domainname=$(e.target).attr("data-keyword")+"."+$(e.target).attr("data-suffix");
+        var nowPrice=$(e.target).attr("data-regPrice");
         if($(e.target).html()=="加入购物车"){   //4.1 点击加入购物车, 按钮变为移出清单, 不同功能
           $(e.target).html("移出清单");
           $(e.target).css({"background":"#fff","color":"#00c1de","border":"1px solid #00c1de"});
-          localStorage.setItem(domain,"domain");
-          this.local.unshift(domain);
+          localStorage.setItem(domainname,nowPrice);
+          this.local.unshift(domainname);
+          headerVm.cart.push({domainname,nowPrice});
         }else{
           $(e.target).html("加入购物车");       //4.2 点击移出清单, 按钮变为移出清单, 不同功能
           $(e.target).css({"background":"#00c1de","color":"#fff","border":"none"});
-          localStorage.removeItem(domain);
-          this.local.splice(this.local.indexOf(domain),1);
+          localStorage.removeItem(domainname);
+          this.local.splice(this.local.indexOf(domainname),1);
+          headerVm.cart.splice(headerVm.cart.indexOf({domainname,nowPrice}),1);
         }
       },
       clearCart(e){ //5.购物车--清空按钮
         e.preventDefault();
         localStorage.clear();
         this.local=[];
+        headerVm.cart=[];
         var addBtns=$(".addCart");
         for(var addBtn of addBtns){
           $(addBtn).html("加入购物车");
           $(addBtn).css({"background":"#00c1de","color":"#fff","border":"none"});          
         }
       },  
-      delCart(e){ //6.购物车--移除按钮
+      delCart(e,domain){ //6.购物车--移除按钮
         e.preventDefault();
         var cartDomain=$(e.target).attr("data-cartDomain"); //当前域名
+        if(domain){cartDomain=domain;}//如果header购物车传入要删除的值
         this.local.splice(this.local.indexOf(cartDomain),1);//从local[]数组中移除
         localStorage.removeItem(cartDomain);                //从localStorage中移除
+        if(!domain){
+          headerVm.cart.splice(headerVm.cart.indexOf(cartDomain),1);//从header.js购物车数组移除
+        }
         var addBtns=$(".addCart");                          //将左侧resulte中对应的改回加入购物车
         for(var addBtn of addBtns){
           if($(addBtn).attr("data-keyword")+"."+$(addBtn).attr("data-suffix") == cartDomain){
             $(addBtn).html("加入购物车");
             $(addBtn).css({"background":"#00c1de","color":"#fff","border":"none"});
           }
+        }
+      },
+      pay(){  //立即结算按钮
+        if(!sessionStorage.getItem('uname')){
+          alert('请登录账户');
+          location.href="/login.html?page=1";
+        }else{
+          location.href='/order.html';
         }
       }
     }
@@ -189,20 +205,19 @@ $(function(){
       domainVm.toUrl();
     }
   }); 
-                         //4.2页面一加载,将localStorage值为domain==result中的按钮, 则按钮为"移出清单";
-                         setTimeout(function(){
-                          var abtns=$(".addCart");
-                          console.log($(".addCart"));
-                          for(var loc of domainVm.local){
-                            for(var abtn of abtns){
-                              var keysuf = $(abtn).attr("data-keyword")+"."+$(abtn).attr("data-suffix");
-                              if(loc==keysuf){
-                                $(abtn).html("移出清单");
-                                $(abtn).css({"background":"#fff","color":"#00c1de","border":"1px solid #00c1de"});
-                              }
-                            }
-                          }
-                        },1000);
+  //4.2页面一加载,将localStorage值为domain==result中的按钮, 则按钮为"移出清单";
+  setTimeout(function(){
+  var abtns=$(".addCart");
+  for(var loc of domainVm.local){
+    for(var abtn of abtns){
+      var keysuf = $(abtn).attr("data-keyword")+"."+$(abtn).attr("data-suffix");
+      if(loc==keysuf){
+        $(abtn).html("移出清单");
+        $(abtn).css({"background":"#fff","color":"#00c1de","border":"1px solid #00c1de"});
+      }
+    }
+  }
+},1000);
 
 });
  

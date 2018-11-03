@@ -186,8 +186,8 @@
           <td>{{item.offer}}</td>
           <td>{{new Date(item.endTime).getFullYear()+"-"+new Date(item.endTime).getMonth()+"-"+new Date(item.endTime).getDate()}}</td>
           <td>{{item.saleType | saleType}}</td>
-          <td class="addCart"><a href="#" :data-id="item.id" @click.prevent="addCart(item.domainname,item.nowPrice,$event)">加入购物车</a></td>
-          <td :data-id="item.id" class="buy"><a href="#" :data-id="item.id" @click.prevent="buy()">立即购买</a></td>
+          <td class="addCart"><a href="#" :data-d="item.domainname" @click.prevent="addCart(item.domainname,item.nowPrice,$event)">加入购物车</a></td>
+          <td class="buy"><a href="#" :data-id="item.id" @click.prevent="buy(item.domainname,item.nowPrice)">立即购买</a></td>
         </tr>
       </table>  
       <div class="pagination">

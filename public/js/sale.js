@@ -1,4 +1,4 @@
-var saleVm = new Vue({
+saleVm = new Vue({
     el:'#content',
     data:{
         type:/[\s\S]*/,
@@ -31,6 +31,7 @@ var saleVm = new Vue({
                 this.result=res;
             }
         });
+        //0
         //分页计算           
         this.number=this.result.length; //总数据个数
         this.pageCount=Math.ceil(this.number/this.pageSize); //总页数
@@ -396,8 +397,8 @@ var saleVm = new Vue({
                 this.pageNum++;
             }
         },
-        addCart(domainname,nowPrice,e){
-            console.log(headerVm)
+        addCart(domainname,nowPrice,e){ 
+            headerVm.now='saleVm';
             if($(e.target).html()=="加入购物车"){   //4.1 点击加入购物车, 按钮变为移出清单, 不同功能
             $(e.target).html("移出清单");
             $(e.target).css({"background":"#fff","color":"#00c1de","border":"1px solid #00c1de"});
@@ -410,8 +411,8 @@ var saleVm = new Vue({
             headerVm.cart.splice(headerVm.cart.indexOf(domainname),1);
             }
         },
-        buy(){
-
+        buy(domainname,nowPrice){   //每一个立即购买键---只买当前域名
+            location.href="/order.html?d="+domainname+"&p="+nowPrice;
         },
         async order(id,e){
             if($(e.target).hasClass('order')){

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/order.css">
+  <script src="js/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <a href="/">
+        <img src="img/header/logo_balck.gif">
+        <img src="img/header/logo_black.png">
+    </a>
+  </header>
+  <div id="content">
+    <div class="step">
+      <div class="order">确认订单</div>
+      <div class="pay">支付</div>
+      <div class="success">交易成功</div>
+    </div>     
+    <div class="list">
+      <div class="title">
+        <h5>域名</h5>
+        <h5>类型</h5>
+        <h5>价格 ¥</h5>
+      </div>
+      <div class="info" v-for="item of cart">
+        <span class="domain">{{item.domainname}}</span> 
+        <span class="type">交易</span>      
+        <span class="price">{{item.nowPrice}}</span>
+      </div>  
+    </div>
+    <div class="agree">   
+      <p class="total">订单总价:<span> {{total}} 元</span></p>
+      <p class="btn" @click="pay()">确认支付</p>
+      <p class="check"><span style="color:red;margin-right:15px;" v-if="isClick && !isCheck">请勾选用户协议</span><input type="checkbox" name="agree" v-model="isCheck">我已阅读，理解并接受<span><<域名在线购买服务条款>></span><p></p>
+      <div style="clear:both;"></div>
+    </div>  
+    </div>
+  </div>
+  <script src="js/order.js"></script>
+</body>
+</html>

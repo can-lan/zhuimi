@@ -58,7 +58,7 @@
               <span class="domainname">{{item.keyword}}.{{item.suffixs}}</span>
               <a v-if="!item.avail" href="/broker.html" class="broker">委托购买</a>
               <a v-if="!item.avail" :href=`http://api.chinaz.com/CallAPI/Whois?key=e1caa93f865f40968b43b2445a2a4460&domainName=${item.keyword}.${item.suffixs}` class="whois" :data-k="item.keyword" :data-s="item.suffixs">Whois 信息 &gt;</a>
-              <a v-if="item.avail" href="#" class="cart addCart" :data-keyword="item.keyword" :data-suffix="item.suffixs" @click="addCart($event)">加入购物车</a>
+              <a v-if="item.avail" href="#" class="cart addCart" :data-regPrice="item.price" :data-keyword="item.keyword" :data-suffix="item.suffixs" @click="addCart($event)">加入购物车</a>
               <span v-if="item.avail" class="price">&yen;{{item.price}}
                 <span v-if="item.avail" style="font-size:11px;color:#ff8a00;">&#47;首年</span>
               <span>
@@ -119,7 +119,7 @@
           <ul v-cloak>
             <li><span>域名清单</span><span class="total" v-if="local.length">{{local.length}}</span><a href="#" @click="clearCart($event)">清空清单</a></li>
             <li v-for="item of local" v-if="local.length" ><span>{{item}}</span><a href="#" @click="delCart($event)" :data-cartDomain="item">移除</a></li>
-            <li v-if="local.length" class="last" ><a href="#">立即结算</a></li>
+            <li v-if="local.length" class="last" ><a href="#" @click.prevent="pay()">立即结算</a></li>
           </ul>
         </div>
         <!--右侧-公告-->
