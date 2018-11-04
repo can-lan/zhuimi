@@ -61,7 +61,11 @@
             },1000) 
           }
         });
-      }        
+      },
+      addCart(domainname,nowPrice){ 
+        localStorage.setItem(domainname,nowPrice);
+        headerVm.cart.unshift({domainname,nowPrice});
+      },        
     }
   });
 //2.2--console控制1:点击当前元素,①替换所有及当前元素图片src,②将所有box关闭,展开自己对应box,③为当前元素添加三角形下标志,取消其他下标志

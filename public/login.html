@@ -57,13 +57,13 @@
             <div class="icotext">注册账户</div>
             <h1>欢迎登录阿里云</h1>
             <p>
-                <input type="text" name="uname" placeholder="请输入用户名" v-model="lname" @focus="checkUname()">
-                <span v-if="unameFocus==1 && (lname.length<5 || lname.length>25) ">用户名为5-25字符</span>
+                <input type="text" name="lname" placeholder="请输入用户名" v-model="lname" @focus="checkLname()">
+                <span v-if="lnameFocus==1 && (lname.length<5 || lname.length>25) ">用户名为5-25字符</span>
             </p>
             <p>
-                <input type="password" name="upwd" placeholder="请输入登陆密码" v-model="lpwd" @focus="checkUpwd()">
-                <span v-if="!checkLpwd">用户名或密码不正确</span>
-                <span  v-else-if="upwdFocus==1 && (lpwd.length<6 || lpwd.length>20)">登录密码为6-20个字符</span>
+                <input type="password" name="lpwd" placeholder="请输入登陆密码" v-model="lpwd" @focus="checkLpwd()">
+                <span v-if="!lpwdCheck">用户名或密码不正确</span>
+                <span  v-else-if="lpwdFocus==1 && (lpwd.length<6 || lpwd.length>20)">登录密码为6-20个字符</span>
             </p>
             <div class="test">请拖动滑块</div>
             <div class="reg" @click="login()">登录</div>

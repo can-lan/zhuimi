@@ -9,13 +9,15 @@ new Vue({
       upwdFocus:0,
       cpwdFocus:0,
       phoneFocus:0,
+      lnameFocus:0,
+      lpwdFocus:0,
       haveUname:false,//是否存在此用户名
       allow:false,    //是否所有条件合法
       isCheck:false,  //是否勾选协议
       page:1,   //1登录页 2注册页
       lname:'',       //登录用户名
       lpwd:'',        //登录密码
-      checkLpwd:true  //登录密码是否正确
+      lpwdCheck:true  //登录密码是否正确
   },
   created(){
       var page=window.location.search.slice(location.search.indexOf('=')+1);
@@ -60,6 +62,12 @@ new Vue({
                   console.log(err)
               });
           }
+      },
+      checkLname(){
+          this.lnameFocus=1;
+      },
+      checkLpwd(){
+          this.lpwdFocus=1;
       },
       login(){  //验证登录密码是否正确
           axios.get('http://127.0.0.1:7000/users/check',{

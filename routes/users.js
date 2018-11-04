@@ -10,7 +10,7 @@ router.get('/has',(req,res)=>{
     var sql='SELECT * FROM zm_users WHERE uname=?';
     pool.query(sql,[$uname],(err,result)=>{
         if(err) throw err;  
-        res.send(result); //用户名已存在{code:1} 不存在{code:0}
+        res.send(result); 
     });
 });
 //接口2:注册用户信息
@@ -40,4 +40,21 @@ router.get('/check',(req,res)=>{
         res.send({code:result.length}); //登录成功{code:1}  失败{code:0}
     });
 });
+//接口4:用户购买域名后,将购买的域名插入到该用户数据表
+router.post('/buy',(req,res)=>{
+    var $uname=req.body.uname;
+    var $domains=req.body.domains;
+    if(!$uname) return ;
+    if(!$domains) return ;
+    var sql='UPDATE zm_users SET domains = ? WHERE uname = ? ';
+    pool.query(sql,[$domains,$uname],(err,result)=>{
+        if(err) throw err;
+        if(result.affectedRows==1){
+            res.send({code:1})
+        }else{
+            res.send({code:0});
+        }
+    });
+});
+
 module.exports=router;

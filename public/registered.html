@@ -83,24 +83,24 @@
             <!--查询-->
             <div id="tag">
                 <ul>
-                    <li class="active"><a href="#" data-toggle="tag" data-target="#tag1">推荐注册</a></li>
-                    <li><a href="#" data-toggle="tag" data-target="#tag2">热销域名</a></li>
-                    <li><a href="#" data-toggle="tag" data-target="#tag3">国别域名</a></li>
-                    <li><a href="#" data-toggle="tag" data-target="#tag4">新顶级域名</a></li>
-                    <li><a href="#" data-toggle="tag" data-target="#tag5">中文域名</a></li>
+                    <li class="active"><a href="/registered.html" data-toggle="tag" data-target="#tag1">推荐注册</a></li>
+                    <li id="rx"><a href="#" data-toggle="tag" data-target="#tag2" @click.prevent="page('rx')">热销域名</a></li>
+                    <li id="gb"><a href="#" data-toggle="tag" data-target="#tag3" @click.prevent="page('gb')">国别域名</a></li>
+                    <li id="xdj"><a href="#" data-toggle="tag" data-target="#tag4" @click.prevent="page('xdj')">新顶级域名</a></li>
+                    <li id="zw"><a href="#" data-toggle="tag" data-target="#tag5" @click.prevent="page('zw')">中文域名</a></li>
                 </ul>
             </div>
             <div id="search">
                 <p>超过<span>10,000,000</span>域名在西部数码注册</p>
                 <div>
-                    <input type="text">                  
-                    <input type="submit" value="&nbsp;&nbsp;&nbsp;查域名">
+                    <input type="text" v-model="keyword">                  
+                    <input type="submit" value=" 查域名" @click="getSearch()">
                 </div>
                 <div>
                     
-                    <label for="all"><input type="radio" name="postfix" id="all">全选</label>
-                    <input type="radio" name="postfix" id="null"><label for="null">全不选</label>
-                    <input type="radio" name="postfix" id="some"><label for="some">常用</label>
+                    <label for="all"><input type="radio" name="postfix" id="all" @change="selAll()">全选</label>
+                    <input type="radio" name="postfix" id="null" @change="selNo()"><label for="null">全不选</label>
+                    <input type="radio" name="postfix" id="some" @change="some()"><label for="some">常用</label>
                     <span><a href="#">新用户福利：领1000元优惠码，注册.com优惠20元！</a></span>
                 </div>
             </div>
@@ -199,7 +199,7 @@
                     <!--复制---------------------->
                     <label for="com" class="sale">
                             <input type="checkbox" name="com" id="com">
-                            <span>.com</span>
+                            <span>.xin</span>
                             <div>
                                 <p class="name"></p>
                                 <p class="price"></p>
@@ -208,7 +208,7 @@
                         </label>
                         <label for="cn"class="hot">
                             <input type="checkbox" name="cn" id="cn">
-                            <span>.cn</span>
+                            <span>.club</span>
                             <div>
                                 <p class="name"></p>
                                 <p class="price"></p>
@@ -217,7 +217,7 @@
                         </label>
                         <label for="com.cn">
                             <input type="checkbox" name="com.cn" id="com.cn">
-                            <span>.com.cn</span>
+                            <span>.online</span>
                             <div>
                                 <p class="name"></p>
                                 <p class="price"></p>
@@ -226,7 +226,7 @@
                         </label>
                         <label for="net">
                             <input type="checkbox" name="net" id="net">
-                            <span>.net</span>
+                            <span>.love</span>
                             <div>
                                 <p class="name"></p>
                                 <p class="price"></p>
@@ -235,7 +235,7 @@
                         </label>
                         <label for="org">
                             <input type="checkbox" name="org" id="org">
-                            <span>.org</span>
+                            <span>.ltd</span>
                             <div>
                                 <p class="name"></p>
                                 <p class="price"></p>
@@ -244,7 +244,7 @@
                         </label>
                         <label for="cc">
                             <input type="checkbox" name="cc" id="cc">
-                            <span>.cc</span>
+                            <span>.c0</span>
                             <div>
                                 <p class="name"></p>
                                 <p class="price"></p>
@@ -253,7 +253,7 @@
                         </label>
                         <label for="tv">
                             <input type="checkbox" name="tv" id="tv">
-                            <span>.tv</span>
+                            <span>.art</span>
                             <div>
                                 <p class="name"></p>
                                 <p class="price"></p>
@@ -262,7 +262,25 @@
                         </label>
                         <label for="app">
                             <input type="checkbox" name="app" id="app">
-                            <span>.app</span>
+                            <span>.shop</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="com.cn">
+                            <input type="checkbox" name="com.cn" id="com.cn">
+                            <span>.group</span>
+                            <div>
+                                <p class="name"></p>
+                                <p class="price"></p>
+                                <p class="info"></p>
+                            </div>
+                        </label>
+                        <label for="net">
+                            <input type="checkbox" name="net" id="net">
+                            <span>.team</span>
                             <div>
                                 <p class="name"></p>
                                 <p class="price"></p>
@@ -953,11 +971,7 @@
                 <!--活动轮播-->
                 <div>
                     <div class="ac-wrapper">
-                        <ul>
-                            <li><a href="#"><img src="img/zhuce/ac-wrapper1.jpg"><p>企业邮箱全新登场</p></a></li>
-                            <li><a href="#"><img src="img/zhuce/ac-wrapper2.jpg"><p>企业邮箱全新登场</p></a></li>
-                            <li><a href="#"><img src="img/zhuce/ac-wrapper3.jpg"><p>企业邮箱全新登场</p></a></li>
-                            <li><a href="#"><img src="img/zhuce/ac-wrapper4.jpg"><p>企业邮箱全新登场</p></a></li>
+                        <ul id="ac">
                             <li><a href="#"><img src="img/zhuce/ac-wrapper5.jpg"><p>企业邮箱全新登场</p></a></li>
                             <li><a href="#"><img src="img/zhuce/ac-wrapper6.gif"><p>企业邮箱全新登场</p></a></li>
                             <li><a href="#"><img src="img/zhuce/ac-wrapper7.gif"><p>企业邮箱全新登场</p></a></li>
@@ -970,6 +984,10 @@
                             <li><a href="#"><img src="img/zhuce/ac-wrapper6.gif"><p>企业邮箱全新登场</p></a></li>
                             <li><a href="#"><img src="img/zhuce/ac-wrapper7.gif"><p>企业邮箱全新登场</p></a></li>
                             <li><a href="#"><img src="img/zhuce/ac-wrapper8.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper1.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper2.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper3.jpg"><p>企业邮箱全新登场</p></a></li>
+                            <li><a href="#"><img src="img/zhuce/ac-wrapper4.jpg"><p>企业邮箱全新登场</p></a></li>
                         </ul>
                     </div>
                     <div class="ac-pagination">
@@ -978,8 +996,8 @@
                             <li></li>
                         </ul>
                     </div>
-                    <a href="#" class="left"></a>
-                    <a href="#" class="right"></a>
+                    <a href="#" class="left" @click="left($event)"></a>
+                    <a href="#" class="right" @click="right($event)"></a>
                 </div>
             </div>
         </div>
@@ -1065,5 +1083,113 @@
     <!--引入头部和尾部-->
       <script src="js/header.js"></script>
       <script src="js/footer.js"></script>
+      <script>
+          new Vue({
+              el:'#content',
+              data:{
+                keyword:'',
+                margin:-1160
+              },
+              created(){
+                  if(location.search){
+                      switch(location.search){
+                        case '?type=rx':
+                            this.page('rx');
+                            break;
+                        case '?type=gb':
+                            this.page('gb');
+                            break;
+                        case '?type=xdj':
+                            this.page('xdj');
+                            break;
+                        case '?type=zw':
+                            this.page('zw');
+                            break;
+                        default:
+                            break;
+                      }
+                  }
+              },
+              methods:{
+                selAll(){
+                    var inputs=$('#postfix :input');
+                    for(var input of inputs){
+                        $(input).attr('checked',true);
+                    }
+                },
+                selNo(){
+                    var inputs=$('#postfix :input');
+                    for(var input of inputs){
+                        $(input).removeAttr('checked');
+                    }
+                },
+                some(){
+                    var inputs=$('#postfix :input');
+                    for(var i=0;i<inputs.length;i++){
+                        $(inputs[i]).removeAttr('checked');
+                        if(i%3==0){
+                            $(inputs[i]).attr('checked','true');
+                        } 
+                    }
+                },
+                getSearch(){
+                    var suffix=this.suffix;
+                    if(this.keyword){
+                        if(this.keyword.indexOf(".") != -1){ //0. 如果用户输入了 .  则取消options选择的后缀, 去查询
+                        var suffix=""
+                    }else{
+                        var suffix='.com';
+                    }
+                    $.ajax({
+                        url:"/api?d="+this.keyword+suffix,  
+                        method:'get',
+                        success:(res)=>{
+                            if(res.Avail==1){ //1.如果返回可注册,=>直接跳转
+                                location.href="/domain.html?d="+this.keyword+suffix
+                            }else if(res.Reason=='Illegal domain'){ //2.如果返回非法域名
+                                var keyword=this.keyword;
+                                if(keyword.indexOf(".") != -1){  //如果是输入了不可查询的后缀
+                                var keyword=keyword.slice(0,keyword.indexOf('.'));//则截取.前面
+                                suffix='.com';                                        //默认查询.com
+                                location.href="/domain.html?d="+keyword+suffix //=>跳转
+                                }
+                            }else if(res.Reason==undefined){  //3.如果Reason不存在, 就是已注册
+                                location.href="/domain.html?d="+this.keyword+suffix
+                            }else{  //4.Invalid Domain Name无效域名 跳转页面,domain.html页面显示 =>没有查询到附合条件的域名，或正在查询...
+                                location.href="/domain.html?d=''"
+                            }
+                        }
+                    });
+                  }
+                },
+                page(type){
+                    $('#'+type).parent().find('.active').removeClass('active');
+                    $('#'+type).addClass('active');
+                },
+                left(e){
+                    e.preventDefault();
+                    this.margin+=1160;
+                    if(this.margin==0){
+                        $('#ac').css('transition','none');
+                        $('#ac').css('margin-left',-3480);
+                        this.margin=-3480;
+                        $('#ac').css('transition','all .3s linear');
+                    }
+                    $('#ac').css('margin-left',this.margin)
+                },
+                right(e){
+                    e.preventDefault();
+                    this.margin-=1160;
+                    if(this.margin==-3480){
+                        $('#ac').css('transition',0);
+                        $('#ac').css('margin-left',-1160);
+                        this.margin=-1160;
+                        $('#ac').css('transition','all .3s linear');
+                    }
+                    $('#ac').css('margin-left',this.margin)
+                }    
+              }
+          });
+      </script>
 </body>
 </html>

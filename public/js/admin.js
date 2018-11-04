@@ -1,5 +1,5 @@
     headerVm=new Vue({
-      el:"#header",
+      el:"#app",
       data:{
         firstlist:{},
         secondlist:{},
@@ -35,9 +35,9 @@
               this.phone=res[0].phone;
               this.photo=res[0].photo;
               this.id=res[0].id;
-              if(res[0].domains){ //如果domains为null,则false; 如果不为null,则为true,会进行赋值;
+              if(res[0].domains){ //如果domains为null,则false; 如果不为null,则为true,会进行赋值;  
                 this.dCount=res[0].domains.split(',').length;
-                this.domains=res[0].domains.split(',');
+                this.domains=res[0].domains.split(','); //拆分数据表中的域名-->遍历
               }else{
                 this.dCount=0;
                 this.domains=['您还没有域名'];
@@ -50,7 +50,7 @@
         logout(e){
           e.preventDefault();
           window.sessionStorage.clear();
-          window.location.href='';
+          window.location.href='/';
         },
         searchWhois(){
           window.open(`http://api.chinaz.com/CallAPI/Whois?key=e1caa93f865f40968b43b2445a2a4460&domainName=${this.whois}`);

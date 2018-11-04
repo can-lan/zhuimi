@@ -68,7 +68,20 @@ $(function(){
           window.location.href='';
         },
         searchWhois(){
-          window.open(`http://api.chinaz.com/CallAPI/Whois?key=e1caa93f865f40968b43b2445a2a4460&domainName=${this.whois}`);
+          if(this.whois){
+            $.ajax({
+              url:`http://api.chinaz.com/CallAPI/Whois?key=e1caa93f865f40968b43b2445a2a4460&domainName=${this.whois}`,
+              method:'GET',
+              dataType:'jsonp',
+              headers: {
+                Accept: "application/json; charset=utf-8"
+              },
+              success:(res)=>{
+                console.log(res)
+              }
+            });
+            window.open(`http://api.chinaz.com/CallAPI/Whois?key=e1caa93f865f40968b43b2445a2a4460&domainName=${this.whois}`);
+          }
         },
         cartDel(e){ 
           var domain=$(e.target).prev().text();

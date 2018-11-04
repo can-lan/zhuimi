@@ -23,6 +23,7 @@ saleVm = new Vue({
         pageNum:1     //当前页码
     },
     async created(){
+        //1.查参数,跳转该分类
         await $.ajax({
             url:'http://127.0.0.1:7000/domain/sale',
             method:'get',
@@ -32,6 +33,24 @@ saleVm = new Vue({
             }
         });
         //0
+        if(location.search){
+            switch(location.search){
+                case '?type=ykj':
+                    this.page('ykj');
+                    break;
+                case '?type=jj':
+                    this.page('jj');
+                    break;
+                case '?type=xj':
+                    this.page('xj');
+                    break;
+                case '?type=pm':
+                    this.page('jj');
+                    break;
+                default:
+                    break;
+            }
+        }
         //分页计算           
         this.number=this.result.length; //总数据个数
         this.pageCount=Math.ceil(this.number/this.pageSize); //总页数
@@ -52,6 +71,13 @@ saleVm = new Vue({
         }
     },
     methods:{
+        page(type){ //根据传入参数判断当前分类
+            $('#'+type+'page').parent().parent().find('.active').removeClass('active');
+            $('#'+type+'page').parent().addClass('active');
+            $('#sell td.active').removeClass('active');
+            $('#'+type).addClass('active');
+            this.submit();
+        },
         href(sellType,e){  //顶部标签跳转--更改交易类型   
             $(e.target).parent().parent().find('.active').removeClass('active');
             $(e.target).parent().addClass('active');

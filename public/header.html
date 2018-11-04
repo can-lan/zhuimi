@@ -52,7 +52,7 @@
               </div>
             </li>
             <li>
-              <input type="text" placeholder="WHOIS查询" v-model="whois" @keyup.13="searchWhois()">
+              <input name="whois" type="text" placeholder="WHOIS查询" v-model="whois" @keyup.13="searchWhois()">
               <img src="img/header/search.png" @click="searchWhois()">
             </li>
           </ul>
@@ -67,7 +67,7 @@
         <li v-for="item,i of firstlist">
           <a :href="item.href" v-text="item.fname"></a>
           <ul>
-              <li v-if="item.fid==i+1" v-for="item,j of secondlist"><a href="#" v-text="item.sname"></a></li>
+              <li v-if="item.fid==i+1" v-for="item,j of secondlist"><a :href="item.href" v-text="item.sname"></a></li>
           </ul>
         </li>
       </ul>

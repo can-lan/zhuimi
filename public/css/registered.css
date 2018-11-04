@@ -206,7 +206,8 @@ border-top:none;
 }
 #postfix>div>label{
   display: inline-block;
-  width:100px;
+  width:99px;
+  text-align:center;
   font-size:18px;
   margin-bottom:23px;
   color:#555;
@@ -274,6 +275,8 @@ border-top:none;
 }
 .ac-wrapper>ul{
   width:4640px;
+  transition:all .3s linear;
+  margin-left:-1160px;
 }
 .ac-wrapper>ul>li{
   float:left;

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/qs.min.js"></script>
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        ul,li{list-style:none;}
+        a{text-decoration:none;}
+        body{background:#f5f5f6;}
+        header{width:100%;height:60px;border-bottom:1px solid#d5d6d7;}
+        header img{position:absolute;width:103px;height:24px;left:20px;top:18px;}
+        #content{width:1000px;margin:75px auto;background:#fff;border-radius:2px;font-size:14px;overflow:hidden;}
+        #content>p{font-size:24px;width:300px;height:50px;text-align:center;margin:20px auto 0px;border-radius:3px;padding:15px;}
+        table{width:600px;font-size:16px;margin:20px auto 50px;border-collapse: collapse;}
+        table tr{height:50px;background:#f5f5f6;transition: all .1s linear;}
+        table tr td:first-child{text-align:right;padding-right:20px;color:#333;}
+        table tr td:last-child{text-align:left;padding-left:20px;color:#f00;}
+        table tr:hover{background:#fff;margin-top:-5px;}
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/">
+            <img src="img/header/logo_balck.gif">
+            <img src="img/header/logo_black.png">
+        </a>
+    </header>
+    <div id="content">
+        <p>域名whois信息</p>
+        <table>
+            <tr class="color">
+                <td>域名</td>
+                <td>{{domain.com}}</td>
+            </tr>
+            <tr>
+                <td>注册商</td>
+                <td>{{}}</td>
+            </tr>
+            <tr>
+                <td>注册机构</td>
+                <td>{{}}</td>
+            </tr>
+            <tr class="color">
+                <td>注册邮箱</td>
+                <td>{{}}</td>
+            </tr>
+            <tr>
+                <td>注册日期</td>
+                <td>{{}}</td>
+            </tr>
+            <tr>
+                <td>到期日期</td>
+                <td>{{}}</td>
+            </tr>
+            <tr>
+                <td>DNS服务器</td>
+                <td>{{}}</td>
+            </tr>
+            <tr>
+                <td>域名状态</td>
+                <td>{{}}</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        
+    </script>
+</body>
+</html>

@@ -145,12 +145,12 @@ header:hover #nav2{
 #nav2>a{
   float:right;
   width:120px;
-  height:50px;
+  height:51px;
   text-align:center;
   line-height:50px;
   color:#fff;
   background:#00c1de;
-  margin-top:-1px;
+  margin-top:-1.5px;
 }
 #nav2>a:hover{
   background:#28d0e9;

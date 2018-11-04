@@ -11,6 +11,7 @@
   <title>Document</title>
 </head>
 <body>
+  <div id="app">
     <header id="header">
         <div id="nav1">
           <div id="sidebar">
@@ -29,7 +30,7 @@
               <li class="lt">
                   <img src="img/pub/domain_dark.png">
                 <a href="#">域名服务</a>
-                <ul>
+                <ul style="overflow:auto;">
                     <li><a href="#">我的域名</a></li>
                     <li v-for="item of domains"><a href="#">{{item}}</a></li>
                     <li><a href="#">共 {{dCount}} 个</a></li>
@@ -53,10 +54,11 @@
           </a>
           <div>
               <ul>
-                <li>
+                <li class="log">
                   <img src="img/pub/user_white.png">
                   <a v-if="!isLogin" href="/login.html?page=1">登录</a>
                   <a href="#" v-text="uname"></a>
+                  <div class="logout"><a href="#" @click="logout($event)">注销</a></div>
                 </li>
                 <li>
                   <img src="img/pub/console.png">
@@ -92,31 +94,75 @@
         </div>
       </header>
       <div id="content">
-
+        <!--f1-->
         <div class="top">
           <div class="topleft">
-            <div class="capital">资产</div>
-            <div class="info">信息</div>
+            <div class="capital">
+              <p>总计</p>
+              <div>
+                <div>
+                  <p v-text="dCount"></p>
+                  <p>域名个数</p>
+                </div>
+                <div>
+                  <p>0</p>
+                  <p>已备案</p>
+                </div>
+                <div>
+                  <p>0</p>
+                  <p>已解析</p>
+                </div>
+                <div>
+                  <p>0</p>
+                  <p>正在出售</p>
+                </div>
+              </div>       
+            </div>
+            <div class="info">
+              <p>信息</p>
+              <div>
+                <img :src="photo" class="infoPhoto">
+                <div>
+                  <p>ID: {{id}}</p>
+                  <p>用户名: {{uname}}</p>
+                  <p>手机: {{phone}}</p>
+                  <p>余额: 0</p>
+                </div>
+              </div>
+            </div>
           </div>
+
           <div class="news">公告</div>
         </div> 
-        <div class="product">新品</div>
-        <div class="last">最近</div>
-        
+        <!--f2-->
+        <div class="middle">
+          <div class="last">
+            最近使用的产品
+            <div class="hover">域名</div>
+          </div>
+          <div class="ad">
+            <h2>【双11】云上狂欢节</h2>
+            <p>领取/激活双11权益码，立享双11重磅权益</p>
+            <a href="#">查看详情</a>
+          </div>
 
-        <div class="ad">
-          <h2>【双11】云上狂欢节</h2>
-          <p>领取/激活双11权益码，立享双11重磅权益</p>
-          <a href="#">查看详情</a>
+          <div class="product">新品</div>
         </div>
-
-        <div class="resource">我的域名</div>
-
-        
-
-        <div class="qrcode">二维码</div>
-
+        <!--f3-->
+        <div class="bottom">
+          <div class="resource">
+            <p>我的域名</p> 
+            <div>
+              <div class="hover btn" v-for="item of domains" v-text="item"></div>
+            </div>
+          </div>
+          <div class="qrcode">
+            <p>二维码</p> 
+            <img src="img/pub/qr.png">
+          </div>
+        </div>
       </div>
-      <script src="js/admin.js"></script>
+    </div>
+    <script src="js/admin.js"></script>
 </body>
 </html>
