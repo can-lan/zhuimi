@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="css/registered.css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/vue.js"></script>
-    <title>zhuce</title>
+    <title>追米网_域名注册_新顶级域名_热销域名_中文域名</title>
+    <meta name=keywords content="追米,追米网,新顶级域名,中文域名,域名注册,域名管理,域名解析">
+    <meta name=description content="追米网用户域名管理中心，提供新顶级域名，新后缀，中文域名等域名注册服务，让更多的企业用上更合适的域名。">
 </head>
 <body>
     <header></header>
@@ -244,7 +246,7 @@
                         </label>
                         <label for="cc">
                             <input type="checkbox" name="cc" id="cc">
-                            <span>.c0</span>
+                            <span>.co</span>
                             <div>
                                 <p class="name"></p>
                                 <p class="price"></p>
@@ -1043,43 +1045,6 @@
         </div>
     </div>
     <footer></footer>
-    <!--注册头部轮播图js-->
-    <script>
-/*.banner-left轮播图js*/
-        /*1--为li绑定事件*/
-        $(".pagination>ul").on("mouseenter","li",function(e){
-            e.stopPropagation();
-            var $li=$(this);
-            $(".pagination>ul>li").removeClass("on");
-            $li.addClass("on");
-            var x=$li.html();
-            $(".wrapper>ul>li").css("opacity","0");
-            $(`[data-toggle=${x}]`).parent().css("opacity","1");
-        });
-        /*2--设置定时器触发li的事件*/
-        var i=0;
-        function bannerLeft(){
-            i++;
-            $(`li:contains(${i})`).mouseenter();
-            if(i==6){
-                i=1;
-                $(`li:contains(${i})`).mouseenter();
-            }
-        };
-        bannerLeft();
-        var timer=setInterval(bannerLeft,2500);
-        /*3--鼠标进入清除定时器,移出恢复定时器*/
-        $(".banner-left").hover(
-            function(){
-                clearInterval(timer);
-            },
-            function(){
-                /*从悬浮的下一个开始轮播*/
-                i=$(".pagination>ul>li.on").html();
-                timer=setInterval(bannerLeft,2500);
-            }
-        );
-    </script>
     <!--引入头部和尾部-->
       <script src="js/header.js"></script>
       <script src="js/footer.js"></script>
@@ -1170,10 +1135,10 @@
                     e.preventDefault();
                     this.margin+=1160;
                     if(this.margin==0){
-                        $('#ac').css('transition','none');
+                        $('#ac').css('transition','');
                         $('#ac').css('margin-left',-3480);
                         this.margin=-3480;
-                        $('#ac').css('transition','all .3s linear');
+                        $('#ac').css('transition','all .5s linear');
                     }
                     $('#ac').css('margin-left',this.margin)
                 },
@@ -1181,15 +1146,70 @@
                     e.preventDefault();
                     this.margin-=1160;
                     if(this.margin==-3480){
-                        $('#ac').css('transition',0);
-                        $('#ac').css('margin-left',-1160);
-                        this.margin=-1160;
-                        $('#ac').css('transition','all .3s linear');
+                        $('#ac').css('transition','none');
+                        $('#ac').css('margin-left',0);
+                        
+                            $('#ac').css('transition','all .5s linear');
+                            this.margin=-1160; 
+                        
                     }
                     $('#ac').css('margin-left',this.margin)
                 }    
+                /*
+                setInterval(()=>{
+                    this.ban++;
+                    var wrapper=$(".ban ul.wrapper")[0];
+                    if(this.ban==4){
+                    $(wrapper).css("transition","none");
+                    $(wrapper).css("marginLeft",0);
+                    this.ban=1;
+                    setTimeout(function(){
+                        $(wrapper).css("transition","all .6s linear");
+                        $(wrapper).css("marginLeft",-283);
+                    })
+                    }else{
+                    $(wrapper).css("marginLeft",this.ban * -283);
+                    }
+                },3000)*/
               }
           });
       </script>
+          <!--注册头部轮播图js-->
+    <script>
+    /*.banner-left轮播图js*/
+        /*1--为li绑定事件*/
+        $(".pagination>ul").on("mouseenter","li",function(e){
+            e.stopPropagation();
+            var $li=$(this);
+            $(".pagination>ul>li").removeClass("on");
+            $li.addClass("on");
+            var x=$li.html();
+            $(".wrapper>ul>li").css("opacity","0");
+            $(`[data-toggle=${x}]`).parent().css("opacity","1");
+        });
+        /*2--设置定时器触发li的事件*/
+        var i=0;
+        function bannerLeft(){
+            i++;
+            $(`li:contains(${i})`).mouseenter();
+            if(i==6){
+                i=1;
+                $(`li:contains(${i})`).mouseenter();
+            }
+        };
+        bannerLeft();
+        var timer=setInterval(bannerLeft,2500);
+        /*3--鼠标进入清除定时器,移出恢复定时器*/
+        $(".banner-left").hover(
+            function(){
+                clearInterval(timer);
+            },
+            function(){
+                /*从悬浮的下一个开始轮播*/
+                i=$(".pagination>ul>li.on").html();
+                timer=setInterval(bannerLeft,2500);
+            }
+        );
+    </script>
 </body>
 </html>

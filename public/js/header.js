@@ -29,7 +29,8 @@ $(function(){
         dCount:'',
         cart:[],
         total:0,
-        now:null
+        now:null,
+        whoisInfo:{}
       },
       created(){
         this.firstlist=res.firstlist;
@@ -69,18 +70,7 @@ $(function(){
         },
         searchWhois(){
           if(this.whois){
-            $.ajax({
-              url:`http://api.chinaz.com/CallAPI/Whois?key=e1caa93f865f40968b43b2445a2a4460&domainName=${this.whois}`,
-              method:'GET',
-              dataType:'jsonp',
-              headers: {
-                Accept: "application/json; charset=utf-8"
-              },
-              success:(res)=>{
-                console.log(res)
-              }
-            });
-            window.open(`http://api.chinaz.com/CallAPI/Whois?key=e1caa93f865f40968b43b2445a2a4460&domainName=${this.whois}`);
+            window.open('/whois.html?d='+this.whois);
           }
         },
         cartDel(e){ 

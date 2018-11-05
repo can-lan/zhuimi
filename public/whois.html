@@ -8,7 +8,9 @@
     <script src="js/vue.js"></script>
     <script src="js/axios.min.js"></script>
     <script src="js/qs.min.js"></script>
-    <title>Document</title>
+    <title>追米网_域名whois查询_域名注册信息查询</title>
+    <meta name=keywords content="追米,追米网,whois,whois查询,域名whois,域名信息查询">
+    <meta name=description content="追米网域名whois信息查询，查询域名注册信息。">
     <style>
         *{margin:0;padding:0;box-sizing:border-box;}
         ul,li{list-style:none;}
@@ -18,11 +20,13 @@
         header img{position:absolute;width:103px;height:24px;left:20px;top:18px;}
         #content{width:1000px;margin:75px auto;background:#fff;border-radius:2px;font-size:14px;overflow:hidden;}
         #content>p{font-size:24px;width:300px;height:50px;text-align:center;margin:20px auto 0px;border-radius:3px;padding:15px;}
-        table{width:600px;font-size:16px;margin:20px auto 50px;border-collapse: collapse;}
-        table tr{height:50px;background:#f5f5f6;transition: all .1s linear;}
-        table tr td:first-child{text-align:right;padding-right:20px;color:#333;}
-        table tr td:last-child{text-align:left;padding-left:20px;color:#f00;}
-        table tr:hover{background:#fff;margin-top:-5px;}
+        table{width:700px;font-size:16px;margin:20px auto 50px;border-collapse: collapse;}
+        table tr{height:50px;transition: all .1s linear;}
+        table tr td:first-child{text-align:right;padding-right:30px;color:#333;width:200px;border:1px solid #E5E5E5;}
+        table tr td:last-child{text-align:left;padding-left:30px;color:#00c1de;width:500px;border:1px solid #E5E5E5;}
+        table tr:hover{background:#f5f5f6;border:1px solid #00c1de;}
+        .notFound{text-align:center;font-size:22px;padding-bottom:50px;}
+        .notFound img{width:530px;margin:30px 0;}
     </style>
 </head>
 <body>
@@ -34,43 +38,72 @@
     </header>
     <div id="content">
         <p>域名whois信息</p>
-        <table>
-            <tr class="color">
+        <table v-if="whois.StateCode==1">
+            <tr>
                 <td>域名</td>
-                <td>{{domain.com}}</td>
+                <td>{{whois.Result.Host}}</td>
             </tr>
             <tr>
                 <td>注册商</td>
-                <td>{{}}</td>
+                <td>{{whois.Result.Registrar}}</td>
             </tr>
             <tr>
                 <td>注册机构</td>
-                <td>{{}}</td>
+                <td>{{whois.Result.ContactPerson}}</td>
             </tr>
-            <tr class="color">
+            <tr>
                 <td>注册邮箱</td>
-                <td>{{}}</td>
+                <td>{{whois.Result.Email}}</td>
+            </tr>
+            <tr>
+                <td>联系电话</td>
+                <td>{{whois.Result.Phone}}</td>
             </tr>
             <tr>
                 <td>注册日期</td>
-                <td>{{}}</td>
+                <td>{{whois.Result.CreationDate}}</td>
             </tr>
             <tr>
                 <td>到期日期</td>
-                <td>{{}}</td>
+                <td>{{whois.Result.ExpirationDate}}</td>
             </tr>
             <tr>
                 <td>DNS服务器</td>
-                <td>{{}}</td>
+                <td>{{whois.Result.DnsServer}}</td>
             </tr>
             <tr>
                 <td>域名状态</td>
-                <td>{{}}</td>
+                <td>{{whois.Result.DomainStatus}}</td>
             </tr>
         </table>
+        <div class="notFound" v-else>
+            <div id="info">
+                <img src="img/pub/404_2.png">
+                <p>免费接口,能力有限···</p> 
+            </div>
+        </div>
     </div>
     <script>
-        
+        new Vue({
+            el:'#content',
+            data:{
+                domain:'',
+                whois:{}
+            },
+            created(){
+                if(location.search){
+                    this.domain=location.search.slice(1).split('=')[1];
+                    $.ajax({
+                        url:`http://api.chinaz.com/CallAPI/Whois?key=e1caa93f865f40968b43b2445a2a4460&domainName=${this.domain}`,
+                        method:'get',
+                        success:(res)=>{
+                            this.whois=JSON.parse(res);
+                            console.log(JSON.parse(res));
+                        }
+                    });
+                }
+            }
+        });
     </script>
 </body>
 </html>

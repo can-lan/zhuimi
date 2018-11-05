@@ -9,7 +9,9 @@
     <script src="js/axios.min.js"></script>
     <script src="js/qs.min.js"></script>
     <link rel="stylesheet" href="css/login.css">
-    <title>Document</title>
+    <title>追米网_注册登录</title>
+    <meta name=keywords content="追米,追米网,域名注册,域名注册登录管理">
+    <meta name=description content="追米网注册登录页，让更多的企业用上更合适的域名。">
 </head>
 <body>
     <header>
@@ -45,7 +47,11 @@
                 <span  v-if="phoneFocus==1 && phone.length!=11">手机号码格式不正确，请重新输入</span>
                 <span class="phone" v-if="phone.length==11"><img src="img/pub/true.png"></span>
             </p>
-            <div class="test">请拖动滑块</div>
+            <div class="test">
+                <div class="bg"></div>
+                <div class="text" onselectstart="return false;">请按住滑块, 拖动到最右边</div>
+                <div class="btn" onselectstart="return false;">&gt;&gt;</div>
+            </div>
             <div class="reg" @click="register()">同意条款并注册</div>
             <input class="checkbox" type="checkbox" v-model="isCheck">
             <a href="#">&lt;&lt;阿里云网站服务条款&gt;&gt;</a>
@@ -65,7 +71,11 @@
                 <span v-if="!lpwdCheck">用户名或密码不正确</span>
                 <span  v-else-if="lpwdFocus==1 && (lpwd.length<6 || lpwd.length>20)">登录密码为6-20个字符</span>
             </p>
-            <div class="test">请拖动滑块</div>
+            <div class="test test2">
+                <div class="bg"></div>
+                <div class="text" onselectstart="return false;">请按住滑块, 拖动到最右边</div>
+                <div class="btn" onselectstart="return false;">&gt;&gt;</div>
+            </div>
             <div class="reg" @click="login()">登录</div>
         </div>
     </div>

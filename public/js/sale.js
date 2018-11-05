@@ -596,5 +596,20 @@ for(let std of stds){
             saleVm.suffix=/[\s\S]*/;
             }
         );
-    }
+    }  
 }
+    //6: 页面加载修改加入购物车按钮为移出
+    setTimeout(function(){
+
+        var arr=[];
+    for(var i=0;i<localStorage.length;i++){
+        if(localStorage.key(i).indexOf('.') != -1){
+            arr.push(localStorage.key(i));
+            var a=$("a[data-d='"+localStorage.key(i)+"']");
+            $(a).html("移出清单");
+            $(a).css({"background":"#fff","color":"#00c1de","border":"1px solid #00c1de"});
+        }
+    }
+    },1000)
+
+
