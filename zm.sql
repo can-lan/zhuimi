@@ -1,6 +1,6 @@
 SET NAMES UTF8;
-DROP DATABASE IF EXISTS zm;
-CREATE DATABASE zm CHARSET=UTF8;
+#DROP DATABASE IF EXISTS zm;
+#CREATE DATABASE zm CHARSET=UTF8;
 USE zm;
 /*一级分类表*/
 CREATE TABLE zm_firstlist(
@@ -196,9 +196,8 @@ INSERT INTO zm_sale VALUES
 (null,"efrd.cn","域名简介",	90	,90,	"2019/01/25 12:32:39"	,"xj",	192,	67,	213,	0,DEFAULT),
 (null,"efrf.cn","域名简介",	91	,91,	"2019/01/25 12:32:40"	,"xj",	193,	68,	214,	0,DEFAULT),
 (null,"efrg.cn","域名简介",	92	,92,	"2019/01/25 12:32:51"	,"xj",	194,	69,	215,	0,DEFAULT),
-(null,"efrm.cn","域名简介",	93	,93,	"2019/01/25 12:32:12"	,"xj",	195,	70,	216,	0,DEFAULT);
-
-(null,"97221.com.com","精品英文域名",1,1,"2018-10-26T02:59","ykj",888,5,1788,0,DEFAULT),
+(null,"efrm.cn","域名简介",	93	,93,	"2019/01/25 12:32:12"	,"xj",	195,	70,	216,	0,DEFAULT),
+(null,"97221.com","精品英文域名",1,1,"2018-10-26T02:59","ykj",888,5,1788,0,DEFAULT),
 (null,"96548.com","出售 英文 简介",1,1,"2018-10-26T02:55","ykj",888,5,1788,0,DEFAULT),
 (null,"95934.com","域名含义简介",	1	,1,	"2018/12/10 12:32:00"	,"ykj",	88,	1,	288,	DEFAULT,DEFAULT),
 (null,"95415.com","域名简介",	1	,1,	"2018/12/10 12:32:01"	,"ykj",	89,	2,	289,	DEFAULT,DEFAULT),
