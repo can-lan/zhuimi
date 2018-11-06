@@ -112,6 +112,7 @@ $(function(){
             obj2.suffix='com';
             obj2.domain=recommentDomain;
             obj2.avail=avail;
+            obj2.price='49';
             this.recomment.push(obj2);
           }         
         });
@@ -133,8 +134,8 @@ $(function(){
           $(e.target).html("移出清单");
           $(e.target).css({"background":"#fff","color":"#00c1de","border":"1px solid #00c1de"});
           localStorage.setItem(domainname,nowPrice);
-          this.local.unshift(domainname);
-          headerVm.cart.push({domainname,nowPrice});
+          this.local.unshift({domainname,nowPrice});
+          headerVm.cart.push({"domainname":domainname,nowPrice});
         }else{
           $(e.target).html("加入购物车");       //4.2 点击移出清单, 按钮变为移出清单, 不同功能
           $(e.target).css({"background":"#00c1de","color":"#fff","border":"none"});

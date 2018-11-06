@@ -78,7 +78,7 @@
             </li>
             <li class="enable" v-for="rec of recomment" v-if="rec.avail" v-cloak>
                 <span class="domainname">{{rec.domain}}</span>
-                <a href="#" class="cart addCart" :data-keyword="rec.keyword" :data-suffix="rec.suffix"  @click="addCart($event)">加入购物车</a>
+                <a href="#" class="cart addCart" :data-regPrice="49" :data-keyword="rec.keyword" :data-suffix="rec.suffix"  @click="addCart($event)">加入购物车</a>
                 <span class="price">&yen;49
                   <span style="font-size:11px;color:#ff8a00;">/首年</span>
                 <span>
